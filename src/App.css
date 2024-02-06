@@ -9,6 +9,7 @@
    display: flex;
    transition: transform 0.5s ease-in-out;
    align-items: center;
+   padding: 50px;
 }
 
 .slider-image {
@@ -16,4 +17,16 @@
    height: 100%;
    object-fit: cover;
    margin-right: 150px;
+}
+@media screen and (max-width: 768px) {
+   .infinite-slider {
+      height: 200px;
+   }
+
+   .slider-image {
+      width: 30vw;
+      height: auto;
+      object-fit: contain;
+      margin-right: 50px;
+   }
 }

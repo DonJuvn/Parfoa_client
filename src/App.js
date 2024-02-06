@@ -14,7 +14,6 @@ const App = () => {
 
    return (
       <div>
-         <h1>Infinite Image Slider</h1>
          <InfiniteSlider imageNames={imageNames} />
       </div>
    );
