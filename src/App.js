@@ -1,25 +1,23 @@
-import logo from "./logo.svg";
+import React from "react";
+import InfiniteSlider from "./components/InfiniteSlider";
 import "./App.css";
 
-function App() {
+const App = () => {
+   const imageNames = [
+      "armani.png",
+      "chanel.png",
+      "dior.png",
+      "hermes.png",
+
+      // Add more image paths as needed
+   ];
+
    return (
-      <div className="App">
-         <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-               Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-               className="App-link"
-               href="https://reactjs.org"
-               target="_blank"
-               rel="noopener noreferrer"
-            >
-               Learn React to Parfoa
-            </a>
-         </header>
+      <div>
+         <h1>Infinite Image Slider</h1>
+         <InfiniteSlider imageNames={imageNames} />
       </div>
    );
-}
+};
 
 export default App;
