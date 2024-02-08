@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react"; // import "./InfiniteSlider.css";
+import React, { useState, useEffect } from "react";
+// import "./InfiniteSlider.css";
+
 const InfiniteSlider = ({ imageNames = [], interval = 1500 }) => {
    const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -27,31 +29,33 @@ const InfiniteSlider = ({ imageNames = [], interval = 1500 }) => {
 
    return (
       <div className="infinite-slider">
-         <div className="slider-wrapper" style={imageStyle}>
-            {imageNames.map((imageName, index) => (
-               <img
-                  key={index}
-                  src={process.env.PUBLIC_URL + `/${imageName}`}
-                  alt={`slide-${index}`}
-                  className="slider-image"
-               />
-            ))}
-            {imageNames.map((imageName, index) => (
-               <img
-                  key={index + imageNames.length} // Ensure unique keys
-                  src={process.env.PUBLIC_URL + `/${imageName}`}
-                  alt={`slide-${index + imageNames.length}`}
-                  className="slider-image"
-               />
-            ))}
-            {imageNames.map((imageName, index) => (
-               <img
-                  key={index + imageNames.length * 2} // Ensure unique keys
-                  src={process.env.PUBLIC_URL + `/${imageName}`}
-                  alt={`slide-${index + imageNames.length * 2}`}
-                  className="slider-image"
-               />
-            ))}
+         <div className="container">
+            <div className="slider-wrapper" style={imageStyle}>
+               {imageNames.map((imageName, index) => (
+                  <img
+                     key={index}
+                     src={process.env.PUBLIC_URL + `/${imageName}`}
+                     alt={`slide-${index}`}
+                     className="slider-image"
+                  />
+               ))}
+               {imageNames.map((imageName, index) => (
+                  <img
+                     key={index + imageNames.length} // Ensure unique keys
+                     src={process.env.PUBLIC_URL + `/${imageName}`}
+                     alt={`slide-${index + imageNames.length}`}
+                     className="slider-image"
+                  />
+               ))}
+               {imageNames.map((imageName, index) => (
+                  <img
+                     key={index + imageNames.length * 2} // Ensure unique keys
+                     src={process.env.PUBLIC_URL + `/${imageName}`}
+                     alt={`slide-${index + imageNames.length * 2}`}
+                     className="slider-image"
+                  />
+               ))}
+            </div>
          </div>
       </div>
    );
