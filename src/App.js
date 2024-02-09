@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navigation from "./components/navigation";
 import Main from "./components/main_bg";
 import AboutUs from "./components/about-us";
 import InfiniteSlider from "./components/InfiniteSlider";
@@ -20,6 +21,7 @@ const App = () => {
    return (
       <Router>
          <div>
+            <Navigation />
             <Main />
             <AboutUs />
             <InfiniteSlider data={brands} />

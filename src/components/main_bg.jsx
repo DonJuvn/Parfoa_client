@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const images = ["url(test1.jpg)", "url(test2.jpg)", "url(test3.jpg)"];
 
@@ -11,7 +12,7 @@ const SliderContainer = styled.div`
    justify-content: center;
    background-size: cover;
    transition: background-image 1s ease-in-out;
-   margin: 15vh auto;
+   margin: auto;
    border-radius: 0 50px 0 50px;
 `;
 

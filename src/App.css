@@ -14,6 +14,21 @@ p {
    width: 90%;
    margin: auto;
 }
+
+/* navigation */
+.navigation {
+   padding: 1.75% 0 1.75%;
+   height: 100px;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+}
+.navigation button {
+   background-color: #fff;
+   border: none;
+}
+
 /* Bg-slider */
 .bg-slider {
    overflow: hidden;
@@ -48,26 +63,77 @@ p {
 #about-us {
    margin-top: 6%;
 }
+.about-text {
+   font-size: 65px;
+   line-height: 72px;
+   font-weight: 400;
+   width: 100%;
+   text-align: center;
+}
 .about-us {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
+   font-style: italic;
+   height: 400px;
+   justify-content: space-between;
 }
-.about-us .right {
-   float: right;
-   width: 60%;
-   font-size: 30px;
-   font-weight: 400;
-   line-height: 22px;
-   text-align: right;
-}
-.about-us .left {
-   float: left;
-   width: 50%;
-   font-size: 30px;
-   font-weight: 400;
-   line-height: 22px;
+/* AboutUs.css */
+
+@keyframes slide-in-right {
+   from {
+      opacity: 0;
+      transform: translateX(100%);
+   }
+   to {
+      opacity: 1;
+      transform: translateX(0);
+   }
 }
 
+@keyframes slide-in-left {
+   from {
+      opacity: 0;
+      transform: translateX(-100%);
+   }
+   to {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+.about-text {
+   opacity: 0; /* Initial opacity to make elements invisible before animation */
+}
+
+.slide-in-animation {
+   animation: slide-in-right 1.4s ease-out;
+   opacity: 1;
+}
+
+.slide-in-animation:nth-child(even) {
+   animation: slide-in-left 1.4s ease-out;
+}
+
+/* .first {
+   float: left;
+   width: fit-content;
+}
+.second {
+   margin-left: 25%;
+   width: fit-content;
+}
+.third {
+   margin: auto;
+   width: fit-content;
+}
+.fourth {
+   margin-left: 75%;
+   width: fit-content;
+}
+.fifth {
+   width: 100%;
+   text-align: center;
+} */
 /* Infinite_slider */
 .infinite-slider {
    margin-top: 6%;
