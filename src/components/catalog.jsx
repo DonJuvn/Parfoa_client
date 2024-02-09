@@ -64,6 +64,7 @@ const Catalog = () => {
    return (
       <div id="catalog">
          <div className="container">
+            <h1>Каталог</h1>
             <div className="catalog">
                {cardsData.slice(0, 4).map((card, index) => (
                   <Card

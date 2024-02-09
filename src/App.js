@@ -5,6 +5,7 @@ import AboutUs from "./components/about-us";
 import InfiniteSlider from "./components/InfiniteSlider";
 import News from "./components/news";
 import Catalog from "./components/catalog";
+import Footer from "./components/footer";
 import "./App.css";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
             <InfiniteSlider data={brands} />
             <News />
             <Catalog />
+            <Footer />
             {/* <Routes>
                <Route path="/:id" element={<NewsDetail />} />
             </Routes> */}
