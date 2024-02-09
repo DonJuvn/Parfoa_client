@@ -13,11 +13,13 @@ const Card = ({ ImagePath, title, description, price, volume }) => {
             <div className="container">
                <h3>{title}</h3>
                <p className="description">{description}</p>
-               <p className="price">{price}</p>
-               <p className="volume">{volume}</p>
-               <button className="favorite-button" onClick={toggleFavorite}>
+               <div className="card-details">
+                  <p className="price">{price}</p>
+                  <p className="volume">{volume}</p>
+               </div>
+               {/* <button className="favorite-button" onClick={toggleFavorite}>
                   <span className="heart-icon">&#10084;</span>
-               </button>
+               </button> */}
             </div>
          </div>
       </div>

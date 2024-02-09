@@ -1,6 +1,14 @@
 body {
    /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
+   overflow-x: hidden;
+}
+p {
+   display: block;
+   margin-block-start: 0em;
+   margin-block-end: 0em;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
 }
 .container {
    width: 90%;
@@ -62,10 +70,12 @@ body {
 
 /* Infinite_slider */
 .infinite-slider {
+   margin-top: 6%;
    overflow: hidden;
    width: 100%;
-   height: 150px; /* Adjust height as needed */
+   height: fit-content;
    position: relative;
+   border: 0.1px solid rgba(52, 52, 52, 0.2);
 }
 .slider-wrapper {
    display: flex;
@@ -133,6 +143,9 @@ body {
    justify-content: space-between;
 }
 /* Card */
+#card {
+   width: 21.5vw;
+}
 .card {
    width: 21.5vw;
    aspect-ratio: 0.6;
@@ -150,14 +163,13 @@ body {
 .card img:hover {
    width: 105%;
    aspect-ratio: 105/100;
-   transition: 0.1s;
+   transition: 0.3s;
    margin-left: -2.5%;
 }
 .card:hover {
-   /* width: 22vw; */
-   /* aspect-ratio: 22/20; */
-   transition: 0.1s;
-   box-shadow: 0.5px 0.5px 0.5px #888888;
+   transition: 1.5s;
+   /* box-shadow: 0.5px 0.5px 0.5px #888888; */
+   border: 0.3px solid #b8b8b8;
    transform: 0.3s;
 }
 .card h3 {
@@ -165,33 +177,38 @@ body {
    line-height: 22.5px;
    font-size: 20px;
    color: rgba(52, 52, 52, 0.7);
+   height: 100%;
 }
 .card .description {
    font-weight: 400;
    line-height: 18px;
    font-size: 20.25px;
    color: rgba(52, 52, 52, 0.7);
+   height: 100%;
 }
-.card .price {
+.card-details {
+   height: 50px;
+   align-items: center;
+   padding: auto;
+   display: flex;
+   width: 100%;
+}
+.card .price,
+.card .volume {
    font-weight: 400;
    font-size: 20px;
    line-height: 22.5px;
    color: #343434;
-   float: left;
    width: fit-content;
-   bottom: 0;
+   margin: 0;
+}
+.card .price {
+   margin-right: auto;
 }
 .card .volume {
-   font-weight: 400;
-   font-style: 20px;
-   line-height: 22.5px;
-   /* color: #343434; */
-   float: right;
-   width: fit-content;
-   bottom: 0;
+   margin-left: auto;
    letter-spacing: 0.02em;
 }
-
 .card-favorite {
    background-color: transparent;
    border: none;
@@ -225,12 +242,44 @@ body {
 .catalog {
    display: flex;
    flex-wrap: wrap;
-   width: 100%;
+   /* width: 100%; */
    justify-content: space-between;
    margin-top: 50px;
+   /* height: fit-content; */
 }
 #catalog {
    margin-top: 6%;
+}
+.catalog {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
+}
+@media screen and (max-width: 768px) {
+   .card {
+      width: 100%;
+      aspect-ratio: 0.55;
+      text-align: center;
+   }
+   #card {
+      width: 48%;
+   }
+   .card h3 {
+      font-size: 14px;
+      line-height: 12px;
+      margin-top: 30px;
+   }
+   .card .description {
+      font-size: 12px;
+   }
+   .card .price {
+      font-size: 14px;
+      line-height: 10px;
+   }
+   .card .volume {
+      font-size: 8px;
+      line-height: 10px;
+   }
 }
 #catalog h1 {
    font-size: 30px;
@@ -245,10 +294,90 @@ body {
    font-size: 30px;
    font-weight: 400;
    line-height: 22px;
-   color: #343434;
-   margin-top: 50px;
+   color: #90710b;
+   margin: 50px 0;
 }
 #catalog .link:hover {
    color: rgb(194, 136, 29);
    transition: 0.1s;
+}
+
+/* footer */
+#footer {
+   margin-top: 1%;
+}
+.footer {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   align-items: center;
+   padding: 5% 0 2%;
+}
+
+.nav {
+   float: left;
+   width: 33%;
+   display: flex;
+   flex-direction: row;
+   justify-content: start;
+}
+.nav a {
+   font-size: 20px;
+   font-weight: 400;
+   line-height: 22px;
+   color: #343434;
+   text-decoration: none;
+   margin-right: 25px;
+}
+.nav a:hover {
+   color: #90710b;
+   transition: 0.1s;
+}
+.sm {
+   width: 33%;
+   text-align: end;
+   display: inline-block;
+   flex-direction: row;
+   align-items: center;
+   text-decoration: none;
+   padding-left: auto;
+}
+.sm p {
+   font-size: 20px;
+   font-weight: 400;
+   line-height: 22.5px;
+   margin-bottom: 1em;
+   color: #343434;
+}
+.buttons {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 130px;
+   margin-right: 0;
+   float: right;
+}
+.buttons img {
+   transition: transform 0.2s;
+   width: 26px;
+   aspect-ratio: 1;
+   object-fit: cover;
+}
+
+.buttons img:hover {
+   transform: scale(1.2); /* You can adjust the scale factor as needed */
+   transform-origin: center center; /* This will make the expansion happen from the center */
+}
+.logo {
+   width: 33%;
+   margin: auto;
+   text-align: center;
+   align-items: center;
+}
+.logo p {
+   margin-top: 20px;
+   font-size: 14px;
+   line-height: 15.75px;
+   font-weight: 400;
+   color: rgba(52, 52, 52, 0.5);
 }

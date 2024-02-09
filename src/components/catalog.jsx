@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from "./card";
 
 const Catalog = () => {
@@ -78,7 +79,7 @@ const Catalog = () => {
                ))}
             </div>
             <Link className="link" to="/catalog">
-               Еще
+               Ещё...
             </Link>
          </div>
       </div>
