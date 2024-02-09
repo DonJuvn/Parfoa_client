@@ -2,6 +2,36 @@
    width: 90%;
    margin: auto;
 }
+/* Bg-slider */
+/* Infinite_slider */
+.bg-slider {
+   overflow: hidden;
+   width: 1080px;
+   height: 700px;
+   position: relative;
+}
+.slider-wrapper {
+   display: flex;
+   transition: transform 0.5s ease-in-out;
+   align-items: center;
+}
+.slider-image {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+@media screen and (max-width: 768px) {
+   .infinite-slider {
+      height: 200px;
+   }
+
+   .slider-image {
+      width: 30vw;
+      height: auto;
+      object-fit: contain;
+      margin-right: 50px;
+   }
+}
 
 /* Infinite_slider */
 .infinite-slider {

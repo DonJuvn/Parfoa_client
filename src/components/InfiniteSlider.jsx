@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // import "./InfiniteSlider.css";
+import React, { useState, useEffect } from "react"; 
 
 const InfiniteSlider = ({ data = [], interval = 1500 }) => {
    const [currentIndex, setCurrentIndex] = useState(0);
