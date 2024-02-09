@@ -131,3 +131,103 @@ body {
    height: 100vh;
    justify-content: space-between;
 }
+/* Card */
+.card {
+   width: 21.5vw;
+   aspect-ratio: 0.6;
+   border: 0.1px solid rgba(164, 164, 164, 0.3);
+   margin-bottom: 15px;
+   position: relative;
+   transition: 0.1s;
+   transform: 0.3s;
+}
+.card img {
+   width: 100%;
+   aspect-ratio: 1/1;
+   object-fit: cover;
+}
+.card:hover {
+   width: 22vw;
+   transition: 0.1s;
+   box-shadow: 0.5px 0.5px 0.5px #888888;
+   transform: 0.3s;
+}
+.card h3 {
+   font-weight: 700;
+   line-height: 22.5px;
+   font-size: 20px;
+   color: rgba(52, 52, 52, 0.7);
+}
+.card .description {
+   font-weight: 400;
+   line-height: 18px;
+   font-size: 20.25px;
+   color: rgba(52, 52, 52, 0.7);
+}
+.card .price {
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 22.5px;
+   color: #343434;
+   float: left;
+   width: fit-content;
+   bottom: 0;
+}
+.card .volume {
+   font-weight: 400;
+   font-style: 20px;
+   line-height: 22.5px;
+   color: rgba(52, 52, 52, 0.7);
+   float: right;
+   width: fit-content;
+   bottom: 0;
+}
+
+.card-favorite {
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   outline: none;
+   position: absolute;
+   float: right;
+   top: 0;
+   width: fit-content;
+   color: rgba(52, 52, 52, 0.3);
+   width: 36px;
+   height: 36px;
+   z-index: 300;
+}
+
+.heart-icon {
+   font-size: 2rem;
+   color: grey;
+   transition: color 0.3s;
+}
+
+.favorite-button:hover .heart-icon {
+   color: red;
+}
+
+.active .heart-icon {
+   color: red;
+}
+
+/* catalog */
+.catalog {
+   display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+   justify-content: space-between;
+}
+#catalog .link {
+   text-decoration: none;
+   float: right;
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 22px;
+   color: #343434;
+}
+#catalog .link:hover {
+   color: rgb(194, 136, 29);
+   transition: 0.1s;
+}
