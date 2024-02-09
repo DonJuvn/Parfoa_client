@@ -17,9 +17,10 @@ const App = () => {
       <Router>
          <div>
             <InfiniteSlider data={brands} />
-            <Routes>
-               <Route path="/:id" element={<News />} />
-            </Routes>
+            <News />
+            {/* <Routes>
+               <Route path="/:id" element={<NewsDetail />} />
+            </Routes> */}
          </div>
       </Router>
    );
