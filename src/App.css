@@ -1,9 +1,11 @@
+body {
+   font-family: "Cormorant Garamond", serif;
+}
 .container {
    width: 90%;
    margin: auto;
 }
 /* Bg-slider */
-/* Infinite_slider */
 .bg-slider {
    overflow: hidden;
    width: 1080px;
@@ -31,6 +33,30 @@
       object-fit: contain;
       margin-right: 50px;
    }
+}
+
+/* About Us section */
+#about-us {
+   margin-top: 6%;
+}
+.about-us {
+   display: flex;
+   flex-direction: row;
+}
+.about-us .right {
+   float: right;
+   width: 60%;
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 22px;
+   text-align: right;
+}
+.about-us .left {
+   float: left;
+   width: 50%;
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 22px;
 }
 
 /* Infinite_slider */
@@ -66,6 +92,9 @@
 }
 
 /* News */
+#news {
+   margin: 6% 0;
+}
 .row-of-two {
    display: flex;
    flex-direction: row;
