@@ -26,7 +26,7 @@ const App = () => {
             <Navigation />
             <Main />
             <AboutUs />
-            {/* <InfiniteSlider data={brands} /> */}
+            <InfiniteSlider data={brands} />
             <News />
             <Catalog />
             <Blogs />

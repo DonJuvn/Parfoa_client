@@ -9,7 +9,7 @@ const BlogDetail = ({ blog, onClose }) => {
                <button className="close" onClick={onClose}>
                   Закрыть
                </button>
-               <p>{description}</p>
+               <p className="details">{description}</p>
             </div>
          </div>
       </div>

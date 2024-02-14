@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const images = ["url(test1.jpg)", "url(test2.jpg)", "url(test3.jpg)"];
+const images = ["url(about.svg)", "url(test2.jpg)", "url(test3.jpg)"];
 
 const SliderContainer = styled.div`
    position: block;
