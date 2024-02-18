@@ -318,6 +318,7 @@ p {
 /* Card */
 #card {
    width: 21.5vw;
+   padding-right: 0.8vw;
 }
 .card {
    width: 21.5vw;
@@ -425,6 +426,9 @@ p {
    justify-content: space-between;
    margin-top: 50px;
    /* height: fit-content; */
+}
+#full {
+   justify-content: flex-start;
 }
 #catalog {
    margin-top: 6%;
@@ -610,3 +614,8 @@ p {
    font-weight: 400;
    color: rgba(52, 52, 52, 0.5);
 }
+
+
+
+
+/* filter */

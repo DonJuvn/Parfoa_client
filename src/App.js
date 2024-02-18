@@ -1,14 +1,20 @@
+// App.js
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+   BrowserRouter as Router,
+   Route,
+   Routes,
+   Navigate,
+} from "react-router-dom";
 import Navigation from "./components/navigation";
+import Footer from "./components/footer";
 import Main from "./components/main_bg";
 import AboutUs from "./components/about-us";
 import InfiniteSlider from "./components/InfiniteSlider";
 import News from "./components/news";
 import Catalog from "./components/catalog";
 import Blogs from "./components/blogs";
-import Blog from "./components/blog";
-import Footer from "./components/footer";
+import CatalogLayout from "./layouts/catalog";
 import "./App.css";
 
 const App = () => {
@@ -21,21 +27,61 @@ const App = () => {
    ];
 
    return (
+      // <Router>
+      //    <div>
+      //       <Navigation />
+      //       <Routes>
+      //          <Navigate path="/catalog" element={<CatalogPage />} />
+      //       </Routes>
+      //       <Main />
+      //       <AboutUs />
+      //       <InfiniteSlider data={brands} />
+      //       <News />
+      //       <Catalog />
+      //       <Blogs />
+      //       <Footer />
+      //       {/* Additional routes or components can be added here */}
+      //    </div>
+      // </Router>
+
       <Router>
          <div>
             <Navigation />
-            <Main />
-            <AboutUs />
-            <InfiniteSlider data={brands} />
-            <News />
-            <Catalog />
-            <Blogs />
+            <Routes>
+               <Route path="/" element={<MainPage />} />
+               <Route path="/catalog" element={<CatalogPage />} />
+            </Routes>
             <Footer />
-            {/* <Routes>
-               <Route path="/:id" element={<NewsDetail />} />
-            </Routes> */}
          </div>
       </Router>
+   );
+};
+
+const CatalogPage = () => {
+   return (
+      <div>
+         <CatalogLayout />
+      </div>
+   );
+};
+
+const MainPage = () => {
+   const brands = [
+      "prada.svg",
+      "armani.svg",
+      "chanel.svg",
+      "dior.svg",
+      "hermes.svg",
+   ];
+   return (
+      <div>
+         <Main />
+         <AboutUs />
+         <InfiniteSlider data={brands} />
+         <News />
+         <Catalog />
+         <Blogs />
+      </div>
    );
 };
 
