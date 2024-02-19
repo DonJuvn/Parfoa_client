@@ -1,22 +1,85 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import CardDetail from "./card-detail";
 
+const CardDetailPage = () => {
+   const [cardsData, setCardsData] = useState([]);
 
-const DetailPage = ({ ImagePath, title, description, price, volume }) => {
+   useEffect(() => {
+      // Simulating data fetching from an API
+      const fetchedData = [
+         {
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+      ];
+
+      setCardsData(fetchedData[0]);
+   }, []);
+
    return (
-      <div className="container">
-         <div className="detail">
-            <div className="main-img">
-               <img src={process.env.PUBLIC_URL + `/${ImagePath}`} alt="" />
-            </div>
-            <div className="details">
-               <h1>{title}</h1>
-               <p>{description}</p>
-               <h1>{price}</h1>
-               <h1>{title}</h1>
+      <div id="catalog">
+         <div className="container">
+            <h1 id="title">Каталог</h1>
+            <div className="catalog">
+               {cardsData.map((card, index) => (
+                  <CardDetail
+                     key={index}
+                     ImagePath={card.ImagePath}
+                     title={card.title}
+                     description={card.description}
+                     price={card.price}
+                     volume={card.volume}
+                  />
+               ))}
             </div>
          </div>
       </div>
    );
 };
 
-export default DetailPage;
+export default CardDetailPage;

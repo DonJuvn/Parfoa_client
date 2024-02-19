@@ -1,5 +1,5 @@
 // App.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
    BrowserRouter as Router,
    Route,
@@ -15,6 +15,7 @@ import News from "./components/news";
 import Catalog from "./components/catalog";
 import Blogs from "./components/blogs";
 import CatalogLayout from "./layouts/catalog";
+import Detail from "./components/detail";
 import "./App.css";
 
 const App = () => {
@@ -55,7 +56,7 @@ const App = () => {
             <Routes>
                <Route path="/" element={<MainPage />} />
                <Route path="/catalog" element={<CatalogPage />} />
-               <Route path="/catalog/:id" element={<DetailPage />} />
+               <Route path="/catalog/1" element={<DetailPage />} />
             </Routes>
             <Footer />
          </div>
@@ -92,9 +93,74 @@ const MainPage = () => {
 };
 
 const DetailPage = () => {
+   const [cardsData, setCardsData] = useState([]);
+
+   useEffect(() => {
+      // Simulating data fetching from an API
+      const fetchedData = [
+         {
+            id:1,
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            id:2,
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            id:3,
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            id:4,
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            id:5,
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            id:6,
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+         {
+            id:7,
+            ImagePath: "swy.jpg",
+            title: "Perfume №5 CHANEL eau de parfum",
+            description: "Women parfume",
+            price: "KZT 55.250",
+            volume: "250ml",
+         },
+      ];
+
+      setCardsData(fetchedData);
+   }, []);
    return (
       <div>
-         <DetailPage />
+         <Detail />
          <Catalog />
       </div>
    );

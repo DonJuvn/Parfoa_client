@@ -696,3 +696,13 @@ p {
    cursor: pointer;
    padding: 10px 30px;
 }
+
+.card-detail {
+   width: 100%;
+   aspect-ratio: 0.6;
+   border: 0.1px solid #e5e7eb;
+   margin-bottom: 15px;
+   position: relative;
+   transition: 0.1s;
+   transform: 0.3s;
+}
