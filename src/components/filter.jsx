@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-
-const Filter = () => {
+import React, { useState } from "react";const Filter = () => {
    const [gender, setGender] = useState("");
    const [fragranceType, setFragranceType] = useState("");
    const [intensity, setIntensity] = useState("");
@@ -48,153 +46,187 @@ const Filter = () => {
    };
 
    return (
-      <form className="container" onSubmit={handleFormSubmit}>
-         <div className="type">
-            <h2
-               onClick={() => handleDropdownToggle(setGender)}
-               style={{ cursor: "pointer" }}
-            >
-               Пол
-            </h2>
-
-            {gender && (
-               <div className="button-dropdown">
-                  <button onClick={() => handleButtonClick("Male", setGender)}>
-                     Мужской
-                  </button>
-                  <button
-                     onClick={() => handleButtonClick("Female", setGender)}
+      <div className="container">
+         <div className="filter">
+            <h3>Фильтр</h3>
+            <form className="form" onSubmit={handleFormSubmit}>
+               <div className="type">
+                  <h2
+                     onClick={() => handleDropdownToggle(setGender)}
+                     style={{ cursor: "pointer" }}
                   >
-                     Женский
-                  </button>
+                     Пол
+                     <img src={process.env.PUBLIC_URL + `/dropdown.svg`}></img>
+                  </h2>
+
+                  {gender && (
+                     <div className="button-dropdown">
+                        <button
+                           onClick={() => handleButtonClick("Male", setGender)}
+                        >
+                           Мужской
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Female", setGender)
+                           }
+                        >
+                           Женский
+                        </button>
+                     </div>
+                  )}
                </div>
-            )}
-         </div>
 
-         <div className="type">
-            <h2
-               onClick={() => handleDropdownToggle(setFragranceType)}
-               style={{ cursor: "pointer" }}
-            >
-               Тип аромата
-            </h2>
+               <div className="type">
+                  <h2
+                     onClick={() => handleDropdownToggle(setFragranceType)}
+                     style={{ cursor: "pointer" }}
+                  >
+                     Тип
+                     <img src={process.env.PUBLIC_URL + `/dropdown.svg`}></img>
+                  </h2>
 
-            {fragranceType && (
-               <div className="button-dropdown">
-                  <button
-                     onClick={() =>
-                        handleButtonClick("Option 1", setFragranceType)
-                     }
-                  >
-                     Option 1
-                  </button>
-                  <button
-                     onClick={() =>
-                        handleButtonClick("Option 2", setFragranceType)
-                     }
-                  >
-                     Option 2
-                  </button>
-                  <button
-                     onClick={() =>
-                        handleButtonClick("Option 3", setFragranceType)
-                     }
-                  >
-                     Option 3
-                  </button>
+                  {fragranceType && (
+                     <div className="button-dropdown">
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 1", setFragranceType)
+                           }
+                        >
+                           Option 1
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 2", setFragranceType)
+                           }
+                        >
+                           Option 2
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 3", setFragranceType)
+                           }
+                        >
+                           Option 3
+                        </button>
+                     </div>
+                  )}
                </div>
-            )}
-         </div>
 
-         <div className="type">
-            <h2
-               onClick={() => handleDropdownToggle(setIntensity)}
-               style={{ cursor: "pointer" }}
-            >
-               Интенсивность
-            </h2>
+               <div className="type">
+                  <h2
+                     onClick={() => handleDropdownToggle(setIntensity)}
+                     style={{ cursor: "pointer" }}
+                  >
+                     Интенсивность
+                     <img src={process.env.PUBLIC_URL + `/dropdown.svg`}></img>
+                  </h2>
 
-            {intensity && (
-               <div className="button-dropdown">
-                  <button
-                     onClick={() => handleButtonClick("Option 1", setIntensity)}
-                  >
-                     Option 1
-                  </button>
-                  <button
-                     onClick={() => handleButtonClick("Option 2", setIntensity)}
-                  >
-                     Option 2
-                  </button>
-                  <button
-                     onClick={() => handleButtonClick("Option 3", setIntensity)}
-                  >
-                     Option 3
-                  </button>
+                  {intensity && (
+                     <div className="button-dropdown">
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 1", setIntensity)
+                           }
+                        >
+                           Option 1
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 2", setIntensity)
+                           }
+                        >
+                           Option 2
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 3", setIntensity)
+                           }
+                        >
+                           Option 3
+                        </button>
+                     </div>
+                  )}
                </div>
-            )}
-         </div>
 
-         <div className="type">
-            <h2
-               onClick={() => handleDropdownToggle(setNotes)}
-               style={{ cursor: "pointer" }}
-            >
-               Ноты
-            </h2>
+               <div className="type">
+                  <h2
+                     onClick={() => handleDropdownToggle(setNotes)}
+                     style={{ cursor: "pointer" }}
+                  >
+                     Ноты
+                     <img src={process.env.PUBLIC_URL + `/dropdown.svg`}></img>
+                  </h2>
 
-            {notes && (
-               <div className="button-dropdown">
-                  <button
-                     onClick={() => handleButtonClick("Option 1", setNotes)}
-                  >
-                     Option 1
-                  </button>
-                  <button
-                     onClick={() => handleButtonClick("Option 2", setNotes)}
-                  >
-                     Option 2
-                  </button>
-                  <button
-                     onClick={() => handleButtonClick("Option 3", setNotes)}
-                  >
-                     Option 3
-                  </button>
+                  {notes && (
+                     <div className="button-dropdown">
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 1", setNotes)
+                           }
+                        >
+                           Option 1
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 2", setNotes)
+                           }
+                        >
+                           Option 2
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 3", setNotes)
+                           }
+                        >
+                           Option 3
+                        </button>
+                     </div>
+                  )}
                </div>
-            )}
-         </div>
 
-         <div className="type">
-            <h2
-               onClick={() => handleDropdownToggle(setBrand)}
-               style={{ cursor: "pointer" }}
-            >
-               Бренд
-            </h2>
+               <div className="type">
+                  <h2
+                     onClick={() => handleDropdownToggle(setBrand)}
+                     style={{ cursor: "pointer" }}
+                  >
+                     Бренд
+                     <img src={process.env.PUBLIC_URL + `/dropdown.svg`}></img>
+                  </h2>
 
-            {brand && (
-               <div className="button-dropdown">
-                  <button
-                     onClick={() => handleButtonClick("Option 1", setBrand)}
-                  >
-                     Option 1
-                  </button>
-                  <button
-                     onClick={() => handleButtonClick("Option 2", setBrand)}
-                  >
-                     Option 2
-                  </button>
-                  <button
-                     onClick={() => handleButtonClick("Option 3", setBrand)}
-                  >
-                     Option 3
-                  </button>
+                  {brand && (
+                     <div className="button-dropdown">
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 1", setBrand)
+                           }
+                        >
+                           Option 1
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 2", setBrand)
+                           }
+                        >
+                           Option 2
+                        </button>
+                        <button
+                           onClick={() =>
+                              handleButtonClick("Option 3", setBrand)
+                           }
+                        >
+                           Option 3
+                        </button>
+                     </div>
+                  )}
                </div>
-            )}
-         </div>
 
-         <button type="submit">Submit</button>
-      </form>
+               <button className="search" type="submit">
+                  <img src={process.env.PUBLIC_URL + `/search.svg`} alt="" />
+               </button>
+            </form>
+         </div>
+      </div>
    );
 };
 

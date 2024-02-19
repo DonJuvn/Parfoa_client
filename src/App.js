@@ -24,6 +24,11 @@ const App = () => {
       "chanel.svg",
       "dior.svg",
       "hermes.svg",
+      "prada.svg",
+      "armani.svg",
+      "chanel.svg",
+      "dior.svg",
+      "hermes.svg",
    ];
 
    return (
@@ -50,6 +55,7 @@ const App = () => {
             <Routes>
                <Route path="/" element={<MainPage />} />
                <Route path="/catalog" element={<CatalogPage />} />
+               <Route path="/catalog/:id" element={<DetailPage />} />
             </Routes>
             <Footer />
          </div>
@@ -81,6 +87,15 @@ const MainPage = () => {
          <News />
          <Catalog />
          <Blogs />
+      </div>
+   );
+};
+
+const DetailPage = () => {
+   return (
+      <div>
+         <DetailPage />
+         <Catalog />
       </div>
    );
 };

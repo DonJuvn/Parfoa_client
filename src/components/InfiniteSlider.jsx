@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react"; 
-
+import React, { useState, useEffect } from "react";
 const InfiniteSlider = ({ data = [], interval = 1500 }) => {
    const [currentIndex, setCurrentIndex] = useState(0);
 
+   // Assuming data is a fixed set of brand names
+   const dataSets = [data, data, data]; // Create three sets of data
+
    useEffect(() => {
       const updateSlider = () => {
-         setCurrentIndex((prevIndex) => (prevIndex + 1) % (data.length * 2));
+         setCurrentIndex((prevIndex) => (prevIndex + 1) % (data.length * 3));
       };
 
       const intervalId = setInterval(updateSlider, interval);
@@ -26,30 +28,16 @@ const InfiniteSlider = ({ data = [], interval = 1500 }) => {
       <div className="infinite-slider">
          <div className="container">
             <div className="slider-wrapper" style={imageStyle}>
-               {data.map((data, index) => (
-                  <img
-                     key={index}
-                     src={process.env.PUBLIC_URL + `/${data}`}
-                     alt={`slide-${index}`}
-                     className="slider-image"
-                  />
-               ))}
-               {data.map((data, index) => (
-                  <img
-                     key={index + data.length} // Ensure unique keys
-                     src={process.env.PUBLIC_URL + `/${data}`}
-                     alt={`slide-${index + data.length}`}
-                     className="slider-image"
-                  />
-               ))}
-               {data.map((data, index) => (
-                  <img
-                     key={index + data.length * 2} // Ensure unique keys
-                     src={process.env.PUBLIC_URL + `/${data}`}
-                     alt={`slide-${index + data.length * 2}`}
-                     className="slider-image"
-                  />
-               ))}
+               {dataSets.map((dataset, setIndex) =>
+                  dataset.map((brand, index) => (
+                     <img
+                        key={index + setIndex * data.length}
+                        src={process.env.PUBLIC_URL + `/${brand}`}
+                        alt={`slide-${index + setIndex * data.length}`}
+                        className="slider-image"
+                     />
+                  ))
+               )}
             </div>
          </div>
       </div>

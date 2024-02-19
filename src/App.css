@@ -382,6 +382,9 @@ p {
    width: fit-content;
    margin: 0;
 }
+.card .volume {
+   color: rgba(52, 52, 52, 0.3);
+}
 .card .price {
    margin-right: auto;
 }
@@ -615,7 +618,81 @@ p {
    color: rgba(52, 52, 52, 0.5);
 }
 
-
-
-
 /* filter */
+.filter {
+   border: 1px solid #e5e7eb;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   padding: 0 5%;
+}
+.filter h3 {
+   width: 10%;
+   float: left;
+   font-size: 30px;
+   font-weight: 700;
+   line-height: 33.75px;
+   text-align: center;
+}
+.filter .form {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   width: 60%;
+   margin: 0;
+   float: right;
+}
+.type {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   text-align: left;
+}
+.type h2 {
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 33.75px;
+   margin-right: 30px;
+   display: flex;
+   flex-direction: row;
+   width: fit-content;
+   align-items: center;
+}
+.type img {
+   margin: 0 5px;
+}
+/* .filter .close {
+   cursor: pointer;
+   background-color: #343434;
+   transition: 0.3s;
+}
+.filter form .close:hover {
+   background-color: rgba(52, 52, 52, 0.5);
+   border: 0.3px solid #fff;
+   color: #fff;
+} */
+.filter .search {
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+}
+.button-dropdown {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   padding: 15px;
+   position: relative;
+   top: 0;
+   left: 0;
+   z-index: 1;
+}
+.button-dropdown button {
+   background-color: transparent;
+   border: 0.3px solid rgba(0, 0, 0, 0.3);
+   font-size: 14px;
+   line-height: 16.25px;
+   height: 40px;
+   color: #343434;
+   cursor: pointer;
+   padding: 10px 30px;
+}
