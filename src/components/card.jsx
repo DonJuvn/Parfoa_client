@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-const Card = ({ ImagePath, title, description, price, volume }) => {
+import React, { useState } from "react";const Card = ({ ImagePath, title, description, price, volume }) => {
    const [isFavorite, setIsFavorite] = useState(false);
 
    const toggleFavorite = () => {
@@ -9,7 +8,8 @@ const Card = ({ ImagePath, title, description, price, volume }) => {
    return (
       <div id="card">
          <div className={`card ${isFavorite ? "favorite" : ""}`}>
-            <img src={process.env.PUBLIC_URL + `/${ImagePath}`} alt="" />
+            {/* <img src={process.env.PUBLIC_URL + `/${ImagePath}`} alt="" /> */}
+            <img src={`${ImagePath}`} alt="" />
             <div className="container">
                <h3>{title}</h3>
                <p className="description">{description}</p>
