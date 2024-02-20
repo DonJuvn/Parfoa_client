@@ -1,4 +1,7 @@
-import React, { useState } from "react";const Navigation = () => {
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+const Navigation = () => {
    const [isMenuOpen, setMenuOpen] = useState(false);
    const [showOverlay, setShowOverlay] = useState(false);
 
@@ -16,7 +19,12 @@ import React, { useState } from "react";const Navigation = () => {
                   <img src={process.env.PUBLIC_URL + `/burger.svg`} alt="" />
                </button>
                <div className="logotype">
-                  <img src={process.env.PUBLIC_URL + `/Logotype.svg`} alt="" />
+                  <Link to="/">
+                     <img
+                        src={process.env.PUBLIC_URL + `/Logotype.svg`}
+                        alt=""
+                     />
+                  </Link>
                </div>
                <div className="icons">
                   <img src={process.env.PUBLIC_URL + `/search.svg`} alt="" />
