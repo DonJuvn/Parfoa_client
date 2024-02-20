@@ -27,14 +27,20 @@ import React, { useState } from "react";const Filter = () => {
          brand,
       };
 
-      // Send a POST request to the backend with the JSON data
-      fetch("localhost:5000", {
-         method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSON.stringify(formData),
-      })
+      // Construct the URL parameters based on the selected filter options
+      const queryParams = Object.keys(formData)
+         .filter((key) => formData[key]) // Filter out empty values
+         .map((key) => `${key}=${encodeURIComponent(formData[key])}`)
+         .join("&");
+
+      // Construct the final API endpoint with the filter parameters
+      // const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/?${queryParams}`;
+      const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/?intensive_category_id=2
+      &gender_category_id=2`;
+      console.log(apiUrl);
+
+      // Send a GET request to the backend with the constructed URL
+      fetch(apiUrl)
          .then((response) => response.json())
          .then((data) => {
             // Handle the response from the backend
@@ -62,16 +68,19 @@ import React, { useState } from "react";const Filter = () => {
                   {gender && (
                      <div className="button-dropdown">
                         <button
-                           onClick={() => handleButtonClick("Male", setGender)}
+                           onClick={() => handleButtonClick("1", setGender)}
                         >
                            Мужской
                         </button>
                         <button
-                           onClick={() =>
-                              handleButtonClick("Female", setGender)
-                           }
+                           onClick={() => handleButtonClick("2", setGender)}
                         >
                            Женский
+                        </button>
+                        <button
+                           onClick={() => handleButtonClick("3", setGender)}
+                        >
+                           Unisex
                         </button>
                      </div>
                   )}
@@ -90,21 +99,21 @@ import React, { useState } from "react";const Filter = () => {
                      <div className="button-dropdown">
                         <button
                            onClick={() =>
-                              handleButtonClick("Option 1", setFragranceType)
+                              handleButtonClick("1", setFragranceType)
                            }
                         >
                            Option 1
                         </button>
                         <button
                            onClick={() =>
-                              handleButtonClick("Option 2", setFragranceType)
+                              handleButtonClick("2", setFragranceType)
                            }
                         >
                            Option 2
                         </button>
                         <button
                            onClick={() =>
-                              handleButtonClick("Option 3", setFragranceType)
+                              handleButtonClick("3", setFragranceType)
                            }
                         >
                            Option 3
@@ -125,23 +134,17 @@ import React, { useState } from "react";const Filter = () => {
                   {intensity && (
                      <div className="button-dropdown">
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 1", setIntensity)
-                           }
+                           onClick={() => handleButtonClick("1", setIntensity)}
                         >
                            Option 1
                         </button>
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 2", setIntensity)
-                           }
+                           onClick={() => handleButtonClick("2", setIntensity)}
                         >
                            Option 2
                         </button>
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 3", setIntensity)
-                           }
+                           onClick={() => handleButtonClick("3", setIntensity)}
                         >
                            Option 3
                         </button>
@@ -161,23 +164,17 @@ import React, { useState } from "react";const Filter = () => {
                   {notes && (
                      <div className="button-dropdown">
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 1", setNotes)
-                           }
+                           onClick={() => handleButtonClick("1", setNotes)}
                         >
                            Option 1
                         </button>
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 2", setNotes)
-                           }
+                           onClick={() => handleButtonClick("2", setNotes)}
                         >
                            Option 2
                         </button>
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 3", setNotes)
-                           }
+                           onClick={() => handleButtonClick("3", setNotes)}
                         >
                            Option 3
                         </button>
@@ -197,23 +194,17 @@ import React, { useState } from "react";const Filter = () => {
                   {brand && (
                      <div className="button-dropdown">
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 1", setBrand)
-                           }
+                           onClick={() => handleButtonClick("1", setBrand)}
                         >
                            Option 1
                         </button>
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 2", setBrand)
-                           }
+                           onClick={() => handleButtonClick("2", setBrand)}
                         >
                            Option 2
                         </button>
                         <button
-                           onClick={() =>
-                              handleButtonClick("Option 3", setBrand)
-                           }
+                           onClick={() => handleButtonClick("3", setBrand)}
                         >
                            Option 3
                         </button>
