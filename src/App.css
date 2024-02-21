@@ -348,7 +348,7 @@ p {
    margin-top: 11.8%;
 }
 .card:hover {
-   transition: 1.5s;
+   transition: 0.5s;
    /* box-shadow: 0.5px 0.5px 0.5px #888888; */
    border: 0.3px solid #b8b8b8;
    transform: 0.3s;

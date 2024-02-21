@@ -1,4 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";const Filter = ({ cardsData, setResetFilter }) => {
+import React, { useState, useRef, useEffect } from "react";
+import Card from "./card";
+
+const Filter = ({ cardsData, setResetFilter }) => {
    const [gender, setGender] = useState("");
    const [fragranceType, setFragranceType] = useState("");
    const [intensity, setIntensity] = useState("");
@@ -40,7 +43,7 @@ import React, { useState, useRef, useEffect } from "react";const Filter = ({ car
       const filtered = cardsData.filter((perfume) => {
          return Object.entries(formData).every(([key, value]) => {
             if (value) {
-               return perfume[key] === value;
+               return perfume[key] == value; // Use == for loose equality comparison
             }
             return true;
          });
@@ -71,10 +74,8 @@ import React, { useState, useRef, useEffect } from "react";const Filter = ({ car
 
                   {gender && (
                      <div className="button-dropdown">
-                        <button
-                           onClick={() => handleButtonClick("1", setGender)}
-                        >
-                           Мужской
+                        <button className="test" onClick={handleFilterClick}>
+                           Filter 250ml Perfumes
                         </button>
                         <button
                            onClick={() => handleButtonClick("2", setGender)}
@@ -221,7 +222,34 @@ import React, { useState, useRef, useEffect } from "react";const Filter = ({ car
                </button>
             </form>
          </div>
-      </div>
+         <button className="test" onClick={handleFilterClick}>
+               Filter 250ml Perfumes
+            </button>
+            <h1 id="title">Каталог</h1>
+            <div className="catalog" id="full">
+               {filteredData.length > 0
+                  ? filteredData.map((card, index) => (
+                       <Card
+                          key={index}
+                          imagePath={card.image}
+                          title={card.name}
+                          description={card.description}
+                          price={card.price}
+                          volume={card.quantity}
+                       />
+                    ))
+                  : cardsData.map((card, index) => (
+                       <Card
+                          key={index}
+                          imagePath={card.image}
+                          title={card.name}
+                          description={card.description}
+                          price={card.price}
+                          volume={card.quantity}
+                       />
+                    ))}
+            </div>
+         </div>
    );
 };
 

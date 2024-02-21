@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";import Card from "./card";
+import React, { useState, useEffect } from "react";
+import Card from "./card";
 import Filter from "./filter";
 
-const FullCatalog = () => {
+const Catalog = () => {
    const [cardsData, setCardsData] = useState([]);
    const [filteredData, setFilteredData] = useState([]);
    const [resetFilter, setResetFilter] = useState(false);
 
    const apiUrl = "http://127.0.0.1:8000/api/shop/perfums/";
-
-   console.log(cardsData);
-   console.log(filteredData);
 
    useEffect(() => {
       const fetchData = async () => {
@@ -34,6 +32,12 @@ const FullCatalog = () => {
       setFilteredData(filtered);
    };
 
+   const handleResetFilterClick = () => {
+      // Reset filter and show all perfumes
+      setFilteredData([]);
+      setResetFilter((prevReset) => !prevReset);
+   };
+
    return (
       <div id="catalog">
          <Filter
@@ -44,6 +48,9 @@ const FullCatalog = () => {
          <div className="container">
             <button className="test" onClick={handleFilterClick}>
                Filter 250ml Perfumes
+            </button>
+            <button className="test" onClick={handleResetFilterClick}>
+               Reset Filter
             </button>
             <h1 id="title">Каталог</h1>
             <div className="catalog" id="full">
@@ -74,4 +81,4 @@ const FullCatalog = () => {
    );
 };
 
-export default FullCatalog;
+export default Catalog;
