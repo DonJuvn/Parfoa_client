@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";import { Link } from "react-router-dom";
-import Card from "./card"; // Corrected import statement
+import React, { useState, useEffect } from "react";import Card from "./card";
+import Filter from "./filter";
 
 const FullCatalog = () => {
    const [cardsData, setCardsData] = useState([]);
-   const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/?intensive_category_id=2
-   &gender_category_id=2`;
+   const [filteredData, setFilteredData] = useState([]);
+   const [resetFilter, setResetFilter] = useState(false);
+
+   const apiUrl = "http://127.0.0.1:8000/api/shop/perfums/";
+
+   console.log(cardsData);
+   console.log(filteredData);
 
    useEffect(() => {
       const fetchData = async () => {
@@ -15,9 +20,6 @@ const FullCatalog = () => {
             }
             const fetchedData = await response.json();
             setCardsData(fetchedData);
-
-            console.log("Fetched url:", apiUrl);
-            console.log("Fetched Data:", fetchedData);
          } catch (error) {
             console.error("Error fetching data:", error);
          }
@@ -26,21 +28,46 @@ const FullCatalog = () => {
       fetchData();
    }, []);
 
+   const handleFilterClick = () => {
+      // Filter data to include only perfumes with quantity 250
+      const filtered = cardsData.filter((perfume) => perfume.quantity === 250);
+      setFilteredData(filtered);
+   };
+
    return (
       <div id="catalog">
+         <Filter
+            setFilteredData={setFilteredData}
+            cardsData={cardsData}
+            setResetFilter={setResetFilter}
+         />
          <div className="container">
+            <button className="test" onClick={handleFilterClick}>
+               Filter 250ml Perfumes
+            </button>
             <h1 id="title">Каталог</h1>
             <div className="catalog" id="full">
-               {cardsData.map((card, index) => (
-                  <Card
-                     key={index}
-                     imagePath={card.image}
-                     title={card.name}
-                     description={card.description}
-                     price={card.price}
-                     volume={card.quantity}
-                  />
-               ))}
+               {filteredData.length > 0
+                  ? filteredData.map((card, index) => (
+                       <Card
+                          key={index}
+                          imagePath={card.image}
+                          title={card.name}
+                          description={card.description}
+                          price={card.price}
+                          volume={card.quantity}
+                       />
+                    ))
+                  : cardsData.map((card, index) => (
+                       <Card
+                          key={index}
+                          imagePath={card.image}
+                          title={card.name}
+                          description={card.description}
+                          price={card.price}
+                          volume={card.quantity}
+                       />
+                    ))}
             </div>
          </div>
       </div>

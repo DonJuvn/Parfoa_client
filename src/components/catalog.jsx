@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from "./card";
 
 const Catalog = () => {
@@ -62,6 +63,19 @@ const Catalog = () => {
       setCardsData(fetchedData);
    }, []);
 
+   const getRandomCards = (data, numCards) => {
+      // Shuffle the array randomly
+      const shuffledData = [...data].sort(() => Math.random() - 0.5);
+
+      // Take the first 'numCards' elements
+      const randomCards = shuffledData.slice(0, numCards);
+
+      return randomCards;
+   };
+
+   // Assuming 'filteredData' is your data array
+   const randomCards = getRandomCards(cardsData, 4);
+
    const handleFilterClick = () => {
       // Filter data to include only perfumes with volume 250ml
       const filtered = cardsData.filter(
@@ -78,8 +92,8 @@ const Catalog = () => {
                Filter 250ml Perfumes
             </button>
             <div className="catalog">
-               {filteredData.length > 0
-                  ? filteredData.map((card, index) => (
+               {randomCards.length > 0
+                  ? randomCards.map((card, index) => (
                        <Card
                           key={index}
                           ImagePath={card.ImagePath}
@@ -89,7 +103,7 @@ const Catalog = () => {
                           volume={card.volume}
                        />
                     ))
-                  : cardsData.map((card, index) => (
+                  : randomCards.map((card, index) => (
                        <Card
                           key={index}
                           ImagePath={card.ImagePath}

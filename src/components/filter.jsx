@@ -1,24 +1,33 @@
-import React, { useState } from "react";const Filter = () => {
+import React, { useState, useRef, useEffect } from "react";const Filter = ({ cardsData, setResetFilter }) => {
    const [gender, setGender] = useState("");
    const [fragranceType, setFragranceType] = useState("");
    const [intensity, setIntensity] = useState("");
    const [notes, setNotes] = useState("");
    const [brand, setBrand] = useState("");
 
+   const [openDropdown, setOpenDropdown] = useState(null);
+   const dropdownRef = useRef(null);
+   const [filteredData, setFilteredData] = useState([]);
+
    const handleDropdownToggle = (setState) => {
       setState((prevState) => !prevState);
    };
 
+   const handleFilterClick = () => {
+      // Filter data to include only perfumes with volume 250ml
+      const filtered = cardsData.filter((perfume) => perfume.volume === "250");
+      setFilteredData(filtered);
+   };
+
    const handleButtonClick = (option, setState) => {
-      // Handle button click and update state
       console.log(`Button clicked: ${option}`);
       setState(option);
+      setOpenDropdown(null); // Close the dropdown after a button is clicked
    };
 
    const handleFormSubmit = (event) => {
       event.preventDefault();
 
-      // Create a JSON object with the selected data
       const formData = {
          gender,
          fragranceType,
@@ -27,32 +36,27 @@ import React, { useState } from "react";const Filter = () => {
          brand,
       };
 
-      // Construct the URL parameters based on the selected filter options
-      const queryParams = Object.keys(formData)
-         .filter((key) => formData[key]) // Filter out empty values
-         .map((key) => `${key}=${encodeURIComponent(formData[key])}`)
-         .join("&");
-
-      // Construct the final API endpoint with the filter parameters
-      // const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/?${queryParams}`;
-      const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/?intensive_category_id=2
-      &gender_category_id=2`;
-      console.log(apiUrl);
-
-      // Send a GET request to the backend with the constructed URL
-      fetch(apiUrl)
-         .then((response) => response.json())
-         .then((data) => {
-            // Handle the response from the backend
-            console.log(data);
-         })
-         .catch((error) => {
-            console.error("Error:", error);
+      // Filtering logic on frontend
+      const filtered = cardsData.filter((perfume) => {
+         return Object.entries(formData).every(([key, value]) => {
+            if (value) {
+               return perfume[key] === value;
+            }
+            return true;
          });
+      });
+
+      // Update the filtered data in the parent component
+      setFilteredData(filtered);
+      setResetFilter(false); // Set reset filter to false after filtering
+      console.log(filtered);
    };
 
    return (
       <div className="container">
+         <button className="test" onClick={handleFilterClick}>
+            Filter 250ml Perfumes
+         </button>
          <div className="filter">
             <h3>Фильтр</h3>
             <form className="form" onSubmit={handleFormSubmit}>
