@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import Card from "./card";
+import React, { useState, useEffect } from "react";
+import Card from "./card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -74,8 +75,8 @@ const PerfumeList = () => {
                   onChange={(e) => setGenderFilter(parseInt(e.target.value))}
                >
                   <option value={null}>All</option>
-                  <option value={"male"}>male</option>
-                  <option value={"female"}>female</option>
+                  <option value={1}>male</option>
+                  <option value={2}>female</option>
                </select>
             </label>
 
