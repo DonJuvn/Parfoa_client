@@ -34,7 +34,7 @@ const Main = () => {
             className="test"
             autoPlay
             loop
-            // controls
+            controls
             src="a-la-rose2.mp4"
          ></video>
       </SliderContainer>
