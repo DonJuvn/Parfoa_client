@@ -8,6 +8,7 @@ const SliderContainer = styled.div`
    width: 90%;
    height: 80vh;
    display: flex;
+   object-fit: cover;
    align-items: center;
    justify-content: center;
    background-size: cover;
@@ -17,17 +18,27 @@ const SliderContainer = styled.div`
 `;
 
 const Main = () => {
-   const [index, setIndex] = useState(0);
+   // const [index, setIndex] = useState(0);
 
-   useEffect(() => {
-      const interval = setInterval(() => {
-         setIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 2000);
+   // useEffect(() => {
+   //    const interval = setInterval(() => {
+   //       setIndex((prevIndex) => (prevIndex + 1) % images.length);
+   //    }, 2000);
 
-      return () => clearInterval(interval);
-   }, []);
+   //    return () => clearInterval(interval);
+   // }, []);
 
-   return <SliderContainer style={{ backgroundImage: images[index] }} />;
+   return (
+      <SliderContainer>
+         <video
+            className="test"
+            autoPlay
+            loop
+            // controls
+            src="a-la-rose2.mp4"
+         ></video>
+      </SliderContainer>
+   );
 };
 
 export default Main;
