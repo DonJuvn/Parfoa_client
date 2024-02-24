@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
 }
@@ -179,10 +178,12 @@ p {
 }
 .about-us {
    display: flex;
-   flex-direction: column;
-   font-style: italic;
-   height: 400px;
+   flex-direction: row;
+   /* font-style: italic; */
+   height: 100px;
    justify-content: space-between;
+   width: 60%;
+   margin: auto;
 }
 /* AboutUs.css */
 

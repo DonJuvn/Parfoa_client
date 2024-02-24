@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-const AboutUs = () => {
+import React, { useEffect, useState } from "react";const AboutUs = () => {
    const [hasAnimated, setHasAnimated] = useState(false);
 
    useEffect(() => {
@@ -33,9 +32,9 @@ const AboutUs = () => {
       <div id="about-us">
          <div className="container">
             <div className="about-us">
-               <p className="about-text">Только</p>
-               <p className="about-text">Оригинальные</p>
-               <p className="about-text">Парфюмы</p>
+               {/* <p className="about-text">Только</p> */}
+               <p className="about-text">Оригинальная</p>
+               <p className="about-text">парфюмерия</p>
             </div>
          </div>
       </div>

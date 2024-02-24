@@ -21,7 +21,6 @@ const PerfumeList = () => {
    }, []);
 
    useEffect(() => {
-      // Apply filters
       let filteredData = perfumes;
 
       if (intensiveFilter !== null) {
@@ -66,60 +65,64 @@ const PerfumeList = () => {
 
    return (
       <div className="container">
-         <h1>Perfume List</h1>
+         <div className="filter">
+            <h1>Filter</h1>
 
-         <div>
-            <label>
-               Gender Category:
-               <select
-                  onChange={(e) => setGenderFilter(parseInt(e.target.value))}
-               >
-                  <option value={null}>All</option>
-                  <option value={1}>male</option>
-                  <option value={2}>female</option>
-               </select>
-            </label>
+            <div>
+               <label>
+                  Gender Category:
+                  <select
+                     onChange={(e) => setGenderFilter(parseInt(e.target.value))}
+                  >
+                     <option value={null}>All</option>
+                     <option value={1}>male</option>
+                     <option value={2}>female</option>
+                  </select>
+               </label>
 
-            <label>
-               Type Category:
-               <select
-                  onChange={(e) => setTypeFilter(parseInt(e.target.value))}
-               >
-                  <option value={null}>All</option>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-               </select>
-            </label>
-            <label>
-               Intensive Category:
-               <select
-                  onChange={(e) => setIntensiveFilter(parseInt(e.target.value))}
-               >
-                  <option value={null}>All</option>
-                  <option value={1}>Intensive Category 1</option>
-                  <option value={2}>Intensive Category 2</option>
-               </select>
-            </label>
-            <label>
-               Notes Category:
-               <select
-                  onChange={(e) => setNotesFilter(parseInt(e.target.value))}
-               >
-                  <option value={null}>All</option>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-               </select>
-            </label>
-            <label>
-               Brand Category:
-               <select
-                  onChange={(e) => setBrandFilter(parseInt(e.target.value))}
-               >
-                  <option value={null}>All</option>
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-               </select>
-            </label>
+               <label>
+                  Type Category:
+                  <select
+                     onChange={(e) => setTypeFilter(parseInt(e.target.value))}
+                  >
+                     <option value={null}>All</option>
+                     <option value={1}>1</option>
+                     <option value={2}>2</option>
+                  </select>
+               </label>
+               <label>
+                  Intensive Category:
+                  <select
+                     onChange={(e) =>
+                        setIntensiveFilter(parseInt(e.target.value))
+                     }
+                  >
+                     <option value={null}>All</option>
+                     <option value={1}>Intensive Category 1</option>
+                     <option value={2}>Intensive Category 2</option>
+                  </select>
+               </label>
+               <label>
+                  Notes Category:
+                  <select
+                     onChange={(e) => setNotesFilter(parseInt(e.target.value))}
+                  >
+                     <option value={null}>All</option>
+                     <option value={1}>1</option>
+                     <option value={2}>2</option>
+                  </select>
+               </label>
+               <label>
+                  Brand Category:
+                  <select
+                     onChange={(e) => setBrandFilter(parseInt(e.target.value))}
+                  >
+                     <option value={null}>All</option>
+                     <option value={1}>1</option>
+                     <option value={2}>2</option>
+                  </select>
+               </label>
+            </div>
          </div>
 
          <div className="catalog">
