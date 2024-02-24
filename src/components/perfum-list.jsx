@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "./card";
+import React, { useState, useEffect } from "react";import Card from "./card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -66,60 +65,75 @@ const PerfumeList = () => {
    return (
       <div className="container">
          <div className="filter">
-            <h1>Filter</h1>
+            <h3>Фильтр</h3>
 
-            <div>
+            <div className="selectors">
                <label>
-                  Gender Category:
+                  {/* Gender Category: */}
                   <select
                      onChange={(e) => setGenderFilter(parseInt(e.target.value))}
+                     className="selector"
                   >
-                     <option value={null}>All</option>
-                     <option value={1}>male</option>
-                     <option value={2}>female</option>
+                     <option value={null}>Пол</option>
+                     <option value={1}>Мужские</option>
+                     <option value={2}>Женские</option>
+                     <option value={3}>Унисекс</option>
                   </select>
                </label>
 
                <label>
-                  Type Category:
                   <select
                      onChange={(e) => setTypeFilter(parseInt(e.target.value))}
+                     className="selector"
                   >
-                     <option value={null}>All</option>
-                     <option value={1}>1</option>
-                     <option value={2}>2</option>
+                     <option value={null}>Тип</option>
+                     <option value={1}>Холодные</option>
+                     <option value={2}>Сладкие</option>
+                     <option value={3}>Кожаные</option>
+                     <option value={4}>Древесные</option>
+                     <option value={5}>Цитрусовые</option>
+                     <option value={6}>Цветочные</option>
                   </select>
                </label>
                <label>
-                  Intensive Category:
                   <select
                      onChange={(e) =>
                         setIntensiveFilter(parseInt(e.target.value))
                      }
+                     className="selector"
                   >
-                     <option value={null}>All</option>
-                     <option value={1}>Intensive Category 1</option>
-                     <option value={2}>Intensive Category 2</option>
+                     <option value={null}>Интенсивность</option>
+                     <option value={1}>1-15%</option>
+                     <option value={2}>16-40%</option>
+                     <option value={3}>41-65%</option>
+                     <option value={4}>66-90%%</option>
                   </select>
                </label>
                <label>
-                  Notes Category:
                   <select
                      onChange={(e) => setNotesFilter(parseInt(e.target.value))}
+                     className="selector"
                   >
-                     <option value={null}>All</option>
-                     <option value={1}>1</option>
-                     <option value={2}>2</option>
+                     <option value={null}>Ноты</option>
+                     <option value={1}>Перец</option>
+                     <option value={2}>Цитрус</option>
+                     <option value={3}>Мускус</option>
+                     <option value={4}>Древесные</option>
+                     <option value={5}>Цветочные</option>
                   </select>
                </label>
                <label>
-                  Brand Category:
                   <select
                      onChange={(e) => setBrandFilter(parseInt(e.target.value))}
+                     className="selector"
                   >
-                     <option value={null}>All</option>
-                     <option value={1}>1</option>
-                     <option value={2}>2</option>
+                     <option value={null}>Бренд</option>
+                     <option value={1}>Gucci</option>
+                     <option value={2}>Hermes</option>
+                     <option value={3}>Dior</option>
+                     <option value={4}>Tiziana Terenzi</option>
+                     <option value={5}>Armani</option>
+                     <option value={6}>Hacivat</option>
                   </select>
                </label>
             </div>

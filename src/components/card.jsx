@@ -9,13 +9,7 @@ const Card = ({ imagePath, title, description, price, volume }) => {
    return (
       <div id="card">
          <div className={`card ${isFavorite ? "favorite" : ""}`}>
-            {/* <img src={process.env.PUBLIC_URL + `/${ImagePath}`} alt="" /> */}
-            <img src={imagePath} alt="" />
-
-            {/* <img
-               src="http://localhost:8000/media/perfume_images/test2_1_ZvdTPmK.jpg"
-               alt=""
-            /> */}
+            <img src={`http://localhost:8000/${imagePath}`} alt="" />
             <div className="container">
                <h3>{title}</h3>
                <p className="description">{description}</p>

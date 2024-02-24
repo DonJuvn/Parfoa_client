@@ -1,4 +1,5 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
 }
@@ -627,6 +628,7 @@ p {
    flex-direction: row;
    justify-content: space-between;
    padding: 0 5%;
+   align-items: center;
 }
 .filter h3 {
    width: 10%;
@@ -697,6 +699,19 @@ p {
    color: #343434;
    cursor: pointer;
    padding: 10px 30px;
+}
+.selector {
+   /* padding: 30px; */
+   font-size: 20px;
+   font-weight: 400;
+   line-height: 33.75px;
+   border: 1px solid #fff;
+}
+option {
+   font-size: 15px;
+}
+.selectors {
+   align-items: center;
 }
 
 .card-detail {
