@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";import Card from "./card";
+import React, { useState, useEffect } from "react";import Card from "../card/card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -15,6 +15,8 @@ const PerfumeList = () => {
          .then((data) => {
             setPerfumes(data);
             setFilteredPerfumes(data);
+
+            console.log({ fetched: filteredPerfumes });
          })
          .catch((error) => console.error("Error fetching data:", error));
    }, []);
@@ -143,6 +145,7 @@ const PerfumeList = () => {
             {filteredPerfumes.map((card, index) => (
                <Card
                   key={index}
+                  id={card.id}
                   imagePath={card.image}
                   title={card.name}
                   description={card.description}

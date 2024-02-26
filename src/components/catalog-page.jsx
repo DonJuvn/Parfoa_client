@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "./card";
+import React, { useState, useEffect } from "react";import Card from "./card/card";
 import Filter from "./filter";
 
 const Catalog = () => {
@@ -18,6 +17,9 @@ const Catalog = () => {
             }
             const fetchedData = await response.json();
             setCardsData(fetchedData);
+
+            console.log({ fetched: fetchedData });
+            console.log("whats wrong?");
          } catch (error) {
             console.error("Error fetching data:", error);
          }
@@ -58,6 +60,7 @@ const Catalog = () => {
                   ? filteredData.map((card, index) => (
                        <Card
                           key={index}
+                          id={card.id}
                           imagePath={card.image}
                           title={card.name}
                           description={card.description}
@@ -68,6 +71,7 @@ const Catalog = () => {
                   : cardsData.map((card, index) => (
                        <Card
                           key={index}
+                          id={card.id}
                           imagePath={card.image}
                           title={card.name}
                           description={card.description}

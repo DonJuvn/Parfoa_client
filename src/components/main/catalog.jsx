@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Card from "./card";
+import Card from "../card/card";
 
 const Catalog = () => {
    const [cardsData, setCardsData] = useState([]);

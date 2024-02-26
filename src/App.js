@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from "react";
 import {
    BrowserRouter as Router,
@@ -6,16 +5,17 @@ import {
    Routes,
    Navigate,
 } from "react-router-dom";
-import Navigation from "./components/navigation";
-import Footer from "./components/footer";
-import Main from "./components/main_bg";
-import AboutUs from "./components/about-us";
-import InfiniteSlider from "./components/InfiniteSlider";
-import News from "./components/news";
-import Catalog from "./components/catalog";
-import Blogs from "./components/blogs";
+import Navigation from "./components/main/navigation";
+import Footer from "./components/main/footer";
+import Main from "./components/main/main_bg";
+import AboutUs from "./components/main/about-us";
+import InfiniteSlider from "./components/main/InfiniteSlider";
+import News from "./components/main/news";
+import Catalog from "./components/main/catalog";
+import Blogs from "./components/main/blogs";
 import CatalogLayout from "./layouts/catalog";
 import Detail from "./components/detail";
+import CardDetail from "./components/card-detail";
 import "./App.css";
 
 const App = () => {
@@ -56,7 +56,7 @@ const App = () => {
             <Routes>
                <Route path="/" element={<MainPage />} />
                <Route path="/catalog" element={<CatalogPage />} />
-               <Route path="/catalog/1" element={<DetailPage />} />
+               <Route path="/catalog/perfume/:id" element={<CardDetail />} />
             </Routes>
             <Footer />
          </div>
@@ -88,80 +88,6 @@ const MainPage = () => {
          <News />
          <Catalog />
          <Blogs />
-      </div>
-   );
-};
-
-const DetailPage = () => {
-   const [cardsData, setCardsData] = useState([]);
-
-   useEffect(() => {
-      // Simulating data fetching from an API
-      const fetchedData = [
-         {
-            id:1,
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-         {
-            id:2,
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-         {
-            id:3,
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-         {
-            id:4,
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-         {
-            id:5,
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-         {
-            id:6,
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-         {
-            id:7,
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-      ];
-
-      setCardsData(fetchedData);
-   }, []);
-   return (
-      <div>
-         <Detail />
-         <Catalog />
       </div>
    );
 };
