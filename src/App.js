@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
+import React, { useState, useEffect } from "react";import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -17,6 +16,7 @@ import CatalogLayout from "./layouts/catalog";
 import Detail from "./components/detail";
 import CardDetail from "./components/card-detail";
 import "./App.css";
+import Card from "./components/card/card";
 
 const App = () => {
    const brands = [
@@ -56,7 +56,10 @@ const App = () => {
             <Routes>
                <Route path="/" element={<MainPage />} />
                <Route path="/catalog" element={<CatalogPage />} />
-               <Route path="/catalog/perfume/:id" element={<CardDetail />} />
+               <Route
+                  path="/catalog/perfume/:id"
+                  element={<CardDetailPage />}
+               />
             </Routes>
             <Footer />
          </div>
@@ -88,6 +91,15 @@ const MainPage = () => {
          <News />
          <Catalog />
          <Blogs />
+      </div>
+   );
+};
+
+const CardDetailPage = () => {
+   return (
+      <div>
+         <CardDetail />
+         <Catalog />
       </div>
    );
 };
