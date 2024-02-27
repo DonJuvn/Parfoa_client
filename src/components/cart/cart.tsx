@@ -1,5 +1,4 @@
 import React from "react";
-
 const Cart = () => {
    // Retrieve cart items from local storage
    const cartItemsString: string | null = localStorage.getItem("cartItems");
@@ -12,7 +11,7 @@ const Cart = () => {
       return (
          <div className="cart">
             <div className="container">
-               <h2>Your Cart</h2>
+               <h2>Your Cart l</h2>
                {cartItems.length === 0 ? (
                   <p>Your cart is empty.</p>
                ) : (

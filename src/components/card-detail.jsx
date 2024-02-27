@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const CardDetail = () => {
    const { id } = useParams();
@@ -23,10 +24,13 @@ const CardDetail = () => {
             JSON.parse(localStorage.getItem("cartItems")) || [];
 
          // Add the current item to the cart
+         console.log(perfumeDetail);
          const newItem = {
             id: perfumeDetail.id,
             name: perfumeDetail.name,
             price: perfumeDetail.price,
+            image: perfumeDetail.image,
+            gender: perfumeDetail.gender_category,
             quantity,
          };
 
@@ -39,9 +43,9 @@ const CardDetail = () => {
          // Save the updated cart items to local storage
          localStorage.setItem("cartItems", JSON.stringify(updatedItems));
 
-         alert("Added to cart!");
+         alert("Добавлено в корзину!");
       } else {
-         alert("Please select a quantity before buying.");
+         alert("Выберите объем перед добавлением в корзину");
       }
    };
 
@@ -59,7 +63,6 @@ const CardDetail = () => {
             <div className="details">
                <div className="title">
                   <h2>{perfumeDetail.name}</h2>
-                  <button>В корзину</button>
                </div>
                <p className="detail-text-style">
                   {perfumeDetail.gender_category} perfume
@@ -102,7 +105,8 @@ const CardDetail = () => {
                      <option value={50}>50</option>
                   </select>
                   <button className="buy-button" onClick={handleBuyClick}>
-                     Купить
+                     В корзину{" "}
+                     {/* <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" /> */}
                   </button>
                </div>
             </div>

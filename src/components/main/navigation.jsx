@@ -1,10 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
    const [isMenuOpen, setMenuOpen] = useState(false);
    const [isCartOpen, setCartOpen] = useState(false);
    const [showOverlay, setShowOverlay] = useState(false);
+   const [cartItems, setCartItems] = useState([]);
+
+   useEffect(() => {
+      const cartItemsString = localStorage.getItem("cartItems");
+      const parsedCartItems = cartItemsString
+         ? JSON.parse(cartItemsString)
+         : [];
+      setCartItems(parsedCartItems);
+   }, []);
+
+   // Calculate the total sum of prices
+   const totalSum = cartItems.reduce(
+      (accumulator, currentItem) =>
+         accumulator + currentItem.price * currentItem.quantity,
+      0
+   );
 
    const handleButtonClick = () => {
       setMenuOpen(!isMenuOpen);
@@ -14,6 +30,13 @@ const Navigation = () => {
    const handleCartClick = () => {
       setCartOpen(!isCartOpen);
       // setShowOverlay(!showOverlay);
+   };
+
+   const handleDeleteItem = (index) => {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems.splice(index, 1); // Remove the item at the specified index
+      setCartItems(updatedCartItems);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
    };
 
    return (
@@ -38,7 +61,7 @@ const Navigation = () => {
                   </button>
                   <button className="favorites" onClick={handleCartClick}>
                      <img
-                        src={process.env.PUBLIC_URL + `/favorites.svg`}
+                        src={process.env.PUBLIC_URL + `/cart.svg`}
                         alt=""
                      />
                   </button>
@@ -123,19 +146,61 @@ const Navigation = () => {
          )}
          {isCartOpen && (
             <div id="cart">
-               <div className="container">
-                  <div className="cart">
+               <div className="cart">
+                  <div className="container">
                      <div className="open-close">
                         <button onClick={handleCartClick}>
                            <img
-                              src={process.env.PUBLIC_URL + `/close-cart.svg`}
+                              src={process.env.PUBLIC_URL + `/cancel.svg`}
                               alt=""
                            />
                         </button>
                      </div>
+
                      <div className="cart-content">
-                        <h2>Your Cart</h2>
-                        {/* ... (the modified Cart component content) */}
+                        <h2>Корзина покупок</h2>
+                        {cartItems.length === 0 ? (
+                           <p>Ваша корзина пуста.</p>
+                        ) : (
+                           <div id="cart-item">
+                              {cartItems.map((item, index) => (
+                                 <div className="cart-item" key={index}>
+                                    <img
+                                       className="cart-img"
+                                       src={item.image}
+                                    ></img>
+                                    <div className="details">
+                                       <p className="title">{item.name} </p>
+                                       <p className="title">{item.gender} </p>
+                                       <p>
+                                          {item.quantity} ml - {item.price} KZT{" "}
+                                       </p>
+                                       <div className="itog">
+                                          <p>
+                                             Итог:{" "}
+                                             <span>
+                                                {item.price * item.quantity}
+                                             </span>
+                                          </p>
+                                          <button
+                                             onClick={() =>
+                                                handleDeleteItem(index)
+                                             }
+                                             className="delete"
+                                          >
+                                             Удалить
+                                          </button>
+                                       </div>
+                                    </div>
+                                 </div>
+                              ))}
+                           </div>
+                        )}
+                        <div className="sum">
+                           <p className="sum-child1">Общий счет:</p>
+                           <p className="sum-child2"> KZT {totalSum} </p>
+                        </div>
+                        <button className="buy-button">Купить</button>
                      </div>
                   </div>
                </div>

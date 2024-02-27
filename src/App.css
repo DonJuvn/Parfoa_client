@@ -822,13 +822,124 @@ a {
    padding: 7px;
    cursor: pointer;
    transition: 0.3s;
+   align-items: center;
 }
+/* .buy-button img {
+   width: 40px;
+   aspect-ratio: 1;
+} */
 .buy-button:hover {
    background-color: #000;
    font-size: 32px;
    border-radius: 15px;
 }
 
+#cart {
+   /* padding-left: 2.9%; */
+   width: 42%;
+   height: 90vh;
+   position: fixed;
+   z-index: 5;
+   top: 0;
+   right: 0;
+   overflow-y: auto; /* Added to allow scrolling in #cart */
+   max-height: 80vh; /* Set a max height for the cart */
+   background-color: #fff;
+   border: 1px solid rgba(52, 52, 52, 0.3);
+}
 .cart {
-   background-color: rebeccapurple;
+   top: 0;
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   text-decoration: none;
+   width: 100%;
+   justify-content: space-between;
+   float: right;
+   background-color: #fff;
+   padding-top: 5vh;
+   max-height: 80vh; /* Set a max height for the cart */
+   position: relative;
+}
+.cart-content {
+   max-height: 70vh; /* Set a max height for the cart */
+   overflow-y: auto;
+   height: 100%;
+   width: 100%;
+}
+.cart-content h2 {
+   font-size: 30px;
+   line-height: 32px;
+   font-weight: 400;
+}
+.cart .open-close {
+   float: right;
+   width: 10%;
+}
+.cart .open-close button {
+   background-color: transparent;
+   border: none;
+   position: absolute;
+   cursor: pointer;
+}
+.cart-item {
+   display: flex;
+   flex-direction: row;
+   height: 20vh;
+   margin: 10px 0;
+   width: 100%;
+   border-bottom: 0.3px solid #343434;
+   padding-bottom: 20px;
+   margin-bottom: 20px;
+}
+.cart-item img {
+   width: 25%;
+   aspect-ratio: 1/1;
+   object-fit: cover;
+   margin-right: 20px;
+}
+.cart-item .details {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   height: 100%;
+   width: 100%;
+}
+.itog {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+}
+.delete {
+   background-color: transparent;
+   color: #90710b;
+   border: none;
+   height: 15px;
+   top: 0;
+   cursor: pointer;
+}
+.cart .buy-button {
+   width: 100%;
+   font-size: 18px;
+   padding: 5px;
+   border-radius: 0;
+   position: sticky;
+   bottom: 0;
+   margin-bottom: 20px;
+}
+.sum {
+   font-size: 24px;
+   font-weight: 600;
+   line-height: 26px;
+   margin: 15px 0;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.sum-child1 {
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 22px;
 }
