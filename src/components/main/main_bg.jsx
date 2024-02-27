@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";import styled from "styled-components";
 
 const images = ["url(about.svg)", "url(test2.jpg)", "url(test3.jpg)"];
 
@@ -31,7 +30,7 @@ const Main = () => {
    return (
       <SliderContainer>
          <video
-            className="test"
+            className="video"
             autoPlay
             loop
             controls
