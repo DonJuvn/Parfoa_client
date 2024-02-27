@@ -7,60 +7,14 @@ const Catalog = () => {
    const [filteredData, setFilteredData] = useState([]);
 
    useEffect(() => {
-      // Simulating data fetching from an API
-      const fetchedData = [
-         {
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "150ml",
-         },
-         {
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-         {
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "750ml",
-         },
-         {
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "850ml",
-         },
-         {
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "450ml",
-         },
-         {
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "350ml",
-         },
-         {
-            ImagePath: "swy.jpg",
-            title: "Perfume №5 CHANEL eau de parfum",
-            description: "Women parfume",
-            price: "KZT 55.250",
-            volume: "250ml",
-         },
-      ];
-
-      setCardsData(fetchedData);
+      // Fetch data from the API endpoint
+      fetch("http://127.0.0.1:8000/api/shop/perfums/")
+         .then((response) => response.json())
+         .then((data) => {
+            setCardsData(data);
+            console.log({ data: data });
+         })
+         .catch((error) => console.error("Error fetching data:", error));
    }, []);
 
    const getRandomCards = (data, numCards) => {
@@ -74,10 +28,13 @@ const Catalog = () => {
    };
 
    // Assuming 'filteredData' is your data array
-   const randomCards = getRandomCards(cardsData, 4);
+   const randomCards = getRandomCards(
+      filteredData.length > 0 ? filteredData : cardsData,
+      4
+   );
 
    const handleFilterClick = () => {
-      // Filter data to include only perfumes with volume 250ml
+      // Filter data to include only perfumes with volume 750ml
       const filtered = cardsData.filter(
          (perfume) => perfume.volume === "750ml"
       );
@@ -88,31 +45,20 @@ const Catalog = () => {
       <div id="catalog">
          <div className="container">
             <h1 id="title">Каталог</h1>
-            <button className="test" onClick={handleFilterClick}>
-               Filter 250ml Perfumes
-            </button>
             <div className="catalog">
-               {randomCards.length > 0
-                  ? randomCards.map((card, index) => (
-                       <Card
-                          key={index}
-                          ImagePath={card.ImagePath}
-                          title={card.title}
-                          description={card.description}
-                          price={card.price}
-                          volume={card.volume}
-                       />
-                    ))
-                  : randomCards.map((card, index) => (
-                       <Card
-                          key={index}
-                          ImagePath={card.ImagePath}
-                          title={card.title}
-                          description={card.description}
-                          price={card.price}
-                          volume={card.volume}
-                       />
-                    ))}
+               {cardsData.slice(0, 4).map((card, id) => (
+                  <Link to={`catalog/perfume/${id}`}>
+                     <Card
+                        id={card.id}
+                        imagePath={card.image}
+                        title={card.name}
+                        description={card.description}
+                        price={card.price}
+                        volume={card.quantity}
+                        link={`catalog/`}
+                     />
+                  </Link>
+               ))}
             </div>
             {/* You might want to adjust the link based on your routing structure */}
             <Link className="link" to="/catalog">
