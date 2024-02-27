@@ -1,34 +1,9 @@
-// import React, { useState, useEffect } from "react";// const CardDetail = ({ ImagePath, title, description, price, volume }) => {//    const [isFavorite, setIsFavorite] = useState(false);
-//    const toggleFavorite = () => {
-//       setIsFavorite((prevState) => !prevState);
-//    };
-
-//    return (
-//       <div id="card-detail">
-//          Hello world
-//          <div className={`card ${isFavorite ? "favorite" : ""}`}>
-//             <img src={process.env.PUBLIC_URL + `/${ImagePath}`} alt="" />
-//             <div className="container">
-//                <h3>{title}</h3>
-//                <p className="description">{description}</p>
-//                <div className="card-details">
-//                   <p className="price">{price}</p>
-//                   <p className="volume">{volume}</p>
-//                </div>
-//             </div>
-//          </div>
-//       </div>
-//    );
-// };
-
-// export default CardDetail;
-
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
 
 const CardDetail = () => {
    const { id } = useParams();
    const [perfumeDetail, setPerfumeDetail] = useState(null);
+   const [quantity, setQuantity] = useState(null);
 
    const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/${id}/`;
 
@@ -41,20 +16,96 @@ const CardDetail = () => {
       console.log(apiUrl);
    }, [id]);
 
+   const handleBuyClick = () => {
+      if (quantity > 0) {
+         // Get existing items from local storage or initialize an empty array
+         const existingItems =
+            JSON.parse(localStorage.getItem("cartItems")) || [];
+
+         // Add the current item to the cart
+         const newItem = {
+            id: perfumeDetail.id,
+            name: perfumeDetail.name,
+            price: perfumeDetail.price,
+            quantity,
+         };
+
+         console.log(newItem);
+
+         const updatedItems = [...existingItems, newItem];
+
+         console.log(updatedItems);
+
+         // Save the updated cart items to local storage
+         localStorage.setItem("cartItems", JSON.stringify(updatedItems));
+
+         alert("Added to cart!");
+      } else {
+         alert("Please select a quantity before buying.");
+      }
+   };
+
    if (!perfumeDetail) {
       return <div>Loading...</div>;
    }
 
+   if (quantity != 0) {
+   }
+
    return (
       <div className="container">
-         <div className="detail">
+         <div className="detail-page">
             <img src={perfumeDetail.image} alt={perfumeDetail.name} />
-            <h2>{perfumeDetail.name}</h2>
-
-            <p>{perfumeDetail.description}</p>
-            <p>Price: {perfumeDetail.price}</p>
-            <p>Volume: {perfumeDetail.quantity}</p>
-            {/* Add other details as needed */}
+            <div className="details">
+               <div className="title">
+                  <h2>{perfumeDetail.name}</h2>
+                  <button>В корзину</button>
+               </div>
+               <p className="detail-text-style">
+                  {perfumeDetail.gender_category} perfume
+               </p>
+               <p className="detail-text-price">
+                  1ml = KZT {perfumeDetail.price}
+               </p>
+               <div className="perfum-details">
+                  <p>
+                     Тип аромата: <span>{perfumeDetail.type_category}</span>
+                  </p>
+                  <p>
+                     Интенсивность:{" "}
+                     <span>{perfumeDetail.intensive_category}</span>
+                  </p>
+                  <p>
+                     Ноты: <span>{perfumeDetail.note_category}</span>
+                  </p>
+                  <p>
+                     Бренд: <span>{perfumeDetail.brand_category}</span>
+                  </p>
+                  {/* <p>Volume: {perfumeDetail.quantity}</p> */}
+               </div>
+               <div className="details-description">
+                  <p>Описание:</p>
+                  <p>{perfumeDetail.description}</p>
+               </div>
+               <div className="buy">
+                  <select
+                     onChange={(e) => setQuantity(parseInt(e.target.value))}
+                     className="volume"
+                  >
+                     <option value={0}>Объём</option>
+                     <option value={5}>5</option>
+                     <option value={10}>10</option>
+                     <option value={15}>15</option>
+                     <option value={20}>20</option>
+                     <option value={25}>25</option>
+                     <option value={30}>30</option>
+                     <option value={50}>50</option>
+                  </select>
+                  <button className="buy-button" onClick={handleBuyClick}>
+                     Купить
+                  </button>
+               </div>
+            </div>
          </div>
       </div>
    );
