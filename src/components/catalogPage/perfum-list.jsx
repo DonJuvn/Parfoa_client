@@ -76,7 +76,7 @@ const PerfumeList = () => {
                      onChange={(e) => setGenderFilter(parseInt(e.target.value))}
                      className="selector"
                   >
-                     <option value={null}>Пол</option>
+                     <option value={null}>Пол/Все</option>
                      <option value={1}>Мужские</option>
                      <option value={2}>Женские</option>
                      <option value={3}>Унисекс</option>
@@ -88,7 +88,7 @@ const PerfumeList = () => {
                      onChange={(e) => setTypeFilter(parseInt(e.target.value))}
                      className="selector"
                   >
-                     <option value={null}>Тип</option>
+                     <option value={null}>Тип/Все</option>
                      <option value={1}>Холодные</option>
                      <option value={2}>Сладкие</option>
                      <option value={3}>Кожаные</option>
@@ -104,7 +104,7 @@ const PerfumeList = () => {
                      }
                      className="selector"
                   >
-                     <option value={null}>Интенсивность</option>
+                     <option value={null}>Интенсивность/Все</option>
                      <option value={1}>1-15%</option>
                      <option value={2}>16-40%</option>
                      <option value={3}>41-65%</option>
@@ -116,7 +116,7 @@ const PerfumeList = () => {
                      onChange={(e) => setNotesFilter(parseInt(e.target.value))}
                      className="selector"
                   >
-                     <option value={null}>Ноты</option>
+                     <option value={null}>Ноты/Все</option>
                      <option value={1}>Перец</option>
                      <option value={2}>Цитрус</option>
                      <option value={3}>Мускус</option>
@@ -129,7 +129,7 @@ const PerfumeList = () => {
                      onChange={(e) => setBrandFilter(parseInt(e.target.value))}
                      className="selector"
                   >
-                     <option value={null}>Бренд</option>
+                     <option value={null}>Бренд/Все</option>
                      <option value={1}>Gucci</option>
                      <option value={2}>Hermes</option>
                      <option value={3}>Dior</option>
@@ -151,6 +151,7 @@ const PerfumeList = () => {
                   description={card.description}
                   price={card.price}
                   volume={card.quantity}
+                  link={`perfume/${card.id}`}
                />
             ))}
          </div>
