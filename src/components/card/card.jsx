@@ -1,5 +1,6 @@
-import React, { useState } from "react";import { Link } from "react-router-dom";
-const Card = ({ id, imagePath, title, description, price, volume }) => {
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+const Card = ({ id, imagePath, title, description, price, volume, link }) => {
    const [isFavorite, setIsFavorite] = useState(false);
 
    const toggleFavorite = () => {
@@ -8,7 +9,8 @@ const Card = ({ id, imagePath, title, description, price, volume }) => {
 
    return (
       <div id="card">
-         <Link to={`perfume/${id}`}>
+         {/* <Link to={`perfume/${id}`}> */}
+         <Link to={link}>
             <div className={`card ${isFavorite ? "favorite" : ""}`}>
                <img src={`http://localhost:8000/${imagePath}`} alt="" />
                <div className="container">
