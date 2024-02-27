@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
    const [isMenuOpen, setMenuOpen] = useState(false);
+   const [isCartOpen, setCartOpen] = useState(false);
    const [showOverlay, setShowOverlay] = useState(false);
 
    const handleButtonClick = () => {
       setMenuOpen(!isMenuOpen);
       setShowOverlay(!showOverlay);
+   };
+
+   const handleCartClick = () => {
+      setCartOpen(!isCartOpen);
+      // setShowOverlay(!showOverlay);
    };
 
    return (
@@ -27,8 +33,15 @@ const Navigation = () => {
                   </Link>
                </div>
                <div className="icons">
-                  <img src={process.env.PUBLIC_URL + `/search.svg`} alt="" />
-                  <img src={process.env.PUBLIC_URL + `/favorites.svg`} alt="" />
+                  <button className="search">
+                     <img src={process.env.PUBLIC_URL + `/search.svg`} alt="" />
+                  </button>
+                  <button className="favorites" onClick={handleCartClick}>
+                     <img
+                        src={process.env.PUBLIC_URL + `/favorites.svg`}
+                        alt=""
+                     />
+                  </button>
                </div>
             </div>
          </div>
@@ -103,6 +116,26 @@ const Navigation = () => {
                               alt=""
                            />
                         </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         )}
+         {isCartOpen && (
+            <div id="cart">
+               <div className="container">
+                  <div className="cart">
+                     <div className="open-close">
+                        <button onClick={handleCartClick}>
+                           <img
+                              src={process.env.PUBLIC_URL + `/close-cart.svg`}
+                              alt=""
+                           />
+                        </button>
+                     </div>
+                     <div className="cart-content">
+                        <h2>Your Cart</h2>
+                        {/* ... (the modified Cart component content) */}
                      </div>
                   </div>
                </div>
