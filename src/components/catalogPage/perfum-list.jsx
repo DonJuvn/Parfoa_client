@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import Card from "../card/card";
+import React, { useState, useEffect } from "react";
+import Card from "../card/card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -108,7 +109,7 @@ const PerfumeList = () => {
                      <option value={1}>1-15%</option>
                      <option value={2}>16-40%</option>
                      <option value={3}>41-65%</option>
-                     <option value={4}>66-90%%</option>
+                     <option value={4}>66-90%</option>
                   </select>
                </label>
                <label>
