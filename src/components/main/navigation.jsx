@@ -102,7 +102,7 @@ const Navigation = () => {
                         <a
                            onClick={handleButtonClick}
                            className="title-header"
-                           href="#catalog"
+                           href="#catalog-section"
                         >
                            Каталог
                         </a>
@@ -116,7 +116,7 @@ const Navigation = () => {
                         <a
                            onClick={handleButtonClick}
                            className="title-header"
-                           href="#contacts"
+                           href="#footer"
                         >
                            Контакты
                         </a>

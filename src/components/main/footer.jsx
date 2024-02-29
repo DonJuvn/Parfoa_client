@@ -1,4 +1,5 @@
-import React from "react";import { Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
    return (
@@ -6,9 +7,9 @@ const Footer = () => {
          <div className="container">
             <div className="footer">
                <div className="nav">
-                  <a href="#about">О нас</a>
+                  <a href="#top">О нас</a>
                   <a href="#blog">Блог</a>
-                  <a href="#contacts">Контакты</a>
+                  <a href="#footer">Контакты</a>
                </div>
                <div className="logo">
                   <img src={process.env.PUBLIC_URL + "/Logotype.svg"} alt="" />
