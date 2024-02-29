@@ -1,4 +1,5 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
 }
@@ -184,6 +185,9 @@ p {
    .video video {
       width: 150%;
       object-position: center;
+   }
+   .navigation button img {
+      width: 35px;
    }
 }
 
@@ -477,7 +481,7 @@ p {
 /* #full {
    justify-content: flex-start;
 } */
-#catalog {
+#catalog-section {
    margin-top: 6%;
 }
 .catalog {
@@ -485,14 +489,38 @@ p {
    flex-wrap: wrap;
    flex-direction: row;
 }
+#catalog-section .link {
+   text-decoration: none;
+   float: right;
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 22px;
+   color: #90710b;
+   margin: 50px 0;
+}
 @media screen and (max-width: 768px) {
+   #catalog-section {
+      margin-top: 30%;
+      width: 100vw;
+   }
+   #catalog-section a {
+      width: 50%;
+      /* margin-right: 5%; */
+      text-align: center;
+   }
    .card {
       width: 100%;
       aspect-ratio: 0.55;
       text-align: center;
+      min-height: 400px;
    }
-   #card {
-      width: 48%;
+   .card img {
+      margin: 25px auto;
+   }
+   #catalog-section #card {
+      /* width: 180px; */
+      width: 98%;
+      padding-right: 0;
    }
    .card h3 {
       font-size: 14px;
@@ -510,6 +538,14 @@ p {
       font-size: 8px;
       line-height: 10px;
    }
+   .catalog {
+      justify-content: flex-start;
+   }
+   #catalog-section .link {
+      font-size: 22px;
+      margin: 0;
+      text-align: right;
+   }
 }
 #title {
    font-size: 30px;
@@ -518,15 +554,7 @@ p {
    letter-spacing: 0.02em;
    color: #343434;
 }
-#catalog .link {
-   text-decoration: none;
-   float: right;
-   font-size: 30px;
-   font-weight: 400;
-   line-height: 22px;
-   color: #90710b;
-   margin: 50px 0;
-}
+
 #catalog .link:hover {
    color: rgb(194, 136, 29);
    transition: 0.1s;

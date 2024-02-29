@@ -42,7 +42,7 @@ const Catalog = () => {
    };
 
    return (
-      <div id="catalog">
+      <div id="catalog-section">
          <div className="container">
             <h1 id="title">Каталог</h1>
             <div className="catalog">
@@ -53,6 +53,7 @@ const Catalog = () => {
                         imagePath={card.image}
                         title={card.name}
                         description={card.description}
+                        gender={card.gender_category}
                         price={card.price}
                         volume={card.quantity}
                         link={`catalog/`}

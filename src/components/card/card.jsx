@@ -1,6 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-const Card = ({ id, imagePath, title, description, price, volume, link }) => {
+import React, { useState } from "react";import { Link } from "react-router-dom";
+const Card = ({
+   id,
+   imagePath,
+   title,
+   description,
+   gender,
+   price,
+   volume,
+   link,
+}) => {
    const [isFavorite, setIsFavorite] = useState(false);
 
    const toggleFavorite = () => {
@@ -15,7 +23,8 @@ const Card = ({ id, imagePath, title, description, price, volume, link }) => {
                <img src={`http://localhost:8000/${imagePath}`} alt="" />
                <div className="container">
                   <h3>{title}</h3>
-                  <p className="description">{description}</p>
+                  {/* <p className="description">{description}</p> */}
+                  <p className="description">{gender}</p>
                   <div className="card-details">
                      <p className="price">{price}</p>
                      <p className="volume">{volume}</p>

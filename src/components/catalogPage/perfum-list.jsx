@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "../card/card";
+import React, { useState, useEffect } from "react";import Card from "../card/card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -150,6 +149,7 @@ const PerfumeList = () => {
                   imagePath={card.image}
                   title={card.name}
                   description={card.description}
+                  gender={card.gender_category}
                   price={card.price}
                   volume={card.quantity}
                   link={`perfume/${card.id}`}
