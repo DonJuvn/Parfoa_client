@@ -181,6 +181,10 @@ p {
    .navigation .icons {
       width: 80px;
    }
+   .video video {
+      width: 150%;
+      object-position: center;
+   }
 }
 
 /* About Us section */
@@ -282,15 +286,14 @@ p {
    margin-right: 150px;
 }
 @media screen and (max-width: 768px) {
-   .infinite-slider {
-      height: 200px;
-   }
-
    .slider-image {
-      width: 30vw;
-      height: auto;
+      /* height: 15px; */
+      width: 20vw;
       object-fit: contain;
       margin-right: 50px;
+   }
+   .slider-wrapper {
+      padding: 15px;
    }
 }
 

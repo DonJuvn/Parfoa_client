@@ -18,6 +18,7 @@ const SliderContainer = styled.div`
    @media only screen and (max-width: 480px) {
       width: 100%;
       height: auto;
+      object-position: center;
    }
 `;
 
