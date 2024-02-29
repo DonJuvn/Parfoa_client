@@ -513,7 +513,7 @@ p {
       /* margin-right: 5%; */
       text-align: center;
    }
-   .card {
+   #catalog-section .card {
       width: 100%;
       aspect-ratio: 0.55;
       text-align: center;
@@ -527,10 +527,17 @@ p {
       width: 98%;
       padding-right: 0;
    }
+   #card {
+      width: 49%;
+      text-align: center;
+   }
+   .card {
+      width: 100%;
+   }
    .card h3 {
       font-size: 14px;
       line-height: 12px;
-      margin-top: 30px;
+      margin-top: 0px;
    }
    .card .description {
       font-size: 12px;
