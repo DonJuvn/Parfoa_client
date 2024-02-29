@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import styled, { keyframes, css } from "styled-components";
+import React, { useState, useEffect, useRef } from "react";import styled, { keyframes, css } from "styled-components";
 
 function shuffleArray(array) {
    for (let i = array.length - 1; i > 0; i--) {
@@ -39,6 +38,11 @@ const NewsContainer = styled.div`
    opacity: 0;
    transform: translateY(50px);
    animation: ${(props) => props.isVisible && slideInAnimationCSS};
+
+   @media only screen and (max-width: 480px) {
+      opacity: 1;
+      animation: none; /* Remove animation for screens smaller than 480px */
+   }
 `;
 
 const News = () => {
@@ -62,7 +66,12 @@ const News = () => {
    const handleScroll = () => {
       if (newsRef.current) {
          const rect = newsRef.current.getBoundingClientRect();
-         const isVisible = rect.top <= window.innerHeight * 0.6; // Adjust the buffer as needed
+         const isMobile = window.innerWidth <= 768;
+         // const isVisible = rect.top <= window.innerHeight * 0.6; // Adjust the buffer as needed
+         const threshold = isMobile ? 0.99 : 0.6; // Adjust the threshold for mobile
+
+         const isVisible = rect.top <= window.innerHeight * threshold;
+
          setIsVisible(isVisible);
       }
    };
