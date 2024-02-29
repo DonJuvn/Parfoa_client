@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import Card from "../card/card";
+import React, { useState, useEffect } from "react";
+import Card from "../card/card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -7,6 +8,7 @@ const PerfumeList = () => {
    const [typeFilter, setTypeFilter] = useState(null);
    const [notesFilter, setNotesFilter] = useState(null);
    const [brandFilter, setBrandFilter] = useState(null);
+   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
    useEffect(() => {
       // Fetch data from the API endpoint
@@ -17,6 +19,7 @@ const PerfumeList = () => {
             setFilteredPerfumes(data);
 
             console.log({ fetched: filteredPerfumes });
+            console.log({ perfumes: perfumes });
          })
          .catch((error) => console.error("Error fetching data:", error));
    }, []);
@@ -34,7 +37,13 @@ const PerfumeList = () => {
          filteredData = filteredData.filter(
             (item) => item.gender_category === genderFilter
          );
+         console.log({ perfumes: perfumes });
+         console.log({ filteredData: filteredData });
       }
+
+      // else if (genderFilter === null) {
+      //    setFilteredPerfumes(perfumes);
+      // }
 
       if (typeFilter !== null) {
          filteredData = filteredData.filter(
@@ -64,83 +73,97 @@ const PerfumeList = () => {
       perfumes,
    ]);
 
+   const toggleFilter = () => {
+      setIsFilterOpen(!isFilterOpen);
+   };
+
    return (
       <div className="container">
-         <div className="filter">
-            <h3>Фильтр</h3>
+         <h3 className="filter-h3" onClick={toggleFilter}>
+            Фильтр
+         </h3>
+         {isFilterOpen && (
+            <div className="filter">
+               <div className="selectors">
+                  <label>
+                     {/* Gender Category: */}
+                     <select
+                        onChange={(e) =>
+                           setGenderFilter(parseInt(e.target.value))
+                        }
+                        className="selector"
+                     >
+                        <option value={null}>Пол/Все</option>
+                        <option value={1}>Мужские</option>
+                        <option value={2}>Женские</option>
+                        <option value={3}>Унисекс</option>
+                     </select>
+                  </label>
 
-            <div className="selectors">
-               <label>
-                  {/* Gender Category: */}
-                  <select
-                     onChange={(e) => setGenderFilter(parseInt(e.target.value))}
-                     className="selector"
-                  >
-                     <option value={null}>Пол/Все</option>
-                     <option value={1}>Мужские</option>
-                     <option value={2}>Женские</option>
-                     <option value={3}>Унисекс</option>
-                  </select>
-               </label>
-
-               <label>
-                  <select
-                     onChange={(e) => setTypeFilter(parseInt(e.target.value))}
-                     className="selector"
-                  >
-                     <option value={null}>Тип/Все</option>
-                     <option value={1}>Холодные</option>
-                     <option value={2}>Сладкие</option>
-                     <option value={3}>Кожаные</option>
-                     <option value={4}>Древесные</option>
-                     <option value={5}>Цитрусовые</option>
-                     <option value={6}>Цветочные</option>
-                  </select>
-               </label>
-               <label>
-                  <select
-                     onChange={(e) =>
-                        setIntensiveFilter(parseInt(e.target.value))
-                     }
-                     className="selector"
-                  >
-                     <option value={null}>Интенсивность/Все</option>
-                     <option value={1}>1-15%</option>
-                     <option value={2}>16-40%</option>
-                     <option value={3}>41-65%</option>
-                     <option value={4}>66-90%</option>
-                  </select>
-               </label>
-               <label>
-                  <select
-                     onChange={(e) => setNotesFilter(parseInt(e.target.value))}
-                     className="selector"
-                  >
-                     <option value={null}>Ноты/Все</option>
-                     <option value={1}>Перец</option>
-                     <option value={2}>Цитрус</option>
-                     <option value={3}>Мускус</option>
-                     <option value={4}>Древесные</option>
-                     <option value={5}>Цветочные</option>
-                  </select>
-               </label>
-               <label>
-                  <select
-                     onChange={(e) => setBrandFilter(parseInt(e.target.value))}
-                     className="selector"
-                  >
-                     <option value={null}>Бренд/Все</option>
-                     <option value={1}>Gucci</option>
-                     <option value={2}>Hermes</option>
-                     <option value={3}>Dior</option>
-                     <option value={4}>Tiziana Terenzi</option>
-                     <option value={5}>Armani</option>
-                     <option value={6}>Hacivat</option>
-                  </select>
-               </label>
+                  <label>
+                     <select
+                        onChange={(e) =>
+                           setTypeFilter(parseInt(e.target.value))
+                        }
+                        className="selector"
+                     >
+                        <option value={null}>Тип/Все</option>
+                        <option value={1}>Холодные</option>
+                        <option value={2}>Сладкие</option>
+                        <option value={3}>Кожаные</option>
+                        <option value={4}>Древесные</option>
+                        <option value={5}>Цитрусовые</option>
+                        <option value={6}>Цветочные</option>
+                     </select>
+                  </label>
+                  <label>
+                     <select
+                        onChange={(e) =>
+                           setIntensiveFilter(parseInt(e.target.value))
+                        }
+                        className="selector"
+                     >
+                        <option value={null}>Интенсивность/Все</option>
+                        <option value={1}>1-15%</option>
+                        <option value={2}>16-40%</option>
+                        <option value={3}>41-65%</option>
+                        <option value={4}>66-90%</option>
+                     </select>
+                  </label>
+                  <label>
+                     <select
+                        onChange={(e) =>
+                           setNotesFilter(parseInt(e.target.value))
+                        }
+                        className="selector"
+                     >
+                        <option value={null}>Ноты/Все</option>
+                        <option value={1}>Перец</option>
+                        <option value={2}>Цитрус</option>
+                        <option value={3}>Мускус</option>
+                        <option value={4}>Древесные</option>
+                        <option value={5}>Цветочные</option>
+                     </select>
+                  </label>
+                  <label>
+                     <select
+                        onChange={(e) =>
+                           setBrandFilter(parseInt(e.target.value))
+                        }
+                        className="selector"
+                     >
+                        <option value={null}>Бренд/Все</option>
+                        <option value={1}>Gucci</option>
+                        <option value={2}>Hermes</option>
+                        <option value={3}>Dior</option>
+                        <option value={4}>Tiziana Terenzi</option>
+                        <option value={5}>Armani</option>
+                        <option value={6}>Hacivat</option>
+                     </select>
+                  </label>
+               </div>
             </div>
-         </div>
-
+         )}
          <div className="catalog">
             {filteredPerfumes.map((card, index) => (
                <Card
