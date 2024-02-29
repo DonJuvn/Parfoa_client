@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
 }
@@ -106,6 +105,7 @@ p {
 .menu .logotype {
    margin: 15% 0 0;
 }
+
 .menu button {
    background-color: transparent;
    border: none;
@@ -167,6 +167,19 @@ p {
       height: auto;
       object-fit: contain;
       margin-right: 50px;
+   }
+
+   .logotype img {
+      width: 150px;
+      height: auto;
+   }
+   .navigation button {
+      width: 80px;
+      text-align: left;
+      padding: 0;
+   }
+   .navigation .icons {
+      width: 80px;
    }
 }
 
