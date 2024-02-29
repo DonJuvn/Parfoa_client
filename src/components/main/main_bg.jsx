@@ -14,6 +14,11 @@ const SliderContainer = styled.div`
    transition: background-image 1s ease-in-out;
    margin: auto;
    border-radius: 0 50px 0 50px;
+
+   @media only screen and (max-width: 480px) {
+      width: 100%;
+      height: auto;
+   }
 `;
 
 const Main = () => {
