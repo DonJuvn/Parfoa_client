@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import {
+import React, { useState, useEffect } from "react";
+import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -86,7 +87,7 @@ const MainPage = () => {
    return (
       <div>
          <Main />
-         <AboutUs />
+         {/* <AboutUs /> */}
          <InfiniteSlider data={brands} />
          <News />
          <Catalog />
