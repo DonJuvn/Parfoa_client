@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { Link } from "react-router-dom";
 
 const Navigation = () => {
    const [isMenuOpen, setMenuOpen] = useState(false);
@@ -29,7 +28,7 @@ const Navigation = () => {
 
    const handleCartClick = () => {
       setCartOpen(!isCartOpen);
-      // setShowOverlay(!showOverlay);
+      setShowOverlay(!showOverlay);
    };
 
    const handleDeleteItem = (index) => {
@@ -39,10 +38,18 @@ const Navigation = () => {
       localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
    };
 
+   const handleOverlayClick = () => {
+      setMenuOpen(false);
+      setCartOpen(false);
+      setShowOverlay(false);
+   };
+
    return (
       <div id="navigation">
          <div className="container">
-            {showOverlay && <div className="overlay"></div>}
+            {showOverlay && (
+               <div className="overlay" onClick={handleOverlayClick}></div>
+            )}
             <div className="navigation">
                <button onClick={handleButtonClick}>
                   <img src={process.env.PUBLIC_URL + `/burger.svg`} alt="" />
@@ -60,10 +67,7 @@ const Navigation = () => {
                      <img src={process.env.PUBLIC_URL + `/search.svg`} alt="" />
                   </button>
                   <button className="favorites" onClick={handleCartClick}>
-                     <img
-                        src={process.env.PUBLIC_URL + `/cart.svg`}
-                        alt=""
-                     />
+                     <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" />
                   </button>
                </div>
             </div>
