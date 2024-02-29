@@ -512,6 +512,11 @@ p {
    display: flex;
    flex-direction: column;
 }
+.blog .blog-img {
+   height: 80vh;
+   width: 50vw;
+   object-fit: cover;
+}
 .link-to-blog {
    border: 1px solid #343434;
    border-radius: 5px;
