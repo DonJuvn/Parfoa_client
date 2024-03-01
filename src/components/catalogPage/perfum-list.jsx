@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import Card from "../card/card";
+import React, { useState, useEffect } from "react";
+import Card from "../card/card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -204,7 +205,9 @@ const PerfumeList = () => {
                         <option value={6}>Hacivat</option>
                      </select>
                   </label>
-                  <button className='reset-filters' onClick={resetFilters}>Сбросить фильтры</button>
+                  <button className="reset-filters" onClick={resetFilters}>
+                     Сбросить фильтры
+                  </button>
                </div>
             </div>
          )}
