@@ -1,4 +1,5 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
 }
@@ -767,6 +768,31 @@ p {
    }
 }
 /* filter */
+.search-icon {
+   display: flex;
+   width: fit-content;
+   float: right;
+   align-items: center;
+   text-align: right;
+}
+.search-icon img {
+   cursor: pointer;
+   transition: 0.3s;
+   float: right;
+   width: 40px;
+}
+.search-icon img:hover {
+   transform: scale(1.1);
+}
+input {
+   margin: auto;
+   display: flex;
+   padding: 5px 25px;
+   border: 0.3px solid rgba(0, 0, 0, 0.3);
+   width: 450px;
+   font-family: "EB Garamond", serif;
+   transition: 0.5s;
+}
 .filter {
    border: 1px solid #e5e7eb;
    display: flex;
@@ -852,6 +878,11 @@ select {
    option {
       font-size: 18px;
       font-family: "EB Garamond", serif;
+   }
+   input {
+      margin: 0;
+      padding: 5px 10px;
+      width: 60%;
    }
 }
 

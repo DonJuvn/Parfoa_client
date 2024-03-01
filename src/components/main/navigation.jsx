@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { Link } from "react-router-dom";
 
 const Navigation = () => {
    const [isMenuOpen, setMenuOpen] = useState(false);
@@ -64,9 +63,14 @@ const Navigation = () => {
                   </Link>
                </div>
                <div className="icons">
-                  <button className="search">
-                     <img src={process.env.PUBLIC_URL + `/search.svg`} alt="" />
-                  </button>
+                  <Link to="/catalog">
+                     <button className="search">
+                        <img
+                           src={process.env.PUBLIC_URL + `/search.svg`}
+                           alt=""
+                        />
+                     </button>
+                  </Link>
                   <button className="favorites" onClick={handleCartClick}>
                      <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" />
                   </button>

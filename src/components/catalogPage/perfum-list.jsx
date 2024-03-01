@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "../card/card";
+import React, { useState, useEffect } from "react";import Card from "../card/card";
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
@@ -10,6 +9,7 @@ const PerfumeList = () => {
    const [brandFilter, setBrandFilter] = useState(null);
    const [isFilterOpen, setIsFilterOpen] = useState(false);
    const [searchQuery, setSearchQuery] = useState("");
+   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
    useEffect(() => {
       // Fetch data from the API endpoint
@@ -85,14 +85,34 @@ const PerfumeList = () => {
       setIsFilterOpen(!isFilterOpen);
    };
 
+   const toggleSearch = () => {
+      setIsSearchOpen(!isSearchOpen);
+   };
+
    return (
       <div className="container">
-         <input
+         {/* <input
             type="text"
             placeholder="Искать..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-         />
+         /> */}
+         <div className="search-icon">
+            {isSearchOpen && (
+               <input
+                  type="text"
+                  placeholder="Искать..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+               />
+            )}
+            <img
+               onClick={toggleSearch}
+               src={process.env.PUBLIC_URL + `/search.svg`}
+               alt=""
+            />
+         </div>
+
          <h3 className="filter-h3" onClick={toggleFilter}>
             Фильтр
          </h3>
