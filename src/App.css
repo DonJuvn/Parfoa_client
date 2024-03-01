@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
 }
@@ -893,6 +892,9 @@ select {
       margin: 0;
       padding: 5px 10px;
       width: 60%;
+   }
+   .reset-filters {
+      margin-left: 0;
    }
 }
 
