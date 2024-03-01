@@ -934,14 +934,14 @@ a {
    font-size: 40px;
 }
 .detail-page .detail-text-style {
-   font-style: 20px;
+   font-size: 20px;
    font-weight: 400;
    line-height: 22.5px;
    color: rgba(52, 52, 52, 0.5);
    margin-top: 20px;
 }
 .detail-page .detail-text-price {
-   font-style: 30px;
+   font-size: 30px;
    font-weight: 700;
    line-height: 33.75px;
    margin: 4.63vh 0 6.5vh;
@@ -1001,6 +1001,59 @@ a {
    background-color: #000;
    font-size: 32px;
    border-radius: 15px;
+}
+@media screen and (max-width: 768px) {
+   .detail-page {
+      flex-direction: column;
+   }
+   .detail-page img {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 5vh;
+   }
+   .detail-page .details {
+      width: 100%;
+   }
+   .detail-page .title h2 {
+      font-size: 44px;
+   }
+   .detail-page .detail-text-style {
+      font-size: 30px;
+   }
+   .detail-page .detail-text-price {
+      font-size: 26px;
+      margin: 4.63vh 0 4vh;
+   }
+   .detail-page .perfum-details p {
+      font-size: 24px;
+      text-align: left;
+      min-width: 45%;
+      max-width: 90%;
+      flex-wrap: wrap;
+   }
+   .details-description p {
+      margin-top: 0.5vh;
+   }
+   .perfum-details {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: start;
+   }
+   .buy {
+      width: 100%;
+      margin-top: 5vh;
+      align-items: center;
+   }
+   .buy .volume {
+      width: 29%;
+      margin: auto;
+   }
+   .buy-button {
+      width: 69%;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 25.75px;
+   }
 }
 
 #cart {
