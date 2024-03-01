@@ -9,6 +9,7 @@ const PerfumeList = () => {
    const [notesFilter, setNotesFilter] = useState(null);
    const [brandFilter, setBrandFilter] = useState(null);
    const [isFilterOpen, setIsFilterOpen] = useState(false);
+   const [searchQuery, setSearchQuery] = useState("");
 
    useEffect(() => {
       // Fetch data from the API endpoint
@@ -63,6 +64,12 @@ const PerfumeList = () => {
          );
       }
 
+      if (searchQuery !== "") {
+         filteredData = filteredData.filter((item) =>
+            item.name.toLowerCase().includes(searchQuery.toLowerCase())
+         );
+      }
+
       setFilteredPerfumes(filteredData);
    }, [
       intensiveFilter,
@@ -71,6 +78,7 @@ const PerfumeList = () => {
       notesFilter,
       brandFilter,
       perfumes,
+      searchQuery,
    ]);
 
    const toggleFilter = () => {
@@ -79,6 +87,12 @@ const PerfumeList = () => {
 
    return (
       <div className="container">
+         <input
+            type="text"
+            placeholder="Искать..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+         />
          <h3 className="filter-h3" onClick={toggleFilter}>
             Фильтр
          </h3>
