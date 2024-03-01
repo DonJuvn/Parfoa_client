@@ -819,6 +819,16 @@ input {
    margin: 0;
    float: right;
 }
+.reset-filters {
+   background-color: #fff;
+   border: none;
+   font-family: "EB Garamond", serif;
+   padding: 5px 10px;
+   margin-left: 25px;
+   color: #90710b;
+   font-size: 18px;
+   cursor: pointer;
+}
 .type {
    display: flex;
    flex-direction: row;

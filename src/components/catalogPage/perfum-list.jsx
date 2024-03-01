@@ -89,6 +89,15 @@ const PerfumeList = () => {
       setIsSearchOpen(!isSearchOpen);
    };
 
+   const resetFilters = () => {
+      setIntensiveFilter(null);
+      setGenderFilter(null);
+      setTypeFilter(null);
+      setNotesFilter(null);
+      setBrandFilter(null);
+      setSearchQuery("");
+   };
+
    return (
       <div className="container">
          {/* <input
@@ -127,7 +136,7 @@ const PerfumeList = () => {
                         }
                         className="selector"
                      >
-                        <option value={null}>Пол/Все</option>
+                        <option value={null}>Пол</option>
                         <option value={1}>Мужские</option>
                         <option value={2}>Женские</option>
                         <option value={3}>Унисекс</option>
@@ -141,7 +150,7 @@ const PerfumeList = () => {
                         }
                         className="selector"
                      >
-                        <option value={null}>Тип/Все</option>
+                        <option value={null}>Тип</option>
                         <option value={1}>Холодные</option>
                         <option value={2}>Сладкие</option>
                         <option value={3}>Кожаные</option>
@@ -157,7 +166,7 @@ const PerfumeList = () => {
                         }
                         className="selector"
                      >
-                        <option value={null}>Интенсивность/Все</option>
+                        <option value={null}>Интенсивность</option>
                         <option value={1}>1-15%</option>
                         <option value={2}>16-40%</option>
                         <option value={3}>41-65%</option>
@@ -171,7 +180,7 @@ const PerfumeList = () => {
                         }
                         className="selector"
                      >
-                        <option value={null}>Ноты/Все</option>
+                        <option value={null}>Ноты</option>
                         <option value={1}>Перец</option>
                         <option value={2}>Цитрус</option>
                         <option value={3}>Мускус</option>
@@ -186,7 +195,7 @@ const PerfumeList = () => {
                         }
                         className="selector"
                      >
-                        <option value={null}>Бренд/Все</option>
+                        <option value={null}>Бренд</option>
                         <option value={1}>Gucci</option>
                         <option value={2}>Hermes</option>
                         <option value={3}>Dior</option>
@@ -195,6 +204,7 @@ const PerfumeList = () => {
                         <option value={6}>Hacivat</option>
                      </select>
                   </label>
+                  <button className='reset-filters' onClick={resetFilters}>Сбросить фильтры</button>
                </div>
             </div>
          )}
