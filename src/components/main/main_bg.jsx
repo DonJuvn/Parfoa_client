@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const images = ["url(about.svg)", "url(test2.jpg)", "url(test3.jpg)"];
 
@@ -22,6 +23,14 @@ const SliderContainer = styled.div`
    }
 `;
 
+const Video = styled.video`
+   width: 100%; /* Set the width to 100% of the parent container */
+   max-width: 100%; /* Ensure the video doesn't exceed its natural size */
+   height: auto; /* Maintain the aspect ratio */
+   display: block; /* Remove extra space below the inline element */
+   margin: 0 auto; /* Center the video horizontally */
+`;
+
 const Main = () => {
    // const [index, setIndex] = useState(0);
 
@@ -35,13 +44,13 @@ const Main = () => {
 
    return (
       <SliderContainer>
-         <video
+         <Video
             className="video"
             autoPlay
             loop
             controls
             src="a-la-rose2.mp4"
-         ></video>
+         ></Video>
       </SliderContainer>
    );
 };

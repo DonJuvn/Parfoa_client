@@ -1,4 +1,5 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
 }
@@ -252,27 +253,19 @@ p {
 .slide-in-animation:nth-child(even) {
    animation: slide-in-left 1.4s ease-out;
 }
-
-/* .first {
-   float: left;
-   width: fit-content;
-}
-.second {
-   margin-left: 25%;
-   width: fit-content;
-}
-.third {
-   margin: auto;
-   width: fit-content;
-}
-.fourth {
-   margin-left: 75%;
-   width: fit-content;
-}
-.fifth {
-   width: 100%;
+.about-title {
+   font-size: 24px;
    text-align: center;
-} */
+}
+.about-title2 {
+   font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+   .about-title {
+      font-size: 18px;
+   }
+}
 /* Infinite_slider */
 .infinite-slider {
    margin-top: 6%;
@@ -731,7 +724,7 @@ p {
       justify-content: space-between;
    }
    .nav a {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 18px;
       margin-right: 0;
    }
@@ -742,7 +735,7 @@ p {
       text-align: right;
    }
    .sm p {
-      font-size: 16px;
+      font-size: 12px;
       line-height: 18px;
    }
    .buttons {
@@ -753,14 +746,14 @@ p {
       width: 22px;
    }
    .logo {
-      width: 150px;
+      width: 120px;
    }
    .logo img {
       width: 100%;
    }
    .logo p {
       margin-top: 20px;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 15.75px;
       font-weight: 400;
       color: rgba(52, 52, 52, 0.5);
