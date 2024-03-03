@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
 import { baseUrl } from "./baseUrl";
 import { baseLocalUrl } from "./baseUrl";
 
@@ -48,6 +47,8 @@ const CardDetail = () => {
          localStorage.setItem("cartItems", JSON.stringify(updatedItems));
 
          alert("Добавлено в корзину!");
+
+         window.location.reload();
       } else {
          alert("Выберите объем перед добавлением в корзину");
       }
