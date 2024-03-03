@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -94,7 +93,14 @@ const Navigation = () => {
 
       console.log({ orderData: orderData });
       console.log({ url: baseUrl + `/api/orders/` });
+      setCartItems([]);
+      localStorage.removeItem("cartItems");
    }
+
+   const DeleteItems = () => {
+      setCartItems([]);
+      localStorage.removeItem("cartItems");
+   };
 
    return (
       <div id="navigation">
@@ -292,6 +298,13 @@ const Navigation = () => {
 
                         <button className="buy-button" onClick={handleBuy}>
                            Купить
+                        </button>
+                        <button
+                           className="buy-button"
+                           id="delete"
+                           onClick={DeleteItems}
+                        >
+                           Очистить корзину
                         </button>
                      </div>
                   </div>
