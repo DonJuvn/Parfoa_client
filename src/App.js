@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
+import React, { useState, useEffect } from "react";import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -19,7 +18,6 @@ import CardDetail from "./components/card-detail";
 import "./App.css";
 import Card from "./components/card/card";
 import AdminPage from "./components/admin/admin";
-import SplashScreen from "./components/main/splash";
 
 const App = () => {
    const brands = [
@@ -57,8 +55,7 @@ const App = () => {
          <div>
             <Navigation />
             <Routes>
-               <Route path="/" element={<SplashScreen />} />
-               <Route path="/main" element={<MainPage />} />
+               <Route path="/" element={<MainPage />} />
                <Route path="/catalog" element={<CatalogPage />} />
                <Route
                   path="/catalog/perfume/:id"
