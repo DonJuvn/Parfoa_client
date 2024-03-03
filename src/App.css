@@ -1,6 +1,8 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
+   min-height: 100vh;
 }
 p {
    display: block;
@@ -640,6 +642,7 @@ p {
 /* footer */
 #footer {
    margin-top: 1%;
+   bottom: 0;
 }
 .footer {
    display: flex;
@@ -997,6 +1000,10 @@ a {
    transition: 0.3s;
    align-items: center;
 }
+#delete {
+   background-color: #90710b;
+   border: none;
+}
 /* .buy-button img {
    width: 40px;
    aspect-ratio: 1;
@@ -1197,6 +1204,38 @@ a {
 }
 
 /* admin */
+#admin {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   justify-content: center;
+   height: 55vh;
+}
+#admin label {
+   margin: auto auto 0;
+   font-size: 30px;
+   width: 80%;
+   text-align: center;
+}
+#admin input {
+   margin: 30px auto;
+   font-size: 24px;
+   width: 80%;
+   max-width: 450px;
+}
+#admin .admin-submit {
+   width: 100%;
+   max-width: 400px;
+   margin: auto;
+   background-color: #90710b;
+   color: #fff;
+   border: 0.3px solid #fff;
+   height: 60px;
+   font-family: "EB Garamond", sans-serif;
+   font-size: 30px;
+   /* margin-bottom: 50vh; */
+   border-radius: 10px;
+}
 td {
    width: 400px;
    text-align: center;
@@ -1213,5 +1252,11 @@ thead {
       width: 150px;
       padding: 5px;
       font-size: 18px;
+   }
+   thead {
+      font-size: 18px;
+   }
+   #admin {
+      height: 70vh;
    }
 }

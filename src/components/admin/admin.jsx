@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";const AdminPage = () => {
+import React, { useState, useEffect } from "react";
+const AdminPage = () => {
    const [password, setPassword] = useState("");
    const [isAuthenticated, setIsAuthenticated] = useState(false);
    const [orders, setOrders] = useState([]);
@@ -7,7 +8,6 @@ import React, { useState, useEffect } from "react";const AdminPage = () => {
       if (isAuthenticated) {
          const fetchOrders = async () => {
             try {
-               // Replace 'https://parfua.pythonanywhere.com/api/orders/' with your actual API endpoint
                const response = await fetch(
                   "https://parfua.pythonanywhere.com/api/orders/"
                );
@@ -25,25 +25,26 @@ import React, { useState, useEffect } from "react";const AdminPage = () => {
 
    const handleDeliveryStatusChange = async (orderId, isDelivered) => {
       try {
-         // Replace 'https://parfua.pythonanywhere.com/api/update-delivery/' with your actual API endpoint
          const response = await fetch(
             `https://parfua.pythonanywhere.com/api/orders/${orderId}`,
+            // `https://parfua.pythonanywhere.com/api/orders`,
             {
-               method: "POST",
+               method: "PUT",
                headers: {
                   "Content-Type": "application/json",
                },
                body: JSON.stringify({
+                  id: orderId,
                   is_delivered: isDelivered,
                }),
             }
          );
 
          if (response.ok) {
-            console.log(`Order ID ${orderId} - Delivered: ${isDelivered}`);
+            console.log(`Order ID ${orderId} - is_delievered: ${isDelivered}`);
          } else {
             console.error(
-               "Error updating delivery status:",
+               `Error updating delivery status: Order ID ${orderId} - is_delievered: ${isDelivered}`,
                response.statusText
             );
          }
@@ -53,7 +54,6 @@ import React, { useState, useEffect } from "react";const AdminPage = () => {
    };
 
    const handlePasswordSubmit = () => {
-      // Replace 'your-expected-password' with the correct password
       if (password === "1234") {
          setIsAuthenticated(true);
       } else {
@@ -65,28 +65,28 @@ import React, { useState, useEffect } from "react";const AdminPage = () => {
       <div className="container">
          <div>
             {!isAuthenticated ? (
-               <div>
+               <div id="admin">
                   <label>
-                     Password:
+                     Пароль:
                      <input
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                      />
                   </label>
-                  <button onClick={handlePasswordSubmit}>Submit</button>
+                  <button className='admin-submit'onClick={handlePasswordSubmit}>Войти</button>
                </div>
             ) : (
                <div>
-                  <h2>Admin Page</h2>
+                  <h2>Страница администратора Parfoa</h2>
                   <table>
                      <thead>
                         <tr>
                            <th>ID</th>
-                           <th>Name</th>
-                           <th>Address</th>
-                           <th>Total Sum</th>
-                           <th>Is Delivered</th>
+                           <th>Имя</th>
+                           <th>Адрес</th>
+                           <th>Итоговая сумма</th>
+                           <th>Отправлено</th>
                         </tr>
                      </thead>
                      <tbody>

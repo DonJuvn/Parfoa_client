@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react";import { Link } from "react-router-dom";
 
 const Footer = () => {
    return (
@@ -7,7 +6,7 @@ const Footer = () => {
          <div className="container">
             <div className="footer">
                <div className="nav">
-                  <a href="#top">О нас</a>
+                  <a href="#about-us">О нас</a>
                   <a href="#blog">Блог</a>
                   <a href="#footer">Контакты</a>
                </div>
