@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";import Card from "./card/card";
+import React, { useState, useEffect } from "react";
+import Card from "./card/card";
 import Filter from "./filter";
+import { baseUrl } from "./baseUrl";
 
 const Catalog = () => {
    const [cardsData, setCardsData] = useState([]);
    const [filteredData, setFilteredData] = useState([]);
    const [resetFilter, setResetFilter] = useState(false);
 
-   const apiUrl = "http://127.0.0.1:8000/api/shop/perfums/";
+   // const apiUrl = "http://127.0.0.1:8000/api/shop/perfums/";
+   // const apiUrl = baseUrl + `/api/shop/perfums/`;
+   const apiUrl = baseLocalUrl + `/api/shop/perfums/`;
 
    useEffect(() => {
       const fetchData = async () => {

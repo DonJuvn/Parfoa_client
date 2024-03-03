@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
+import { baseUrl } from "./baseUrl";
+import { baseLocalUrl } from "./baseUrl";
 
 const CardDetail = () => {
    const { id } = useParams();
    const [perfumeDetail, setPerfumeDetail] = useState(null);
    const [quantity, setQuantity] = useState(null);
 
-   const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/${id}/`;
+   // const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/${id}/`;
+   // const apiUrl = baseUrl + `/api/shop/perfums/${id}/`;
+   const apiUrl = baseLocalUrl + `/api/shop/perfums/${id}/`;
 
    useEffect(() => {
       // Fetch the details of the perfume using the ID

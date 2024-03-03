@@ -12,9 +12,13 @@ const PerfumeList = () => {
    const [searchQuery, setSearchQuery] = useState("");
    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+   const apiUrl = baseLocalUrl + `/api/shop/perfums/`;
+   // const apiUrl = baseUrl + `/api/shop/perfums/`;
+
    useEffect(() => {
       // Fetch data from the API endpoint
-      fetch("http://127.0.0.1:8000/api/shop/perfums/")
+      // fetch("http://127.0.0.1:8000/api/shop/perfums/")
+      fetch(apiUrl)
          .then((response) => response.json())
          .then((data) => {
             setPerfumes(data);
