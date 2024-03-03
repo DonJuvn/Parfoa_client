@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-const AdminPage = () => {
+import React, { useState, useEffect } from "react";const AdminPage = () => {
    const [password, setPassword] = useState("");
    const [isAuthenticated, setIsAuthenticated] = useState(false);
    const [orders, setOrders] = useState([]);
@@ -24,6 +23,10 @@ const AdminPage = () => {
    }, [isAuthenticated]);
 
    const handleDeliveryStatusChange = async (orderId, isDelivered) => {
+      console.log(
+         `Error updating delivery status: Order ID ${orderId} - is_delievered: ${isDelivered}`
+      );
+      console.log({ id: orderId, is_delivered: isDelivered });
       try {
          const response = await fetch(
             `https://parfua.pythonanywhere.com/api/orders/${orderId}`,
@@ -38,6 +41,10 @@ const AdminPage = () => {
                   is_delivered: isDelivered,
                }),
             }
+         );
+
+         console.log(
+            `Error updating delivery status: Order ID ${orderId} - is_delievered: ${isDelivered}`
          );
 
          if (response.ok) {
@@ -69,12 +76,18 @@ const AdminPage = () => {
                   <label>
                      Пароль:
                      <input
+                     className="admin-password"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                      />
                   </label>
-                  <button className='admin-submit'onClick={handlePasswordSubmit}>Войти</button>
+                  <button
+                     className="admin-submit"
+                     onClick={handlePasswordSubmit}
+                  >
+                     Войти
+                  </button>
                </div>
             ) : (
                <div>

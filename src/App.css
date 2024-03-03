@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -778,7 +777,7 @@ p {
 .search-icon img:hover {
    transform: scale(1.1);
 }
-input {
+.admin-password {
    margin: auto;
    display: flex;
    padding: 5px 25px;
