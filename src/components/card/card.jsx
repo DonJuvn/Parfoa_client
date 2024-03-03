@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";import { Link } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 const Card = ({
    id,
@@ -25,7 +24,8 @@ const Card = ({
          <Link to={link}>
             <div className={`card ${isFavorite ? "favorite" : ""}`}>
                {/* <img src={`http://localhost:8000/${imagePath}`} alt="" /> */}
-               <img src={apiUrl + `/${imagePath}`} alt="" />
+               {/* <img src={apiUrl + `media/perfume_images/${imagePath}`} alt="" /> */}
+               <img src={imagePath} alt="" />
                <div className="container">
                   <h3>{title}</h3>
                   {/* <p className="description">{description}</p> */}
