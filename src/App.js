@@ -61,7 +61,7 @@ const App = () => {
                   path="/catalog/perfume/:id"
                   element={<CardDetailPage />}
                />
-               <Route path="/admin" element={AdminPage} />
+               <Route path="/admin" element={<AdminPage />} />
             </Routes>
             <Footer />
          </div>

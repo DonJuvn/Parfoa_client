@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
-import { saveOrderDetailsToAdmin } from "../admin/adminUtils";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
 const Navigation = () => {
@@ -72,7 +72,6 @@ const Navigation = () => {
       };
 
       // Assuming there's a function to save data to admin page
-      // saveOrderDetailsToAdmin(orderData);
       // console.log({ orderData: orderData });
 
       try {
