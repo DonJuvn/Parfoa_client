@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import {
+import React, { useState, useEffect } from "react";
+import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -17,6 +18,7 @@ import Detail from "./components/detail";
 import CardDetail from "./components/card-detail";
 import "./App.css";
 import Card from "./components/card/card";
+import AdminPage from "./components/admin/admin";
 
 const App = () => {
    const brands = [
@@ -60,6 +62,7 @@ const App = () => {
                   path="/catalog/perfume/:id"
                   element={<CardDetailPage />}
                />
+               <Route path="/admin" element={AdminPage} />
             </Routes>
             <Footer />
          </div>

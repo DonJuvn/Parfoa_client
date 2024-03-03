@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { saveOrderDetailsToAdmin } from "../admin/adminUtils";
+import { baseUrl, baseLocalUrl } from "../baseUrl";
 
 const Navigation = () => {
    const [isMenuOpen, setMenuOpen] = useState(false);
    const [isCartOpen, setCartOpen] = useState(false);
    const [showOverlay, setShowOverlay] = useState(false);
    const [cartItems, setCartItems] = useState([]);
+
+   const [name, setName] = useState("");
+   const [address, setAddress] = useState("");
+
+   const navigate = useNavigate();
 
    useEffect(() => {
       const cartItemsString = localStorage.getItem("cartItems");
@@ -45,11 +52,49 @@ const Navigation = () => {
       setShowOverlay(false);
    };
 
-   const handleBuy = () => {
-      //    here i need it to ask user's address, name and
-      //    redirect to https://pay.kaspi.kz/pay/s8w3za6b
-      //    after this save {totalSum}, client's address, name to somewhere to display it on admin page
-   };
+   async function handleBuy() {
+      // Validate input fields before proceeding
+      if (!name || !address) {
+         alert("Напишите свое имя и адрес.");
+         return;
+      }
+
+      // Redirect to the payment page
+      window.location.href = `https://pay.kaspi.kz/pay/s8w3za6b`;
+      // navigate("https://pay.kaspi.kz/pay/s8w3za6b");
+
+      // Save data for display on the admin page
+      const orderData = {
+         totalSum,
+         name,
+         address,
+         cartItems,
+      };
+
+      // Assuming there's a function to save data to admin page
+      // saveOrderDetailsToAdmin(orderData);
+      // console.log({ orderData: orderData });
+
+      try {
+         // Assuming there's an API endpoint to save data to the admin page
+         const response = await fetch(baseLocalUrl, {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData),
+         });
+
+         if (!response.ok) {
+            throw new Error("Failed to save order data to the server.");
+         }
+      } catch (error) {
+         console.error("Error saving order data to the server:", error.message);
+         // Assuming there's a function to handle API errors
+      }
+
+      console.log({ orderData: orderData });
+   }
 
    return (
       <div id="navigation">
@@ -212,10 +257,39 @@ const Navigation = () => {
                               ))}
                            </div>
                         )}
+
+                        <div>
+                           <h2>Checkout Page</h2>
+                           <form>
+                              <label>
+                                 Name:
+                                 <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                 />
+                              </label>
+                              <br />
+                              <label>
+                                 Address:
+                                 <input
+                                    type="text"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                 />
+                              </label>
+                              <br />
+                              {/* <button type="button" onClick={handleBuy}>
+                                 Proceed to Payment
+                              </button> */}
+                           </form>
+                        </div>
+
                         <div className="sum">
                            <p className="sum-child1">Общий счет:</p>
                            <p className="sum-child2"> KZT {totalSum} </p>
                         </div>
+
                         <button className="buy-button" onClick={handleBuy}>
                            Купить
                         </button>
