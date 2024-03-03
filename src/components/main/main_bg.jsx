@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const images = ["url(about.svg)", "url(test2.jpg)", "url(test3.jpg)"];
+// const images = ["url(about.svg)", "url(test2.jpg)", "url(test3.jpg)"];
 
 const SliderContainer = styled.div`
    position: block;
@@ -48,7 +48,8 @@ const Main = () => {
             className="video"
             autoPlay
             loop
-            controls
+            // controls
+            playsInline
             src="a-la-rose2.mp4"
          ></Video>
       </SliderContainer>
