@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
    const [isMenuOpen, setMenuOpen] = useState(false);
@@ -42,6 +43,12 @@ const Navigation = () => {
       setMenuOpen(false);
       setCartOpen(false);
       setShowOverlay(false);
+   };
+
+   const handleBuy = () => {
+      //    here i need it to ask user's address, name and
+      //    redirect to https://pay.kaspi.kz/pay/s8w3za6b
+      //    after this save {totalSum}, client's address, name to somewhere to display it on admin page
    };
 
    return (
@@ -209,7 +216,9 @@ const Navigation = () => {
                            <p className="sum-child1">Общий счет:</p>
                            <p className="sum-child2"> KZT {totalSum} </p>
                         </div>
-                        <button className="buy-button">Купить</button>
+                        <button className="buy-button" onClick={handleBuy}>
+                           Купить
+                        </button>
                      </div>
                   </div>
                </div>

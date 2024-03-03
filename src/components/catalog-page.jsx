@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./card/card";
 import Filter from "./filter";
 import { baseUrl } from "./baseUrl";
+import { baseLocalUrl } from "./baseUrl";
 
 const Catalog = () => {
    const [cardsData, setCardsData] = useState([]);

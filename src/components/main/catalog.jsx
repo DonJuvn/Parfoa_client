@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from "../card/card";
 import { baseUrl } from "../baseUrl";
+import { baseLocalUrl } from "../baseUrl";
 
 const Catalog = () => {
    const [cardsData, setCardsData] = useState([]);

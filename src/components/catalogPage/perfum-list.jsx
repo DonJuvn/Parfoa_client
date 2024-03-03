@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Card from "../card/card";
+import React, { useState, useEffect } from "react";import Card from "../card/card";
+
+import { baseUrl } from "../baseUrl";
+import { baseLocalUrl } from "../baseUrl";
+
 const PerfumeList = () => {
    const [perfumes, setPerfumes] = useState([]);
    const [filteredPerfumes, setFilteredPerfumes] = useState([]);
