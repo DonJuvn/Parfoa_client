@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import Card from "../card/card";
+import React, { useState, useEffect } from "react";
+import Card from "../card/card";
 
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
@@ -28,6 +29,7 @@ const PerfumeList = () => {
 
             console.log({ fetched: perfumes });
             console.log({ fetched: filteredPerfumes });
+            console.log(apiUrl);
          })
          .catch((error) => console.error("Error fetching data:", error));
    }, []);

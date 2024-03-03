@@ -23,7 +23,7 @@ const Navigation = () => {
    }, []);
 
    // Calculate the total sum of prices
-   const totalSum = cartItems.reduce(
+   const total_sum = cartItems.reduce(
       (accumulator, currentItem) =>
          accumulator + currentItem.price * currentItem.quantity,
       0
@@ -65,10 +65,10 @@ const Navigation = () => {
 
       // Save data for display on the admin page
       const orderData = {
-         totalSum,
+         total_sum,
          name,
          address,
-         cartItems,
+         // cartItems,
       };
 
       // Assuming there's a function to save data to admin page
@@ -77,7 +77,7 @@ const Navigation = () => {
 
       try {
          // Assuming there's an API endpoint to save data to the admin page
-         const response = await fetch(baseLocalUrl, {
+         const response = await fetch(baseUrl + `api/orders/`, {
             method: "POST",
             headers: {
                "Content-Type": "application/json",
@@ -94,6 +94,7 @@ const Navigation = () => {
       }
 
       console.log({ orderData: orderData });
+      console.log({ url: baseUrl + `/api/orders/` });
    }
 
    return (
@@ -287,7 +288,7 @@ const Navigation = () => {
 
                         <div className="sum">
                            <p className="sum-child1">Общий счет:</p>
-                           <p className="sum-child2"> KZT {totalSum} </p>
+                           <p className="sum-child2"> KZT {total_sum} </p>
                         </div>
 
                         <button className="buy-button" onClick={handleBuy}>
