@@ -265,10 +265,10 @@ const Navigation = () => {
                         )}
 
                         <div>
-                           <h2>Checkout Page</h2>
+                           {/* <h2>Checkout Page</h2> */}
                            <form>
                               <label>
-                                 Name:
+                                 Ваше имя:
                                  <input
                                     type="text"
                                     value={name}
@@ -277,7 +277,7 @@ const Navigation = () => {
                               </label>
                               <br />
                               <label>
-                                 Address:
+                                 Ваш адрес:
                                  <input
                                     type="text"
                                     value={address}
