@@ -8,8 +8,8 @@ const CardDetail = () => {
    const [quantity, setQuantity] = useState(null);
 
    // const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/${id}/`;
-   // const apiUrl = baseUrl + `/api/shop/perfums/${id}/`;
-   const apiUrl = baseLocalUrl + `/api/shop/perfums/${id}/`;
+   const apiUrl = baseUrl + `/api/shop/perfums/${id}/`;
+   // const apiUrl = baseLocalUrl + `/api/shop/perfums/${id}/`;
 
    useEffect(() => {
       // Fetch the details of the perfume using the ID
@@ -47,6 +47,8 @@ const CardDetail = () => {
          localStorage.setItem("cartItems", JSON.stringify(updatedItems));
 
          alert("Добавлено в корзину!");
+
+         window.location.reload();
       } else {
          alert("Выберите объем перед добавлением в корзину");
       }

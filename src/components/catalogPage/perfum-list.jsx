@@ -15,20 +15,19 @@ const PerfumeList = () => {
    const [searchQuery, setSearchQuery] = useState("");
    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-   const apiUrl = baseLocalUrl + `/api/shop/perfums/`;
-   // const apiUrl = baseUrl + `/api/shop/perfums/`;
+   // const apiUrl = baseLocalUrl + `/api/shop/perfums/`;
+   const apiUrl = baseUrl + `/api/shop/perfums/`;
 
    useEffect(() => {
       // Fetch data from the API endpoint
-      // fetch("http://127.0.0.1:8000/api/shop/perfums/")
       fetch(apiUrl)
          .then((response) => response.json())
          .then((data) => {
             setPerfumes(data);
             setFilteredPerfumes(data);
 
+            console.log({ fetched: perfumes });
             console.log({ fetched: filteredPerfumes });
-            console.log({ perfumes: perfumes });
          })
          .catch((error) => console.error("Error fetching data:", error));
    }, []);
@@ -46,8 +45,6 @@ const PerfumeList = () => {
          filteredData = filteredData.filter(
             (item) => item.gender_category === genderFilter
          );
-         console.log({ perfumes: perfumes });
-         console.log({ filteredData: filteredData });
       }
 
       // else if (genderFilter === null) {
@@ -95,6 +92,7 @@ const PerfumeList = () => {
 
    const toggleSearch = () => {
       setIsSearchOpen(!isSearchOpen);
+      resetFilters();
    };
 
    const resetFilters = () => {
@@ -139,77 +137,67 @@ const PerfumeList = () => {
                   <label>
                      {/* Gender Category: */}
                      <select
-                        onChange={(e) =>
-                           setGenderFilter(parseInt(e.target.value))
-                        }
+                        onChange={(e) => setGenderFilter(e.target.value)}
                         className="selector"
                      >
                         <option value={null}>Пол</option>
-                        <option value={1}>Мужские</option>
-                        <option value={2}>Женские</option>
-                        <option value={3}>Унисекс</option>
+                        <option value="male">Мужские</option>
+                        <option value="female">Женские</option>
+                        <option value="uni">Унисекс</option>
                      </select>
                   </label>
 
                   <label>
                      <select
-                        onChange={(e) =>
-                           setTypeFilter(parseInt(e.target.value))
-                        }
+                        onChange={(e) => setTypeFilter(e.target.value)}
                         className="selector"
                      >
                         <option value={null}>Тип</option>
-                        <option value={1}>Холодные</option>
-                        <option value={2}>Сладкие</option>
-                        <option value={3}>Кожаные</option>
-                        <option value={4}>Древесные</option>
-                        <option value={5}>Цитрусовые</option>
-                        <option value={6}>Цветочные</option>
+                        <option value="cold">Холодные</option>
+                        <option value="sweet">Сладкие</option>
+                        <option value="leather">Кожаные</option>
+                        <option value="woody">Древесные</option>
+                        <option value="citrus">Цитрусовые</option>
+                        <option value="floral">Цветочные</option>
                      </select>
                   </label>
                   <label>
                      <select
-                        onChange={(e) =>
-                           setIntensiveFilter(parseInt(e.target.value))
-                        }
+                        onChange={(e) => setIntensiveFilter(e.target.value)}
                         className="selector"
                      >
                         <option value={null}>Интенсивность</option>
-                        <option value={1}>1-15%</option>
-                        <option value={2}>16-40%</option>
-                        <option value={3}>41-65%</option>
-                        <option value={4}>66-90%</option>
+                        <option value="1-15%">1-15%</option>
+                        <option value="16-40%">16-40%</option>
+                        <option value="41-65%">41-65%</option>
+                        <option value="66-90%">66-90%</option>
                      </select>
                   </label>
                   <label>
                      <select
-                        onChange={(e) =>
-                           setNotesFilter(parseInt(e.target.value))
-                        }
+                        onChange={(e) => setNotesFilter(e.target.value)}
                         className="selector"
                      >
                         <option value={null}>Ноты</option>
-                        <option value={1}>Перец</option>
-                        <option value={2}>Цитрус</option>
-                        <option value={3}>Мускус</option>
-                        <option value={4}>Древесные</option>
-                        <option value={5}>Цветочные</option>
+                        <option value="pepper">Перец</option>
+                        <option value="citrus">Цитрус</option>
+                        <option value="musky">Мускус</option>
+                        <option value="woody">Древесные</option>
+                        <option value="floral">Цветочные</option>
                      </select>
                   </label>
                   <label>
                      <select
-                        onChange={(e) =>
-                           setBrandFilter(parseInt(e.target.value))
-                        }
+                        onChange={(e) => setBrandFilter(e.target.value)}
                         className="selector"
                      >
                         <option value={null}>Бренд</option>
-                        <option value={1}>Gucci</option>
-                        <option value={2}>Hermes</option>
-                        <option value={3}>Dior</option>
-                        <option value={4}>Tiziana Terenzi</option>
-                        <option value={5}>Armani</option>
-                        <option value={6}>Hacivat</option>
+                        <option value="Gucci">Gucci</option>
+                        <option value="Hermes">Hermes</option>
+                        <option value="Dior">Dior</option>
+                        <option value="Tiziana Terenzi">Tiziana Terenzi</option>
+                        <option value="Armani">Armani</option>
+                        <option value="Hacivat">Hacivat</option>
                      </select>
                   </label>
                   <button className="reset-filters" onClick={resetFilters}>

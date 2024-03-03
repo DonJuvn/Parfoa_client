@@ -1,5 +1,4 @@
-// import React, { useEffect, useState } from "react";const AboutUs = () => {//    const [hasAnimated, setHasAnimated] = useState(false);//    useEffect(() => {//       const aboutUsElement = document.getElementById("about-us");//       const aboutTextElements = document.querySelectorAll(".about-text");
-//       const handleScroll = () => {
+// import React, { useEffect, useState } from "react";const AboutUs = () => {//    const [hasAnimated, setHasAnimated] = useState(false);//    useEffect(() => {//       const aboutUsElement = document.getElementById("about-us");//       const aboutTextElements = document.querySelectorAll(".about-text");//       const handleScroll = () => {
 //          const scrollPosition = window.scrollY;
 //          const elementOffset = aboutUsElement.offsetTop;
 
@@ -166,6 +165,7 @@ const AboutUs = () => {
                оснащены упаковкой, которая была тщательно разработана, чтобы
                доставлять вам удовольствие каждый раз, когда вы смотрите на нее.
             </p>
+            hello world
          </div>
       </div>
    );
