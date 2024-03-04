@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { baseUrl } from "./baseUrl";
 import { baseLocalUrl } from "./baseUrl";
 
@@ -105,9 +106,7 @@ const CardDetail = () => {
                      <option value={10}>10</option>
                      <option value={15}>15</option>
                      <option value={20}>20</option>
-                     <option value={25}>25</option>
-                     <option value={30}>30</option>
-                     <option value={50}>50</option>
+                     <option value="full">Полноценно</option>
                   </select>
                   <button className="buy-button" onClick={handleBuyClick}>
                      В корзину{" "}

@@ -1,4 +1,5 @@
-import React from "react";import { Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
    return (
@@ -25,7 +26,7 @@ const Footer = () => {
                         />
                         {""}
                      </Link>
-                     <Link to="#instagram">
+                     <Link to="https://www.instagram.com/parfoa/">
                         {""}
                         <img
                            src={process.env.PUBLIC_URL + `/instagram.svg`}
