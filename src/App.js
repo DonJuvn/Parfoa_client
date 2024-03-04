@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import {
+import React, { useState, useEffect } from "react";
+import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -18,6 +19,7 @@ import CardDetail from "./components/card-detail";
 import "./App.css";
 import Card from "./components/card/card";
 import AdminPage from "./components/admin/admin";
+import Top10 from "./components/main/top10";
 
 const App = () => {
    const brands = [
@@ -88,6 +90,7 @@ const MainPage = () => {
    return (
       <div>
          <Main />
+         <Top10 />
          <AboutUs />
          {/* <News /> */}
          <InfiniteSlider data={brands} />
