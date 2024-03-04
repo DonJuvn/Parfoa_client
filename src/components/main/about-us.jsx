@@ -1,5 +1,4 @@
-// import React, { useEffect, useState } from "react";const AboutUs = () => {//    const [hasAnimated, setHasAnimated] = useState(false);//    useEffect(() => {//       const aboutUsElement = document.getElementById("about-us");//       const aboutTextElements = document.querySelectorAll(".about-text");//       const handleScroll = () => {
-//          const scrollPosition = window.scrollY;
+// import React, { useEffect, useState } from "react";const AboutUs = () => {//    const [hasAnimated, setHasAnimated] = useState(false);//    useEffect(() => {//       const aboutUsElement = document.getElementById("about-us");//       const aboutTextElements = document.querySelectorAll(".about-text");//       const handleScroll = () => {//          const scrollPosition = window.scrollY;
 //          const elementOffset = aboutUsElement.offsetTop;
 
 //          if (
@@ -130,7 +129,7 @@ const AboutUs = () => {
                предлагаем только высококачественные продукты от специальных
                брендов для вашего благополучия.
             </p>
-            <h2 className="about-title2">ЗАХВАТЫВАЮЩИЙ ДУХ МАКИЯЖ</h2>
+            {/* <h2 className="about-title2">ЗАХВАТЫВАЮЩИЙ ДУХ МАКИЯЖ</h2>
             <p>
                В Parfoa® мы верим, что жизнь счастливее, когда вы чувствуете
                себя хорошо в своей собственной коже. Декоративная косметика
@@ -164,8 +163,7 @@ const AboutUs = () => {
                комнате или сумочке. Наши роскошные продукты, такие как Xerjoff,
                оснащены упаковкой, которая была тщательно разработана, чтобы
                доставлять вам удовольствие каждый раз, когда вы смотрите на нее.
-            </p>
-            hello world
+            </p> */}
          </div>
       </div>
    );
