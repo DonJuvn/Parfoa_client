@@ -18,14 +18,14 @@ const Footer = () => {
                <div className="sm">
                   <p>Следите за нами в социальных сетях</p>
                   <div className="buttons">
-                     <Link to="#facebook">
+                     {/* <Link to="#facebook">
                         {""}
                         <img
                            src={process.env.PUBLIC_URL + `/facebook.svg`}
                            alt=""
                         />
                         {""}
-                     </Link>
+                     </Link> */}
                      <Link to="https://www.instagram.com/parfoa/">
                         {""}
                         <img
@@ -34,7 +34,7 @@ const Footer = () => {
                         />
                         {""}
                      </Link>
-                     <Link to="#tiktok">
+                     <Link to="https://www.tiktok.com/@parfoa6?_t=8kOtuafjKdR&_r=1">
                         {""}
                         <img
                            src={process.env.PUBLIC_URL + `/tiktok.svg`}

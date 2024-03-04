@@ -692,7 +692,8 @@ p {
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   width: 130px;
+   /* width: 130px; */
+   width: 87px;
    margin-right: 0;
    float: right;
 }
@@ -744,7 +745,8 @@ p {
    }
    .buttons {
       flex-direction: row;
-      width: 90px;
+      width: 60px;
+      /* width: 90px; */
    }
    .buttons img {
       width: 22px;
