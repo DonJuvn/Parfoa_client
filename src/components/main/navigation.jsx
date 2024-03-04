@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -109,7 +110,7 @@ const Navigation = () => {
                <div className="overlay" onClick={handleOverlayClick}></div>
             )}
             <div className="navigation">
-               <button onClick={handleButtonClick}>
+               <button className="burger" onClick={handleButtonClick}>
                   <img src={process.env.PUBLIC_URL + `/burger.svg`} alt="" />
                </button>
                <div className="logotype">
@@ -309,6 +310,7 @@ const Navigation = () => {
                      </div>
                   </div>
                </div>
+               <div className="tab-bar"></div>
             </div>
          )}
       </div>

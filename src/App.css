@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -77,6 +76,9 @@ p {
 }
 .logotype {
    margin: auto;
+}
+.burger img {
+   width: 20px;
 }
 #menu {
    padding-left: 2.9%;
