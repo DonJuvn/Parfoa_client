@@ -19,7 +19,7 @@ import CardDetail from "./components/card-detail";
 import "./App.css";
 import Card from "./components/card/card";
 import AdminPage from "./components/admin/admin";
-import Top10 from "./components/main/top10";
+import Top10 from "./components/carousel/top10";
 
 const App = () => {
    const brands = [
