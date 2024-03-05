@@ -78,6 +78,9 @@ p {
 .logotype {
    margin: auto;
 }
+.burger img {
+   width: 20px;
+}
 #menu {
    padding-left: 2.9%;
    width: 42%;
@@ -196,6 +199,26 @@ p {
    .menu .open-close {
       margin: 18% 0;
    }
+}
+#tabs {
+   margin-bottom: 2%;
+}
+.tabs {
+   display: flex;
+   width: 100%;
+   justify-content: space-around;
+   border: 0.3px solid rgba(52, 52, 52, 0.2);
+   padding: 1%;
+}
+.tab {
+   padding: 2px 0 5px;
+   color: #343434;
+   font-size: 16px;
+   transition: 0.3s;
+   height: 15px;
+}
+.tab:hover {
+   font-size: 18px;
 }
 
 /* About Us section */
@@ -470,6 +493,12 @@ p {
 .active .heart-icon {
    color: red;
 }
+.logistics {
+   margin-top: 15px;
+   font-size: 18px;
+   width: 100%;
+   text-align: center;
+}
 
 /* catalog */
 .catalog {
@@ -690,7 +719,8 @@ p {
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   width: 130px;
+   /* width: 130px; */
+   width: 87px;
    margin-right: 0;
    float: right;
 }
@@ -742,7 +772,8 @@ p {
    }
    .buttons {
       flex-direction: row;
-      width: 90px;
+      width: 60px;
+      /* width: 90px; */
    }
    .buttons img {
       width: 22px;
@@ -1215,6 +1246,9 @@ a {
    justify-content: space-between;
    align-items: center;
 }
+.sum-child2 {
+   font-size: 18px;
+}
 .delete {
    background-color: transparent;
    color: #90710b;
@@ -1329,4 +1363,88 @@ thead {
    #admin {
       height: 70vh;
    }
+}
+
+/* carousel */
+.carousel {
+   margin-top: 6%;
+}
+#card-carousel {
+   width: 14vw;
+   /* padding-right: 0.8vw; */
+}
+.card {
+   width: 100%;
+   aspect-ratio: 0.6;
+   border: 0.1px solid #e5e7eb;
+   margin-bottom: 15px;
+   position: relative;
+   transition: 0.1s;
+   transform: 0.3s;
+   /* background-color: red; */
+   text-align: center;
+}
+.card img {
+   width: 80%;
+   aspect-ratio: 2/1;
+   margin: 20% 0;
+   height: 50%;
+   object-fit: cover;
+}
+.card img:hover {
+   /* width: 105%; */
+   /* aspect-ratio: 105/100; */
+   height: 60%;
+   transition: 0.3s;
+   margin-left: 0;
+   /* margin-right: 3.5%; */
+   margin-bottom: 11.8%;
+   margin-top: 11.8%;
+}
+.card:hover {
+   transition: 0.5s;
+   /* box-shadow: 0.5px 0.5px 0.5px #888888; */
+   border: 0.3px solid #b8b8b8;
+   transform: 0.3s;
+}
+.card h3 {
+   font-weight: 700;
+   line-height: 16px;
+   font-size: 18px;
+   color: rgba(52, 52, 52, 0.7);
+   height: 100%;
+}
+.card .description {
+   font-weight: 400;
+   line-height: 14px;
+   font-size: 16.25px;
+   color: rgba(52, 52, 52, 0.7);
+   height: 100%;
+}
+.card-details {
+   height: 50px;
+   align-items: center;
+   padding: auto;
+   display: flex;
+   width: 80%;
+   margin: auto;
+}
+.card .price,
+.card .volume {
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 22.5px;
+   color: #343434;
+   width: fit-content;
+   margin: 0;
+}
+.card .volume {
+   color: rgba(52, 52, 52, 0.3);
+}
+.card .price {
+   margin-right: auto;
+}
+.card .volume {
+   margin-left: auto;
+   letter-spacing: 0.02em;
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -109,7 +110,7 @@ const Navigation = () => {
                <div className="overlay" onClick={handleOverlayClick}></div>
             )}
             <div className="navigation">
-               <button onClick={handleButtonClick}>
+               <button className="burger" onClick={handleButtonClick}>
                   <img src={process.env.PUBLIC_URL + `/burger.svg`} alt="" />
                </button>
                <div className="logotype">
@@ -132,6 +133,21 @@ const Navigation = () => {
                   <button className="favorites" onClick={handleCartClick}>
                      <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" />
                   </button>
+               </div>
+            </div>
+         </div>
+         <div id="tabs">
+            <div className="container">
+               <div className="tabs">
+                  <Link to={"/catalog"}>
+                     <p className="tab">Парфюмы</p>
+                  </Link>
+                  <Link to={"/cosmetics"}>
+                     <p className="tab">Косметика</p>
+                  </Link>
+                  <Link to={"/room-fragnances"}>
+                     <p className="tab">Дефузоры</p>
+                  </Link>
                </div>
             </div>
          </div>
@@ -309,6 +325,7 @@ const Navigation = () => {
                      </div>
                   </div>
                </div>
+               <div className="tab-bar"></div>
             </div>
          )}
       </div>

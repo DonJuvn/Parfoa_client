@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
 import { baseUrl } from "./baseUrl";
 import { baseLocalUrl } from "./baseUrl";
 
@@ -96,6 +95,7 @@ const CardDetail = () => {
                   <p>Описание:</p>
                   <p>{perfumeDetail.description}</p>
                </div>
+
                <div className="buy">
                   <select
                      onChange={(e) => setQuantity(parseInt(e.target.value))}
@@ -113,6 +113,7 @@ const CardDetail = () => {
                      {/* <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" /> */}
                   </button>
                </div>
+               <p className="logistics">Отправка в течении 5-7 рабочих дней</p>
             </div>
          </div>
       </div>
