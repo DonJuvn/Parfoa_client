@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -141,11 +142,11 @@ const Navigation = () => {
                   <Link to={"/catalog"}>
                      <p className="tab">Парфюмы</p>
                   </Link>
-                  <Link to={"/room-fragnances"}>
-                     <p className="tab">Дефузоры</p>
-                  </Link>
                   <Link to={"/cosmetics"}>
                      <p className="tab">Косметика</p>
+                  </Link>
+                  <Link to={"/room-fragnances"}>
+                     <p className="tab">Дефузоры</p>
                   </Link>
                </div>
             </div>
