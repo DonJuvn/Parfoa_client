@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -208,7 +207,7 @@ p {
    width: 100%;
    justify-content: space-around;
    border: 0.3px solid rgba(52, 52, 52, 0.2);
-   padding: 1%;
+   padding: 1% 0;
 }
 .tab {
    padding: 2px 0 5px;
