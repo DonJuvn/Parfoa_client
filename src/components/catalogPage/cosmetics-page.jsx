@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "../card/card";
+import React, { useState, useEffect } from "react";import Card from "../card/card";
 import { baseUrl } from "../baseUrl";
 
 const Cosmetics = () => {
@@ -32,6 +31,9 @@ const Cosmetics = () => {
 
    return (
       <div className="container">
+         <center>
+            <h1>Косметика</h1>
+         </center>
          <div className="search-icon">
             {isSearchOpen && (
                <input

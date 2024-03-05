@@ -108,12 +108,9 @@ const PerfumeList = () => {
 
    return (
       <div className="container">
-         {/* <input
-            type="text"
-            placeholder="Искать..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-         /> */}
+         <center>
+            <h1>Парфюмерия</h1>
+         </center>
          <div className="search-icon">
             {isSearchOpen && (
                <input

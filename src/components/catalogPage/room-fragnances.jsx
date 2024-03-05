@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "../card/card";
+import React, { useState, useEffect } from "react";import Card from "../card/card";
 import { baseUrl } from "../baseUrl";
 
 const RoomFragnances = () => {
@@ -32,6 +31,9 @@ const RoomFragnances = () => {
 
    return (
       <div className="container">
+         <center>
+            <h1>Дефузоры</h1>
+         </center>
          <div className="search-icon">
             {isSearchOpen && (
                <input
@@ -47,24 +49,29 @@ const RoomFragnances = () => {
                alt=""
             />
          </div>
+         <h3 className="filter-h3" onClick={toggleSearch}>
+            Поиск
+         </h3>
 
-         {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-               <Card
-                  key={product.id}
-                  id={product.id}
-                  imagePath={product.image}
-                  title={product.name}
-                  description={product.description}
-                  gender={product.description}
-                  price={product.price}
-                  volume={product.volume}
-                  link={`perfume/${product.id}`}
-               />
-            ))
-         ) : (
-            <p>Loading...</p>
-         )}
+         <div className="catalog">
+            {filteredProducts.length > 0 ? (
+               filteredProducts.map((product) => (
+                  <Card
+                     key={product.id}
+                     id={product.id}
+                     imagePath={product.image}
+                     title={product.name}
+                     description={product.description}
+                     gender={product.description}
+                     price={product.price}
+                     volume={product.volume}
+                     link={`perfume/${product.id}`}
+                  />
+               ))
+            ) : (
+               <p>Loading...</p>
+            )}
+         </div>
       </div>
    );
 };
