@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
+import React, { useState, useEffect } from "react";import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -20,6 +19,8 @@ import "./App.css";
 import Card from "./components/card/card";
 import AdminPage from "./components/admin/admin";
 import Top10 from "./components/carousel/top10";
+import CosmeticsPage from "./components/catalogPage/cosmetics-page";
+import RoomFragnances from "./components/catalogPage/room-fragnances";
 
 const App = () => {
    const brands = [
@@ -63,7 +64,17 @@ const App = () => {
                   path="/catalog/perfume/:id"
                   element={<CardDetailPage />}
                />
+               <Route
+                  path="/catalog/room-fragnance/:id"
+                  element={<CardDetailPage />}
+               />
+               <Route
+                  path="/catalog/cosmetics/:id"
+                  element={<CardDetailPage />}
+               />
                <Route path="/admin" element={<AdminPage />} />
+               <Route path="/cosmetics" element={<CosmeticsPage />} />
+               <Route path="/room-fragnances" element={<RoomFragnances />} />
             </Routes>
             <Footer />
          </div>

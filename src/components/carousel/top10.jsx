@@ -1,4 +1,5 @@
-import React from "react";import Carousel from "react-multi-carousel";
+import React from "react";
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import CardCarousel from "./card";
@@ -12,22 +13,72 @@ const Top10 = () => {
       },
       desktop: {
          breakpoint: { max: 3000, min: 1024 },
-         items: 3,
+         items: 6,
       },
       tablet: {
          breakpoint: { max: 1024, min: 464 },
-         items: 2,
+         items: 4,
       },
       mobile: {
          breakpoint: { max: 464, min: 0 },
-         items: 1,
+         items: 3,
       },
    };
 
    const perfumes = [
       {
          id: 1,
-         imagePath: "topSweet20.svg",
+         imagePath: "Jon Cartie.svg",
+         title: "Fancy Fragrance",
+         description: "A captivating scent that lingers all day.",
+         gender: "Unisex",
+         price: 49.99,
+         volume: "50ml",
+         link: "catalog/1",
+      },
+      {
+         id: 1,
+         imagePath: "Jon Cartie.svg",
+         title: "Fancy Fragrance",
+         description: "A captivating scent that lingers all day.",
+         gender: "Unisex",
+         price: 49.99,
+         volume: "50ml",
+         link: "catalog/1",
+      },
+      {
+         id: 1,
+         imagePath: "Jon Cartie.svg",
+         title: "Fancy Fragrance",
+         description: "A captivating scent that lingers all day.",
+         gender: "Unisex",
+         price: 49.99,
+         volume: "50ml",
+         link: "catalog/1",
+      },
+      {
+         id: 1,
+         imagePath: "Jon Cartie.svg",
+         title: "Fancy Fragrance",
+         description: "A captivating scent that lingers all day.",
+         gender: "Unisex",
+         price: 49.99,
+         volume: "50ml",
+         link: "catalog/1",
+      },
+      {
+         id: 1,
+         imagePath: "Jon Cartie.svg",
+         title: "Fancy Fragrance",
+         description: "A captivating scent that lingers all day.",
+         gender: "Unisex",
+         price: 49.99,
+         volume: "50ml",
+         link: "catalog/1",
+      },
+      {
+         id: 1,
+         imagePath: "Jon Cartie.svg",
          title: "Fancy Fragrance",
          description: "A captivating scent that lingers all day.",
          gender: "Unisex",
@@ -37,7 +88,7 @@ const Top10 = () => {
       },
       {
          id: 2,
-         imagePath: "path/to/image2.jpg",
+         imagePath: "Jon Cartie.svg",
          title: "Elegant Essence",
          description: "An essence that defines sophistication.",
          gender: "Female",
@@ -47,7 +98,7 @@ const Top10 = () => {
       },
       {
          id: 3,
-         imagePath: "path/to/image3.jpg",
+         imagePath: "Jon Cartie.svg",
          title: "Bold Bouquet",
          description: "A bold and daring fragrance for him.",
          gender: "Male",
@@ -81,6 +132,9 @@ const Top10 = () => {
       <div className="top10">
          <div className="container">
             <div className="carousel">
+               <center>
+                  <h1>Любимые ароматы наших клиентов</h1>
+               </center>
                <Carousel responsive={responsive}>
                   {perfumes.map((perfume) => (
                      <CardCarousel

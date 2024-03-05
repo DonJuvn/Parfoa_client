@@ -16,7 +16,7 @@ const CardCarousel = ({
    };
 
    return (
-      <div id="card">
+      <div id="card-carousel">
          {/* <Link to={`perfume/${id}`}> */}
          <Link to={link}>
             <div className={`card ${isFavorite ? "favorite" : ""}`}>
