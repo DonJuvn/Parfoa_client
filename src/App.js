@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import {
+import React, { useState, useEffect } from "react";
+import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -21,6 +22,8 @@ import AdminPage from "./components/admin/admin";
 import Top10 from "./components/carousel/top10";
 import CosmeticsPage from "./components/catalogPage/cosmetics-page";
 import RoomFragnances from "./components/catalogPage/room-fragnances";
+import CosmeticDetail from "./components/card/cosmetic-detail";
+import RoomFragnanceDetail from "./components/card/room-fragnance-detail";
 
 const App = () => {
    const brands = [
@@ -65,12 +68,12 @@ const App = () => {
                   element={<CardDetailPage />}
                />
                <Route
-                  path="/catalog/room-fragnance/:id"
-                  element={<CardDetailPage />}
+                  path="/room-fragnances/product/:id"
+                  element={<RoomFragnancesDetailPage />}
                />
                <Route
-                  path="/catalog/cosmetics/:id"
-                  element={<CardDetailPage />}
+                  path="/cosmetics/product/:id"
+                  element={<CosmeticsDetailPage />}
                />
                <Route path="/admin" element={<AdminPage />} />
                <Route path="/cosmetics" element={<CosmeticsPage />} />
@@ -115,6 +118,22 @@ const CardDetailPage = () => {
    return (
       <div>
          <CardDetail />
+         <Catalog />
+      </div>
+   );
+};
+const CosmeticsDetailPage = () => {
+   return (
+      <div>
+         <CosmeticDetail />
+         <Catalog />
+      </div>
+   );
+};
+const RoomFragnancesDetailPage = () => {
+   return (
+      <div>
+         <RoomFragnanceDetail />
          <Catalog />
       </div>
    );

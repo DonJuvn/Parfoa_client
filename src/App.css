@@ -1102,12 +1102,10 @@ a {
    align-items: center;
 }
 #delete {
-   background-color: #90710b;
+   background-color: #343434;
    border: none;
 }
-.buy-button:hover {
-   transform: scale(1.1);
-}
+
 @media screen and (max-width: 768px) {
    .detail-page {
       display: flex;
