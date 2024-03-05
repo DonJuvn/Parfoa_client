@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import Card from "../card/card";
+import React, { useState, useEffect } from "react";
+import Card from "../card/card";
 import { baseUrl } from "../baseUrl";
 
 const RoomFragnances = () => {
@@ -6,7 +7,7 @@ const RoomFragnances = () => {
    const [isSearchOpen, setIsSearchOpen] = useState(false);
    const [searchQuery, setSearchQuery] = useState("");
 
-   const apiUrl = baseUrl + "api/room-fragrances/"; // Replace with your actual API endpoint
+   const apiUrl = baseUrl + "api/cosmetics/"; // Replace with your actual API endpoint
 
    useEffect(() => {
       // Fetch data from the API endpoint
@@ -46,27 +47,24 @@ const RoomFragnances = () => {
                alt=""
             />
          </div>
-         <h3 className="filter-h3" onClick={toggleSearch}>
-            Поиск
-         </h3>
-         <div className="catalog">
-            {productData && productData.length > 0 ? (
-               productData.map((product) => (
-                  <Card
-                     id={product.id}
-                     imagePath={product.image}
-                     title={product.name}
-                     description={product.description}
-                     gender={product.description}
-                     price={product.price}
-                     volume={product.volume}
-                     link={`perfume/${product.id}`}
-                  />
-               ))
-            ) : (
-               <p>Loading...</p>
-            )}
-         </div>
+
+         {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+               <Card
+                  key={product.id}
+                  id={product.id}
+                  imagePath={product.image}
+                  title={product.name}
+                  description={product.description}
+                  gender={product.description}
+                  price={product.price}
+                  volume={product.volume}
+                  link={`perfume/${product.id}`}
+               />
+            ))
+         ) : (
+            <p>Loading...</p>
+         )}
       </div>
    );
 };
