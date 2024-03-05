@@ -23,11 +23,13 @@ const Navigation = () => {
    }, []);
 
    // Calculate the total sum of prices
-   const total_sum = cartItems.reduce(
-      (accumulator, currentItem) =>
-         accumulator + currentItem.price * currentItem.quantity,
-      0
-   );
+   const total_sum = cartItems.reduce((accumulator, currentItem) => {
+      const volumeMultiplier =
+         currentItem.quantity === "full"
+            ? currentItem.volume
+            : currentItem.quantity;
+      return accumulator + currentItem.price * volumeMultiplier;
+   }, 0);
 
    const handleButtonClick = () => {
       setMenuOpen(!isMenuOpen);

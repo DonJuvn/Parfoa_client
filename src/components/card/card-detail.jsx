@@ -48,6 +48,7 @@ const CardDetail = () => {
             price: perfumeDetail.price,
             image: perfumeDetail.image,
             gender: perfumeDetail.gender_category,
+            volume: perfumeDetail.quantity,
             quantity,
          };
 
@@ -123,10 +124,10 @@ const CardDetail = () => {
                   </button>
                   <button
                      className="volume-selector"
-                     style={getButtonStyle("full")}
-                     onClick={() => setQuantity("full")}
+                     style={getButtonStyle(perfumeDetail.quantity)}
+                     onClick={() => setQuantity(perfumeDetail.quantity)}
                   >
-                     Полноценно
+                     Полноценно, {perfumeDetail.quantity}
                   </button>
                </div>
 
