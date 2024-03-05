@@ -97,7 +97,6 @@ const CardDetail = () => {
                </div>
 
                <div className="buy">
-                  <p>Отправка в течении 5-7 рабочих дней</p>
                   <select
                      onChange={(e) => setQuantity(parseInt(e.target.value))}
                      className="volume"
@@ -114,6 +113,7 @@ const CardDetail = () => {
                      {/* <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" /> */}
                   </button>
                </div>
+               <p className="logistics">Отправка в течении 5-7 рабочих дней</p>
             </div>
          </div>
       </div>
