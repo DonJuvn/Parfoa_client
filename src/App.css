@@ -1,4 +1,5 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -1372,7 +1373,7 @@ thead {
    width: 14vw;
    /* padding-right: 0.8vw; */
 }
-.card {
+#card-carousel .card {
    width: 100%;
    aspect-ratio: 0.6;
    border: 0.1px solid #e5e7eb;
@@ -1383,14 +1384,14 @@ thead {
    /* background-color: red; */
    text-align: center;
 }
-.card img {
+#card-carousel .card img {
    width: 80%;
    aspect-ratio: 2/1;
    margin: 20% 0;
    height: 50%;
    object-fit: cover;
 }
-.card img:hover {
+#card-carousel .card img:hover {
    /* width: 105%; */
    /* aspect-ratio: 105/100; */
    height: 60%;
@@ -1400,27 +1401,27 @@ thead {
    margin-bottom: 11.8%;
    margin-top: 11.8%;
 }
-.card:hover {
+#card-carousel .card:hover {
    transition: 0.5s;
    /* box-shadow: 0.5px 0.5px 0.5px #888888; */
    border: 0.3px solid #b8b8b8;
    transform: 0.3s;
 }
-.card h3 {
+#card-carousel .card h3 {
    font-weight: 700;
    line-height: 16px;
    font-size: 18px;
    color: rgba(52, 52, 52, 0.7);
    height: 100%;
 }
-.card .description {
+#card-carousel .card .description {
    font-weight: 400;
    line-height: 14px;
    font-size: 16.25px;
    color: rgba(52, 52, 52, 0.7);
    height: 100%;
 }
-.card-details {
+#card-carousel .card-details {
    height: 50px;
    align-items: center;
    padding: auto;
@@ -1428,8 +1429,8 @@ thead {
    width: 80%;
    margin: auto;
 }
-.card .price,
-.card .volume {
+#card-carousel .card .price,
+#card-carousel .card .volume {
    font-weight: 400;
    font-size: 16px;
    line-height: 22.5px;
@@ -1437,13 +1438,31 @@ thead {
    width: fit-content;
    margin: 0;
 }
-.card .volume {
+#card-carousel .card .volume {
    color: rgba(52, 52, 52, 0.3);
 }
-.card .price {
+#card-carousel .card .price {
    margin-right: auto;
 }
-.card .volume {
+#card-carousel .card .volume {
    margin-left: auto;
    letter-spacing: 0.02em;
+}
+@media screen and (max-width: 768px) {
+   #card-carousel {
+      width: 100%;
+   }
+   #card-carousel .card h3 {
+      font-size: 14px;
+      line-height: 15.75px;
+   }
+   #card-carousel .card .description {
+      font-size: 12px;
+   }
+   #card-carousel .card .price {
+      font-size: 12px;
+   }
+   #card-carousel .card .volume {
+      font-size: 12px;
+   }
 }

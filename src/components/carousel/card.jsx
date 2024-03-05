@@ -19,7 +19,7 @@ const CardCarousel = ({
       <div id="card-carousel">
          {/* <Link to={`perfume/${id}`}> */}
          <Link to={link}>
-            <div className={`card ${isFavorite ? "favorite" : ""}`}>
+            <div className={`card`}>
                {/* <img src={`http://localhost:8000/${imagePath}`} alt="" /> */}
                {/* <img src={apiUrl + `media/perfume_images/${imagePath}`} alt="" /> */}
                <img src={process.env.PUBLIC_URL + `${imagePath}`} alt="" />
