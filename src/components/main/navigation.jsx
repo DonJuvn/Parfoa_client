@@ -26,7 +26,7 @@ const Navigation = () => {
    const total_sum = cartItems.reduce((accumulator, currentItem) => {
       const volumeMultiplier =
          currentItem.quantity === "full"
-            ? currentItem.volume
+            ? currentItem.volume / currentItem.volume
             : currentItem.quantity;
       return accumulator + currentItem.price * volumeMultiplier;
    }, 0);
@@ -257,9 +257,7 @@ const Navigation = () => {
                                     <div className="details">
                                        <p className="title">{item.name} </p>
                                        <p className="title">{item.gender} </p>
-                                       <p>
-                                          {item.quantity} ml - {item.price} KZT{" "}
-                                       </p>
+                                       <p> {item.price} KZT </p>
                                        <div className="itog">
                                           <p>
                                              Итог:{" "}
