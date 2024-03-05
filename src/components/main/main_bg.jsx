@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 // const images = ["url(about.svg)", "url(test2.jpg)", "url(test3.jpg)"];
 
@@ -49,7 +50,7 @@ const Main = () => {
             loop
             controls
             playsInline
-            src="a-la-rose2.mp4"
+            src="a-la-rose.mp4"
          ></Video>
       </SliderContainer>
    );
