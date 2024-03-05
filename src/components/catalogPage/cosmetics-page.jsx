@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import Card from "../card/card";
+import React, { useState, useEffect } from "react";
+import Card from "../card/card";
 import { baseUrl } from "../baseUrl";
 
 const Cosmetics = () => {
@@ -65,7 +66,7 @@ const Cosmetics = () => {
                      gender={product.description}
                      price={product.price}
                      volume={product.volume}
-                     link={`perfume/${product.id}`}
+                     link={`product/${product.id}`}
                   />
                ))
             ) : (

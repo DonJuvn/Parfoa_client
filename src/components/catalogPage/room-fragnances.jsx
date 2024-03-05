@@ -6,7 +6,7 @@ const RoomFragnances = () => {
    const [isSearchOpen, setIsSearchOpen] = useState(false);
    const [searchQuery, setSearchQuery] = useState("");
 
-   const apiUrl = baseUrl + "api/cosmetics/"; // Replace with your actual API endpoint
+   const apiUrl = baseUrl + "api/room-fragrances/"; // Replace with your actual API endpoint
 
    useEffect(() => {
       // Fetch data from the API endpoint
@@ -65,7 +65,7 @@ const RoomFragnances = () => {
                      gender={product.description}
                      price={product.price}
                      volume={product.volume}
-                     link={`perfume/${product.id}`}
+                     link={`product/${product.id}`}
                   />
                ))
             ) : (
