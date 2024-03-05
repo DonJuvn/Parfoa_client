@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
-import { baseUrl } from "./baseUrl";
-import { baseLocalUrl } from "./baseUrl";
+import { baseUrl } from "../baseUrl";
+import { baseLocalUrl } from "../baseUrl";
 
 const CardDetail = () => {
    const { id } = useParams();

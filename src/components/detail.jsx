@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import CardDetail from "./card-detail";
+import React, { useState, useEffect } from "react";import CardDetail from "./card/card-detail";
 
 const CardDetailPage = () => {
    const [cardsData, setCardsData] = useState([]);

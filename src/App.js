@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
+import React, { useState, useEffect } from "react";import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -15,7 +14,7 @@ import Catalog from "./components/main/catalog";
 import Blogs from "./components/main/blogs";
 import CatalogLayout from "./layouts/catalog";
 import Detail from "./components/detail";
-import CardDetail from "./components/card-detail";
+import CardDetail from "./components/card/card-detail";
 import "./App.css";
 import Card from "./components/card/card";
 import AdminPage from "./components/admin/admin";
