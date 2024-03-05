@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -1109,119 +1108,79 @@ a {
 .buy-button:hover {
    transform: scale(1.1);
 }
-@media screen and (max-width: 1400px) {
-   .detail-page h2 {
-      font-size: 30px;
-   }
-   .detail-page .detail-text-style {
-      font-size: 16px;
-   }
-   .detail-page .detail-text-price {
-      font-size: 20px;
-   }
-   .detail-page .perfum-details p {
-      font-size: 20px;
-      line-height: 22.5px;
-      font-weight: 400;
-      color: rgba(52, 52, 52, 0.7);
-   }
-   .details-description p {
-      margin-top: 1vh;
-   }
-   .perfum-details {
-      display: flex;
-      flex-direction: column;
-      height: 20vh;
-      justify-content: space-between;
-      margin-bottom: 2vh;
-   }
-   .perfum-details span {
-      font-weight: 700;
-      color: #000;
-   }
-   .buy {
-      width: 100%;
-      margin-top: 5vh;
-      align-items: center;
-   }
-   .buy .volume {
-      margin: auto;
-      height: 100%;
-      font-size: 20px;
-      /* padding: 2px 10px; */
-      border: 1px solid white;
-   }
-   .buy-button {
-      width: 80%;
-      float: right;
-      background-color: #343434;
-      border-radius: 5px;
-      color: #fff;
-      font-family: "EB Garamond", serif;
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 33.75px;
-      padding: 7px;
-      cursor: pointer;
-      transition: 0.3s;
-      align-items: center;
-   }
-   #delete {
-      background-color: #90710b;
-      border: none;
-   }
-}
 @media screen and (max-width: 768px) {
    .detail-page {
+      display: flex;
+      width: 100%;
       flex-direction: column;
    }
    .detail-page img {
-      width: 100%;
-      margin-right: 0;
-      margin-bottom: 5vh;
+      width: 80%;
+      margin: auto;
    }
    .detail-page .details {
       width: 100%;
    }
-   .detail-page .title h2 {
-      font-size: 44px;
-   }
-   .detail-page .detail-text-style {
-      font-size: 30px;
-   }
-   .detail-page .detail-text-price {
-      font-size: 26px;
-      margin: 4.63vh 0 4vh;
-   }
-   .detail-page .perfum-details p {
-      font-size: 24px;
-      text-align: left;
-      min-width: 45%;
-      max-width: 90%;
-      flex-wrap: wrap;
-   }
-   .details-description p {
-      margin-top: 0.5vh;
-   }
-   .perfum-details {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: start;
-   }
-   .buy {
+   .detail-page .title {
       width: 100%;
-      margin-top: 5vh;
-      align-items: center;
+      margin-top: 30px;
    }
-   .buy .volume {
-      width: 29%;
+   .detail-page h2 {
+      width: 80%;
+      font-size: 30px;
+      text-align: center;
       margin: auto;
    }
+   .price-gender {
+      width: 70%;
+      margin: 30px auto;
+      justify-content: space-between;
+   }
+   .detail-page .detail-text-price {
+      font-size: 20px;
+      line-height: 22.75px;
+      margin-right: 0;
+   }
+   .detail-page .detail-text-style {
+      font-size: 16px;
+      line-height: 18px;
+   }
+   .detail-page .perfum-details p {
+      font-size: 16px;
+      line-height: 18px;
+   }
+   .perfum-details .title img {
+      transition: 0s;
+   }
+   .perfum-details .title img:hover {
+      transform: scale(1);
+   }
+   .volume-buttons {
+      width: 90%;
+      justify-content: space-around;
+      margin: 2vh auto;
+   }
+   .volume-selector {
+      transition: 0s;
+   }
+   .volume-selector:hover {
+      transform: scale(1);
+   }
+   .notes h4 {
+      font-size: 16px;
+   }
+   .note {
+      font-size: 18px;
+      line-height: 19.75px;
+      padding: 7px;
+      margin: 0 2vw;
+   }
    .buy-button {
-      width: 69%;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 25.75px;
+      width: 50%;
+      transition: 0s;
+   }
+   .buy-button:hover {
+      transform: scale(1);
    }
 }
 
