@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
 
@@ -7,6 +6,20 @@ const CardDetail = () => {
    const { id } = useParams();
    const [perfumeDetail, setPerfumeDetail] = useState(null);
    const [quantity, setQuantity] = useState(null);
+
+   const [showPerfumDetails, setShowPerfumDetails] = useState(false);
+   const [showPerfumDetailsDescription, setShowPerfumDetailsDescription] =
+      useState(false);
+
+   const [activeNote, setActiveNote] = useState(null);
+   const [showNoteDetails, setShowNoteDetails] = useState(false);
+
+   const noteTexts = {
+      Верхние: "Top notes provide the initial scent of the perfume.",
+      Средние: "Middle notes make up the heart of the perfume's fragrance.",
+      Базовые:
+         "Base notes are the final and longest-lasting scents in a perfume.",
+   };
 
    // const apiUrl = `http://127.0.0.1:8000/api/shop/perfums/${id}/`;
    const apiUrl = baseUrl + `/api/shop/perfums/${id}/`;
@@ -76,6 +89,25 @@ const CardDetail = () => {
    if (quantity != 0) {
    }
 
+   const handleSostavClick = () => {
+      setShowPerfumDetails(!showPerfumDetails);
+      setActiveNote(false);
+   };
+
+   const handleDescriptionClick = () => {
+      setShowPerfumDetailsDescription(!showPerfumDetailsDescription);
+   };
+
+   const handleNoteClick = (note) => {
+      if (activeNote === note) {
+         setActiveNote(null);
+         setShowNoteDetails(false);
+      } else {
+         setActiveNote(note);
+         setShowNoteDetails(true);
+      }
+   };
+
    return (
       <div className="container">
          <div className="detail-page">
@@ -85,9 +117,7 @@ const CardDetail = () => {
                   <h2>{perfumeDetail.name}</h2>
                </div>
                <div className="price-gender">
-                  <p className="detail-text-price">
-                     1ml = KZT {perfumeDetail.price}
-                  </p>
+                  <p className="detail-text-price">KZT {perfumeDetail.price}</p>
                   <p className="detail-text-style">
                      {perfumeDetail.gender_category} perfume
                   </p>
@@ -132,33 +162,70 @@ const CardDetail = () => {
                </div>
 
                <div className="perfum-details">
-                  <p>
-                     Тип аромата: <span>{perfumeDetail.type_category}</span>
-                  </p>
-                  <p>
-                     Интенсивность:{" "}
-                     <span>{perfumeDetail.intensive_category}</span>
-                  </p>
-                  <p>
-                     Ноты: <span>{perfumeDetail.note_category}</span>
-                  </p>
-                  <p>
-                     Бренд: <span>{perfumeDetail.brand_category}</span>
-                  </p>
-                  {/* <p>Volume: {perfumeDetail.quantity}</p> */}
+                  <div onClick={handleSostavClick} className="title">
+                     <h3>Состав</h3>
+                     <img src={process.env.PUBLIC_URL + `/link.svg`} alt="" />
+                  </div>
+
+                  {showPerfumDetails && (
+                     <div>
+                        <p className="intense">
+                           Интенсивность:{" "}
+                           <span>{perfumeDetail.intensive_category}</span>
+                        </p>
+                        <div className="notes">
+                           <h4>Ноты:</h4>
+                           <button
+                              className={`note ${
+                                 activeNote === "Верхние" ? "active" : ""
+                              }`}
+                              onClick={() => handleNoteClick("Верхние")}
+                           >
+                              Верхние
+                           </button>
+                           <button
+                              className={`note ${
+                                 activeNote === "Средние" ? "active" : ""
+                              }`}
+                              onClick={() => handleNoteClick("Средние")}
+                           >
+                              Средние
+                           </button>
+                           <button
+                              className={`note ${
+                                 activeNote === "Базовые" ? "active" : ""
+                              }`}
+                              onClick={() => handleNoteClick("Базовые")}
+                           >
+                              Базовые
+                           </button>
+                        </div>
+                     </div>
+                  )}
+
+                  {showNoteDetails && (
+                     <div className="note-details">
+                        <p>{noteTexts[activeNote]}</p>
+                     </div>
+                  )}
+
+                  <div onClick={handleDescriptionClick} className="title">
+                     <h3>Описание</h3>
+                     <img src={process.env.PUBLIC_URL + `/link.svg`} alt="" />
+                  </div>
+
+                  {showPerfumDetailsDescription && (
+                     <p>{perfumeDetail.description}</p>
+                  )}
                </div>
-               <div className="details-description">
-                  <p>Описание:</p>
-                  <p>{perfumeDetail.description}</p>
-               </div>
+
+               <p className="logistics">Отправка в течении 5-7 рабочих дней</p>
 
                <div className="buy">
                   <button className="buy-button" onClick={handleBuyClick}>
                      В корзину{" "}
-                     {/* <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" /> */}
                   </button>
                </div>
-               <p className="logistics">Отправка в течении 5-7 рабочих дней</p>
             </div>
          </div>
       </div>

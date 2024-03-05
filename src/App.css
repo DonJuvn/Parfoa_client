@@ -214,11 +214,11 @@ p {
    padding: 2px 0 5px;
    color: #343434;
    font-size: 16px;
-   transition: 0.3s;
+   transition: 0.2s;
    height: 15px;
 }
 .tab:hover {
-   font-size: 18px;
+   transform: scale(1.1);
 }
 
 /* About Us section */
@@ -465,39 +465,11 @@ p {
    margin-left: auto;
    letter-spacing: 0.02em;
 }
-.card-favorite {
-   background-color: transparent;
-   border: none;
-   cursor: pointer;
-   outline: none;
-   position: absolute;
-   float: right;
-   top: 0;
-   width: fit-content;
-   color: rgba(52, 52, 52, 0.3);
-   width: 36px;
-   height: 36px;
-   z-index: 300;
-}
-
-.heart-icon {
-   font-size: 2rem;
-   color: grey;
-   transition: color 0.3s;
-}
-
-.favorite-button:hover .heart-icon {
-   color: red;
-}
-
-.active .heart-icon {
-   color: red;
-}
 .logistics {
    margin-top: 15px;
    font-size: 18px;
    width: 100%;
-   text-align: center;
+   text-align: right;
 }
 
 /* catalog */
@@ -953,7 +925,10 @@ a {
 }
 .detail-page img {
    width: 45%;
-   max-height: 85vh;
+   aspect-ratio: 1;
+   max-width: 800px;
+   max-height: 800px;
+   max-height: 80vh;
    margin-right: 5%;
 }
 .detail-page .details {
@@ -998,13 +973,11 @@ a {
    font-weight: 400;
    line-height: 22.5px;
    color: rgba(52, 52, 52, 0.5);
-   /* margin-top: auto; */
    justify-content: center;
    height: 100%;
    align-items: center;
    text-transform: capitalize;
 }
-
 .detail-page .perfum-details p {
    font-size: 20px;
    line-height: 22.5px;
@@ -1018,56 +991,113 @@ a {
 .perfum-details {
    display: flex;
    flex-direction: column;
-   height: 20vh;
-   justify-content: space-between;
    margin-bottom: 2vh;
    color: #343434;
+   padding: 7px 0;
+}
+.perfum-details .title {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   justify-content: space-between;
+   border-top: 0.3px solid rgba(52, 52, 52, 0.3);
+   padding: 7px 0;
+}
+.perfum-details .title h3 {
+   margin: 0;
+   cursor: pointer;
+   color: #343434;
+}
+.perfum-details .title img {
+   width: 25px;
+   aspect-ratio: 1/1;
+   margin: 0;
+   transition: 0.3s;
+   cursor: pointer;
+}
+.perfum-details .title img:hover {
+   transform: scale(1.2);
+}
+.perfum-details .intense {
+   margin: 0 0 2vh;
 }
 .volume-buttons {
    display: flex;
    flex-wrap: wrap;
    width: 80%;
    justify-content: space-between;
-   margin: 4vh 0 10vh;
+   padding-bottom: 8vh;
+   margin: 4vh 0 0;
 }
 .volume-selector {
    background-color: #fff;
    border-radius: 5px;
    border: 1px solid #343434;
+   color: #343434;
    font-size: 20px;
    font-weight: 700;
    line-height: 22.75px;
    padding: 10px;
    margin-bottom: 10px;
+   font-family: "EB Garamond", serif;
+   transition: 0.3s;
+}
+.volume-selector:hover {
+   transform: scale(1.1);
 }
 .perfum-details span {
    font-weight: 700;
    color: #000;
 }
+.notes {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: center;
+   margin-bottom: 10px;
+}
+.notes h4 {
+   margin: 0;
+   margin-right: 0.95vw;
+   font-weight: 400;
+}
+.note {
+   background-color: #fff;
+   color: #343434;
+   border: 1px solid #343434;
+   font-size: 20px;
+   font-weight: 400;
+   line-height: 22.75px;
+   padding: 5px;
+   height: fit-content;
+   font-family: "EB Garamond", serif;
+   margin-right: 0.95vw;
+   border-radius: 3px;
+}
+.note.active {
+   background-color: #343434;
+   color: white;
+}
+.note-details {
+   margin-bottom: 10px;
+}
 .buy {
    width: 100%;
-   margin-top: 5vh;
+   margin-top: 1.5vh;
    align-items: center;
 }
-.buy .volume {
-   margin: auto;
-   height: 100%;
-   font-size: 20px;
-   /* padding: 2px 10px; */
-   max-width: 20%;
-   border: 1px solid white;
-}
 .buy-button {
-   width: 80%;
+   width: fit-content;
    float: right;
-   background-color: #343434;
+   background-color: #e3a35b;
+   border: none;
    border-radius: 5px;
    color: #fff;
    font-family: "EB Garamond", serif;
-   font-size: 30px;
+   font-size: 22px;
    font-weight: 700;
-   line-height: 33.75px;
-   padding: 7px;
+   line-height: 24.75px;
+   padding: 10px 17px;
    cursor: pointer;
    transition: 0.3s;
    align-items: center;
@@ -1076,14 +1106,8 @@ a {
    background-color: #90710b;
    border: none;
 }
-/* .buy-button img {
-   width: 40px;
-   aspect-ratio: 1;
-} */
 .buy-button:hover {
-   background-color: #000;
-   font-size: 32px;
-   border-radius: 15px;
+   transform: scale(1.1);
 }
 @media screen and (max-width: 1400px) {
    .detail-page h2 {
