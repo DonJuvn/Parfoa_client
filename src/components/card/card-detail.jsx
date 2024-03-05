@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
 
@@ -19,6 +20,19 @@ const CardDetail = () => {
          .catch((error) => console.error("Error fetching data:", error));
       console.log(apiUrl);
    }, [id]);
+
+   const isActive = (volume) => quantity === volume;
+
+   const getButtonStyle = (volume) => {
+      if (isActive(volume)) {
+         return {
+            backgroundColor: "#343434", // Change this to your desired active style
+            color: "white", // Change this to your desired active text color
+         };
+      }
+      // Add more styles for non-active state if needed
+      return {};
+   };
 
    const handleBuyClick = () => {
       if (quantity > 0) {
@@ -69,12 +83,53 @@ const CardDetail = () => {
                <div className="title">
                   <h2>{perfumeDetail.name}</h2>
                </div>
-               <p className="detail-text-style">
-                  {perfumeDetail.gender_category} perfume
-               </p>
-               <p className="detail-text-price">
-                  1ml = KZT {perfumeDetail.price}
-               </p>
+               <div className="price-gender">
+                  <p className="detail-text-price">
+                     1ml = KZT {perfumeDetail.price}
+                  </p>
+                  <p className="detail-text-style">
+                     {perfumeDetail.gender_category} perfume
+                  </p>
+               </div>
+
+               <div className="volume-buttons">
+                  <button
+                     className="volume-selector"
+                     style={getButtonStyle(5)}
+                     onClick={() => setQuantity(5)}
+                  >
+                     5 ml
+                  </button>
+                  <button
+                     className="volume-selector"
+                     style={getButtonStyle(10)}
+                     onClick={() => setQuantity(10)}
+                  >
+                     10 ml
+                  </button>
+                  <button
+                     className="volume-selector"
+                     style={getButtonStyle(15)}
+                     onClick={() => setQuantity(15)}
+                  >
+                     15 ml
+                  </button>
+                  <button
+                     className="volume-selector"
+                     style={getButtonStyle(20)}
+                     onClick={() => setQuantity(20)}
+                  >
+                     20 ml
+                  </button>
+                  <button
+                     className="volume-selector"
+                     style={getButtonStyle("full")}
+                     onClick={() => setQuantity("full")}
+                  >
+                     Полноценно
+                  </button>
+               </div>
+
                <div className="perfum-details">
                   <p>
                      Тип аромата: <span>{perfumeDetail.type_category}</span>
@@ -97,17 +152,6 @@ const CardDetail = () => {
                </div>
 
                <div className="buy">
-                  <select
-                     onChange={(e) => setQuantity(parseInt(e.target.value))}
-                     className="volume"
-                  >
-                     <option value={0}>Объём</option>
-                     <option value={5}>5</option>
-                     <option value={10}>10</option>
-                     <option value={15}>15</option>
-                     <option value={20}>20</option>
-                     <option value="full">Полноценно</option>
-                  </select>
                   <button className="buy-button" onClick={handleBuyClick}>
                      В корзину{" "}
                      {/* <img src={process.env.PUBLIC_URL + `/cart.svg`} alt="" /> */}

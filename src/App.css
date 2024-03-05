@@ -974,20 +974,35 @@ a {
    font-size: 40px;
    color: #343434;
 }
-.detail-page .detail-text-style {
-   font-size: 20px;
-   font-weight: 400;
-   line-height: 22.5px;
-   color: rgba(52, 52, 52, 0.5);
-   margin-top: 20px;
+.price-gender {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   margin-top: 30px;
+   padding-bottom: 20px;
+   border-bottom: 0.3px solid #343434;
 }
 .detail-page .detail-text-price {
    font-size: 30px;
    font-weight: 700;
    line-height: 33.75px;
-   margin: 4.63vh 0 6.5vh;
-   color: #343434;
+   color: #fff;
+   padding: 0.8vh;
+   background-color: #e3a35b;
+   margin-right: 2vw;
 }
+.detail-page .detail-text-style {
+   display: flex;
+   font-size: 20px;
+   font-weight: 400;
+   line-height: 22.5px;
+   color: rgba(52, 52, 52, 0.5);
+   /* margin-top: auto; */
+   justify-content: center;
+   height: 100%;
+   align-items: center;
+}
+
 .detail-page .perfum-details p {
    font-size: 20px;
    line-height: 22.5px;
@@ -1005,6 +1020,22 @@ a {
    justify-content: space-between;
    margin-bottom: 2vh;
    color: #343434;
+}
+.volume-buttons {
+   display: flex;
+   flex-wrap: wrap;
+   width: 80%;
+   justify-content: space-between;
+   margin: 4vh 0 10vh;
+}
+.volume-selector {
+   background-color: #fff;
+   border-radius: 5px;
+   border: 1px solid #343434;
+   font-size: 20px;
+   font-weight: 700;
+   line-height: 22.75px;
+   padding: 10px;
 }
 .perfum-details span {
    font-weight: 700;
