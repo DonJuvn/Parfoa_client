@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
 
-const CardDetail = () => {
+const CosmeticDetail = () => {
    const { id } = useParams();
    const [perfumeDetail, setPerfumeDetail] = useState(null);
    const [quantity, setQuantity] = useState(null);
@@ -15,14 +15,7 @@ const CardDetail = () => {
    const [activeNote, setActiveNote] = useState(null);
    const [showNoteDetails, setShowNoteDetails] = useState(false);
 
-   const noteTexts = {
-      Верхние: "Top notes provide the initial scent of the perfume.",
-      Средние: "Middle notes make up the heart of the perfume's fragrance.",
-      Базовые:
-         "Base notes are the final and longest-lasting scents in a perfume.",
-   };
-
-   const apiUrl = baseUrl + `/api/shop/perfums/${id}/`;
+   const apiUrl = baseUrl + `/api/cosmetics/${id}/`;
    // const apiUrl = baseLocalUrl + `/api/shop/perfums/${id}/`;
 
    useEffect(() => {
@@ -58,7 +51,7 @@ const CardDetail = () => {
             name: perfumeDetail.name,
             price: perfumeDetail.price,
             image: perfumeDetail.image,
-            gender: perfumeDetail.gender_category,
+            gender: perfumeDetail.description,
             volume: perfumeDetail.quantity,
             quantity,
          };
@@ -113,54 +106,21 @@ const CardDetail = () => {
             <div className="details">
                <div className="title">
                   <h2>{perfumeDetail.name}</h2>
-               </div>
-               <div className="price-gender">
-                  <p className="detail-text-price">KZT {perfumeDetail.price}</p>
-                  <p className="detail-text-style">
-                     {perfumeDetail.gender_category} perfume
-                  </p>
+                  <h3>{perfumeDetail.price}</h3>
                </div>
 
                <div className="volume-buttons">
                   <button
                      className="volume-selector"
-                     style={getButtonStyle(5)}
-                     onClick={() => setQuantity(5)}
+                     style={getButtonStyle(perfumeDetail.volume)}
+                     onClick={() => setQuantity(perfumeDetail.volume)}
                   >
-                     5 ml
-                  </button>
-                  <button
-                     className="volume-selector"
-                     style={getButtonStyle(10)}
-                     onClick={() => setQuantity(10)}
-                  >
-                     10 ml
-                  </button>
-                  <button
-                     className="volume-selector"
-                     style={getButtonStyle(15)}
-                     onClick={() => setQuantity(15)}
-                  >
-                     15 ml
-                  </button>
-                  <button
-                     className="volume-selector"
-                     style={getButtonStyle(20)}
-                     onClick={() => setQuantity(20)}
-                  >
-                     20 ml
-                  </button>
-                  <button
-                     className="volume-selector"
-                     style={getButtonStyle(perfumeDetail.quantity)}
-                     onClick={() => setQuantity(perfumeDetail.quantity)}
-                  >
-                     Полноценно, {perfumeDetail.quantity}
+                     {perfumeDetail.volume}
                   </button>
                </div>
 
                <div className="perfum-details">
-                  <div onClick={handleSostavClick} className="title">
+                  {/*   <div onClick={handleSostavClick} className="title">
                      <h3>Состав</h3>
                      <img src={process.env.PUBLIC_URL + `/link.svg`} alt="" />
                   </div>
@@ -205,7 +165,7 @@ const CardDetail = () => {
                      <div className="note-details">
                         <p>{noteTexts[activeNote]}</p>
                      </div>
-                  )}
+                  )} */}
 
                   <div onClick={handleDescriptionClick} className="title">
                      <h3>Описание</h3>
@@ -230,4 +190,4 @@ const CardDetail = () => {
    );
 };
 
-export default CardDetail;
+export default CosmeticDetail;
