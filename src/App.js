@@ -24,6 +24,7 @@ import CosmeticsPage from "./components/catalogPage/cosmetics-page";
 import RoomFragnances from "./components/catalogPage/room-fragnances";
 import CosmeticDetail from "./components/card/cosmetic-detail";
 import RoomFragnanceDetail from "./components/card/room-fragnance-detail";
+import MainVideo from "./components/main/main_video";
 
 const App = () => {
    const brands = [
@@ -103,7 +104,8 @@ const MainPage = () => {
    ];
    return (
       <div>
-         <Main />
+         {/* <Main /> */}
+         <MainVideo />
          <Top10 />
          <AboutUs />
          {/* <News /> */}
