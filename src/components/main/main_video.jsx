@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";import styled from "styled-co
 const SliderContainer = styled.div`
    position: block;
    width: 90%;
-   height: 80vh;
+   height: 100vh;
    display: flex;
    object-fit: cover;
    align-items: center;
@@ -29,6 +29,19 @@ const Video = styled.video`
    display: block; /* Remove extra space below the inline element */
    margin: 0 auto; /* Center the video horizontally */
 `;
+const Iframe = styled.iframe`
+   width: 100%;
+   min-height: 103vh;
+   min-width: 90vw;
+   display: block;
+   margin: 0 auto;
+
+   @media only screen and (max-width: 480px) {
+      width: 90vw;
+      min-height: 25vh;
+      object-position: center;
+   }
+`;
 
 const MainVideo = () => {
    // const [index, setIndex] = useState(0);
@@ -43,14 +56,21 @@ const MainVideo = () => {
 
    return (
       <SliderContainer>
-         <Video
+         {/* <iframe
             className="video"
             autoPlay
             loop
             controls
             playsInline
-            src="a-la-rose1.mp4"
-         ></Video>
+            // src="a-la-rose1.mp4"
+            src="https://vimeo.com/920054797"
+         ></iframe> */}
+         <Iframe
+            src="https://player.vimeo.com/video/920054797"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; "
+            allowfullscreen
+         ></Iframe>
       </SliderContainer>
    );
 };
