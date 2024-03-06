@@ -39,7 +39,7 @@ const Iframe = styled.iframe`
 
    @media only screen and (max-width: 480px) {
       min-width: 100vw;
-      min-height: 27vh;
+      min-height: 30vh;
       object-position: center;
    }
 `;
