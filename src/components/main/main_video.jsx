@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 // const images = ["url(about.svg)", "url(test2.jpg)", "url(test3.jpg)"];
 
@@ -37,7 +38,7 @@ const Iframe = styled.iframe`
    margin: 0 auto;
 
    @media only screen and (max-width: 480px) {
-      width: 90vw;
+      width: 100vw;
       min-height: 25vh;
       object-position: center;
    }
