@@ -38,8 +38,8 @@ const Iframe = styled.iframe`
    margin: 0 auto;
 
    @media only screen and (max-width: 480px) {
-      width: 100vw;
-      min-height: 25vh;
+      min-width: 100vw;
+      min-height: 27vh;
       object-position: center;
    }
 `;
