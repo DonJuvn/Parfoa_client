@@ -1,4 +1,5 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -961,9 +962,9 @@ a {
    font-size: 30px;
    font-weight: 700;
    line-height: 33.75px;
-   color: #fff;
+   color: #343434;
    padding: 0.8vh;
-   background-color: #e3a35b;
+   /* background-color: #e3a35b; */
    margin-right: 2vw;
 }
 .detail-page .detail-text-style {

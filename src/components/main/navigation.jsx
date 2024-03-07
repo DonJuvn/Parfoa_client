@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -104,6 +103,8 @@ const Navigation = () => {
       setCartItems([]);
       localStorage.removeItem("cartItems");
    };
+
+   const reversedCartItems = [...cartItems].reverse();
 
    return (
       <div id="navigation">
@@ -248,7 +249,7 @@ const Navigation = () => {
                            <p>Ваша корзина пуста.</p>
                         ) : (
                            <div id="cart-item">
-                              {cartItems.map((item, index) => (
+                              {reversedCartItems.map((item, index) => (
                                  <div className="cart-item" key={index}>
                                     <img
                                        className="cart-img"
