@@ -202,12 +202,13 @@ p {
 }
 #tabs {
    margin-bottom: 2%;
+   width: 100%;
+   border: 0.3px solid rgba(52, 52, 52, 0.2);
 }
 .tabs {
    display: flex;
    width: 100%;
    justify-content: space-around;
-   border: 0.3px solid rgba(52, 52, 52, 0.2);
    padding: 1% 0;
 }
 .tab {

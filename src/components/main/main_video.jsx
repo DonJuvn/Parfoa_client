@@ -71,6 +71,7 @@ const MainVideo = () => {
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture; "
             allowfullscreen
+            seamless
          ></Iframe>
       </SliderContainer>
    );
