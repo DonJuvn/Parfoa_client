@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
 
@@ -14,13 +13,6 @@ const CardDetail = () => {
 
    const [activeNote, setActiveNote] = useState(null);
    const [showNoteDetails, setShowNoteDetails] = useState(false);
-
-   const noteTexts = {
-      Верхние: "Top notes provide the initial scent of the perfume.",
-      Средние: "Middle notes make up the heart of the perfume's fragrance.",
-      Базовые:
-         "Base notes are the final and longest-lasting scents in a perfume.",
-   };
 
    const apiUrl = baseUrl + `/api/shop/perfums/${id}/`;
    // const apiUrl = baseLocalUrl + `/api/shop/perfums/${id}/`;
@@ -173,27 +165,28 @@ const CardDetail = () => {
                         </p>
                         <div className="notes">
                            <h4>Ноты:</h4>
+                           {/* Static buttons */}
                            <button
                               className={`note ${
-                                 activeNote === "Верхние" ? "active" : ""
+                                 activeNote === "note_category1" ? "active" : ""
                               }`}
-                              onClick={() => handleNoteClick("Верхние")}
+                              onClick={() => handleNoteClick("note_category1")}
                            >
                               Верхние
                            </button>
                            <button
                               className={`note ${
-                                 activeNote === "Средние" ? "active" : ""
+                                 activeNote === "note_category2" ? "active" : ""
                               }`}
-                              onClick={() => handleNoteClick("Средние")}
+                              onClick={() => handleNoteClick("note_category2")}
                            >
                               Средние
                            </button>
                            <button
                               className={`note ${
-                                 activeNote === "Базовые" ? "active" : ""
+                                 activeNote === "note_category3" ? "active" : ""
                               }`}
-                              onClick={() => handleNoteClick("Базовые")}
+                              onClick={() => handleNoteClick("note_category3")}
                            >
                               Базовые
                            </button>
@@ -203,7 +196,7 @@ const CardDetail = () => {
 
                   {showNoteDetails && (
                      <div className="note-details">
-                        <p>{noteTexts[activeNote]}</p>
+                        <p>{perfumeDetail[activeNote]}</p>
                      </div>
                   )}
 
