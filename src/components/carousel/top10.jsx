@@ -1,4 +1,5 @@
-import React from "react";import Carousel from "react-multi-carousel";
+import React from "react";
+import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import CardCarousel from "./card";
@@ -129,13 +130,11 @@ const Top10 = () => {
 
    return (
       <div className="top10">
+         <center>
+            <h1 className="carousel-title">Выбор наших клиентов</h1>
+         </center>
          <div className="container">
             <div className="carousel">
-               <center>
-                  <h1 className="carousel-title">
-                     Любимые ароматы наших клиентов
-                  </h1>
-               </center>
                <Carousel responsive={responsive}>
                   {perfumes.map((perfume) => (
                      <CardCarousel

@@ -143,13 +143,31 @@ const Navigation = () => {
             <div className="container">
                <div className="tabs">
                   <Link to={"/catalog"}>
-                     <p className="tab">Парфюмы</p>
+                     <p className="tab">
+                        Парфюмы
+                        <img
+                           src={process.env.PUBLIC_URL + `/drop-down-arrow.png`}
+                           alt=""
+                        />
+                     </p>
                   </Link>
                   <Link to={"/cosmetics"}>
-                     <p className="tab">Косметика</p>
+                     <p className="tab">
+                        Косметика
+                        <img
+                           src={process.env.PUBLIC_URL + `/drop-down-arrow.png`}
+                           alt=""
+                        />
+                     </p>
                   </Link>
                   <Link to={"/room-fragnances"}>
-                     <p className="tab">Дефузоры</p>
+                     <p className="tab">
+                        Дефузоры
+                        <img
+                           src={process.env.PUBLIC_URL + `/drop-down-arrow.png`}
+                           alt=""
+                        />
+                     </p>
                   </Link>
                </div>
             </div>
