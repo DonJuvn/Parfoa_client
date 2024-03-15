@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Card from "../card/card";
+import React, { useState, useEffect } from "react";import Card from "../card/card";
 
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
@@ -10,7 +9,9 @@ const PerfumeList = () => {
    const [intensiveFilter, setIntensiveFilter] = useState(null);
    const [genderFilter, setGenderFilter] = useState(null);
    const [typeFilter, setTypeFilter] = useState(null);
-   const [notesFilter, setNotesFilter] = useState(null);
+   const [notesFilter1, setNotesFilter1] = useState(null);
+   const [notesFilter2, setNotesFilter2] = useState(null);
+   const [notesFilter3, setNotesFilter3] = useState(null);
    const [brandFilter, setBrandFilter] = useState(null);
    const [isFilterOpen, setIsFilterOpen] = useState(false);
    const [searchQuery, setSearchQuery] = useState("");
@@ -59,9 +60,21 @@ const PerfumeList = () => {
          );
       }
 
-      if (notesFilter !== null) {
+      if (notesFilter1 !== null) {
          filteredData = filteredData.filter(
-            (item) => item.note_category === notesFilter
+            (item) => item.note_category1 === notesFilter1
+         );
+      }
+
+      if (notesFilter2 !== null) {
+         filteredData = filteredData.filter(
+            (item) => item.note_category2 === notesFilter2
+         );
+      }
+
+      if (notesFilter3 !== null) {
+         filteredData = filteredData.filter(
+            (item) => item.note_category3 === notesFilter3
          );
       }
 
@@ -82,7 +95,9 @@ const PerfumeList = () => {
       intensiveFilter,
       genderFilter,
       typeFilter,
-      notesFilter,
+      notesFilter1,
+      notesFilter2,
+      notesFilter3,
       brandFilter,
       perfumes,
       searchQuery,
@@ -101,7 +116,9 @@ const PerfumeList = () => {
       setIntensiveFilter(null);
       setGenderFilter(null);
       setTypeFilter(null);
-      setNotesFilter(null);
+      setNotesFilter1(null);
+      setNotesFilter2(null);
+      setNotesFilter3(null);
       setBrandFilter(null);
       setSearchQuery("");
    };
@@ -174,10 +191,36 @@ const PerfumeList = () => {
                   </label>
                   <label>
                      <select
-                        onChange={(e) => setNotesFilter(e.target.value)}
+                        onChange={(e) => setNotesFilter1(e.target.value)}
                         className="selector"
                      >
-                        <option value={null}>Ноты</option>
+                        <option value={null}>Верхние Ноты</option>
+                        <option value="pepper">Перец</option>
+                        <option value="citrus">Цитрус</option>
+                        <option value="musky">Мускус</option>
+                        <option value="woody">Древесные</option>
+                        <option value="floral">Цветочные</option>
+                     </select>
+                  </label>
+                  <label>
+                     <select
+                        onChange={(e) => setNotesFilter2(e.target.value)}
+                        className="selector"
+                     >
+                        <option value={null}>Средние Ноты</option>
+                        <option value="pepper">Перец</option>
+                        <option value="citrus">Цитрус</option>
+                        <option value="musky">Мускус</option>
+                        <option value="woody">Древесные</option>
+                        <option value="floral">Цветочные</option>
+                     </select>
+                  </label>
+                  <label>
+                     <select
+                        onChange={(e) => setNotesFilter3(e.target.value)}
+                        className="selector"
+                     >
+                        <option value={null}>Базовые Ноты</option>
                         <option value="pepper">Перец</option>
                         <option value="citrus">Цитрус</option>
                         <option value="musky">Мускус</option>
