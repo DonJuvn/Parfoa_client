@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
 
@@ -128,7 +129,7 @@ const CardDetail = () => {
                   >
                      10 ml
                   </button>
-                  <button
+                  {/* <button
                      className="volume-selector"
                      style={getButtonStyle(perfumeDetail.price_15ml)}
                      onClick={() => setQuantity(perfumeDetail.price_15ml)}
@@ -141,7 +142,7 @@ const CardDetail = () => {
                      onClick={() => setQuantity(perfumeDetail.price_20ml)}
                   >
                      20 ml
-                  </button>
+                  </button> */}
                   <button
                      className="volume-selector"
                      style={getButtonStyle(perfumeDetail.price_full)}
