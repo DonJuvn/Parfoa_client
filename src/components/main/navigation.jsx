@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -303,7 +304,7 @@ const Navigation = () => {
                            {/* <h2>Checkout Page</h2> */}
                            <form>
                               <label>
-                                 Ваше имя:
+                                 Номер вашего телефона:
                                  <input
                                     type="text"
                                     value={name}
@@ -312,7 +313,7 @@ const Navigation = () => {
                               </label>
                               <br />
                               <label>
-                                 Ваш адрес:
+                                 Ваша страна, ваш город, ваш адрес:
                                  <input
                                     type="text"
                                     value={address}
