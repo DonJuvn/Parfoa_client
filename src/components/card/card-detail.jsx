@@ -211,7 +211,7 @@ const CardDetail = () => {
                   )}
                </div>
 
-               <p className="logistics">Отправка в течении 5-7 рабочих дней</p>
+               <p className="logistics">Отправка в течении 1-3 рабочих дней.</p>
 
                <div className="buy">
                   <button className="buy-button" onClick={handleBuyClick}>
