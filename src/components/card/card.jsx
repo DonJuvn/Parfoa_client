@@ -29,7 +29,9 @@ const Card = ({
                <div className="container">
                   <h3>{title}</h3>
                   {/* <p className="description">{description}</p> */}
-                  <p className="description">{gender}</p>
+                  <p className="description" id="gender">
+                     {gender} perfume
+                  </p>
                   <div className="card-details">
                      <p className="price">{price}</p>
                      <p className="volume">{volume}</p>

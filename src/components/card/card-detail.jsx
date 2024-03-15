@@ -116,36 +116,36 @@ const CardDetail = () => {
                <div className="volume-buttons">
                   <button
                      className="volume-selector"
-                     style={getButtonStyle(5)}
-                     onClick={() => setQuantity(5)}
+                     style={getButtonStyle(perfumeDetail.price_5ml)}
+                     onClick={() => setQuantity(perfumeDetail.price_5ml)}
                   >
                      5 ml
                   </button>
                   <button
                      className="volume-selector"
-                     style={getButtonStyle(10)}
-                     onClick={() => setQuantity(10)}
+                     style={getButtonStyle(perfumeDetail.price_10ml)}
+                     onClick={() => setQuantity(perfumeDetail.price_10ml)}
                   >
                      10 ml
                   </button>
                   <button
                      className="volume-selector"
-                     style={getButtonStyle(15)}
-                     onClick={() => setQuantity(15)}
+                     style={getButtonStyle(perfumeDetail.price_15ml)}
+                     onClick={() => setQuantity(perfumeDetail.price_15ml)}
                   >
                      15 ml
                   </button>
                   <button
                      className="volume-selector"
-                     style={getButtonStyle(20)}
-                     onClick={() => setQuantity(20)}
+                     style={getButtonStyle(perfumeDetail.price_20ml)}
+                     onClick={() => setQuantity(perfumeDetail.price_20ml)}
                   >
                      20 ml
                   </button>
                   <button
                      className="volume-selector"
-                     style={getButtonStyle(perfumeDetail.quantity)}
-                     onClick={() => setQuantity(perfumeDetail.quantity)}
+                     style={getButtonStyle(perfumeDetail.price_full)}
+                     onClick={() => setQuantity(perfumeDetail.price_full)}
                   >
                      Полноценно, {perfumeDetail.quantity}
                   </button>

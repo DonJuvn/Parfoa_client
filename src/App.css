@@ -963,6 +963,9 @@ a {
    padding-bottom: 20px;
    border-bottom: 0.3px solid #343434;
 }
+#gender {
+   text-transform: capitalize;
+}
 .detail-page .detail-text-price {
    font-size: 30px;
    font-weight: 700;
