@@ -259,7 +259,7 @@ const PerfumeList = () => {
                   gender={card.gender_category}
                   price={card.price_5ml}
                   // volume={card.quantity}
-                  volume={100}
+                  volume={5}
                   link={`perfume/${card.id}`}
                />
             ))}
