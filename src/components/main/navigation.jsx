@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -22,14 +21,26 @@ const Navigation = () => {
       setCartItems(parsedCartItems);
    }, []);
 
-   // Calculate the total sum of prices
-   const total_sum = cartItems.reduce((accumulator, currentItem) => {
-      const volumeMultiplier =
-         currentItem.quantity === "full"
-            ? currentItem.volume / currentItem.volume
-            : currentItem.quantity;
-      return accumulator + currentItem.price * volumeMultiplier;
-   }, 0);
+   const calculateTotalSum = () => {
+      // Get existing items from local storage or initialize an empty array
+      const existingItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      // Initialize total sum
+      let totalSum = 0;
+
+      // Iterate over each item and sum up their prices
+      existingItems.forEach((item) => {
+         totalSum = totalSum + parseInt(item.price);
+      });
+
+      return totalSum;
+   };
+
+   const total_sum = calculateTotalSum();
+
+   // const total_sum = cartItems.reduce((accumulator, currentItem) => {
+   //    return accumulator + currentItem.price;
+   // }, 0);
 
    const handleButtonClick = () => {
       setMenuOpen(!isMenuOpen);
@@ -280,10 +291,7 @@ const Navigation = () => {
                                        <p> {item.price} KZT </p>
                                        <div className="itog">
                                           <p>
-                                             Итог:{" "}
-                                             <span>
-                                                {item.price * item.quantity}
-                                             </span>
+                                             Итог: <span>{item.price}</span>
                                           </p>
                                           <button
                                              onClick={() =>

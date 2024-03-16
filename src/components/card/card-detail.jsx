@@ -48,11 +48,11 @@ const CardDetail = () => {
          const newItem = {
             id: perfumeDetail.id,
             name: perfumeDetail.name,
-            price: perfumeDetail.price,
+            price: quantity.parseInt,
             image: perfumeDetail.image,
             gender: perfumeDetail.gender_category,
             volume: perfumeDetail.quantity,
-            quantity,
+            // quantity,
          };
 
          console.log(newItem);
