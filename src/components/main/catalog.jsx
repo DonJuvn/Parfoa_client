@@ -59,8 +59,8 @@ const Catalog = () => {
                         title={card.name}
                         description={card.description}
                         gender={card.gender_category}
-                        price={card.price}
-                        volume={card.quantity}
+                        price={card.price_5ml}
+                        volume={100}
                         link={`catalog/`}
                      />
                   </Link>

@@ -68,7 +68,7 @@ const Navigation = () => {
    async function handleBuy() {
       // Validate input fields before proceeding
       if (!name || !address) {
-         alert("Напишите свое имя и адрес.");
+         alert("Напишите свой номер и адрес.");
          return;
       }
 
@@ -337,7 +337,7 @@ const Navigation = () => {
 
                         <div className="sum">
                            <p className="sum-child1">Общий счет:</p>
-                           <p className="sum-child2"> KZT {total_sum} </p>
+                           <p className="sum-child2"> KZT {total_sum}.00</p>
                         </div>
 
                         <button className="buy-button" onClick={handleBuy}>

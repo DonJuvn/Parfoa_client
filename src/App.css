@@ -1,5 +1,4 @@
-body {
-   /* font-family: "Cormorant Garamond", serif; */
+body {   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -551,7 +550,7 @@ p {
       line-height: 10px;
    }
    .card .volume {
-      font-size: 8px;
+      font-size: 12px;
       line-height: 10px;
    }
    .catalog {
