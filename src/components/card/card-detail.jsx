@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 import { baseLocalUrl } from "../baseUrl";
 
@@ -48,7 +49,7 @@ const CardDetail = () => {
          const newItem = {
             id: perfumeDetail.id,
             name: perfumeDetail.name,
-            price: quantity.parseInt,
+            price: quantity,
             image: perfumeDetail.image,
             gender: perfumeDetail.gender_category,
             volume: perfumeDetail.quantity,

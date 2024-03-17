@@ -1,4 +1,5 @@
-body {   /* font-family: "Cormorant Garamond", serif; */
+body {
+   /* font-family: "Cormorant Garamond", serif; */
    font-family: "EB Garamond", serif;
    overflow-x: hidden;
    min-height: 100vh;
@@ -164,7 +165,6 @@ p {
    .infinite-slider {
       height: 200px;
    }
-
    .slider-image {
       width: 30vw;
       height: auto;
@@ -189,7 +189,7 @@ p {
       object-position: center;
    }
    .navigation button img {
-      width: 35px;
+      width: 25px;
    }
    #menu {
       padding-left: 2%;
