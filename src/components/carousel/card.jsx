@@ -1,4 +1,5 @@
-import React, { useState } from "react";import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { baseUrl } from "../baseUrl";
 const CardCarousel = ({
    id,
@@ -28,8 +29,8 @@ const CardCarousel = ({
                   {/* <p className="description">{description}</p> */}
                   <p className="description">{gender}</p>
                   <div className="card-details">
-                     <p className="price">{price}</p>
-                     <p className="volume">{volume}</p>
+                     <p className="price">KZT {price}.00</p>
+                     <p className="volume">{volume} ml</p>
                   </div>
                </div>
             </div>
