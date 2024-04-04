@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+import WhatsAppWidget from "react-whatsapp-widget"; // Adjust import statement
+import "react-whatsapp-widget/dist/index.css"; // Import WhatsAppWidget styles
 // import { useHistory } from "react-router-dom";
 import { baseUrl, baseLocalUrl } from "../baseUrl";
 
@@ -65,51 +67,75 @@ const Navigation = () => {
       setShowOverlay(false);
    };
 
-   async function handleBuy() {
+   // async function handleBuy() {
+   //    // Validate input fields before proceeding
+   //    if (!name || !address) {
+   //       alert("Напишите свой номер и адрес.");
+   //       return;
+   //    }
+
+   //    // Redirect to the payment page
+   //    window.location.href = `https://pay.kaspi.kz/pay/s8w3za6b`;
+   //    // navigate("https://pay.kaspi.kz/pay/s8w3za6b");
+
+   //    // Save data for display on the admin page
+   //    const orderData = {
+   //       total_sum,
+   //       name,
+   //       address,
+   //       // cartItems,
+   //    };
+
+   //    // Assuming there's a function to save data to admin page
+   //    // console.log({ orderData: orderData });
+
+   //    try {
+   //       // Assuming there's an API endpoint to save data to the admin page
+   //       const response = await fetch(baseUrl + `api/orders/`, {
+   //          method: "POST",
+   //          headers: {
+   //             "Content-Type": "application/json",
+   //          },
+   //          body: JSON.stringify(orderData),
+   //       });
+
+   //       if (!response.ok) {
+   //          throw new Error("Failed to save order data to the server.");
+   //       }
+   //    } catch (error) {
+   //       console.error("Error saving order data to the server:", error.message);
+   //       // Assuming there's a function to handle API errors
+   //    }
+
+   //    console.log({ orderData: orderData });
+   //    console.log({ url: baseUrl + `/api/orders/` });
+   //    setCartItems([]);
+   //    localStorage.removeItem("cartItems");
+   // }
+
+   const handleBuy = () => {
       // Validate input fields before proceeding
       if (!name || !address) {
          alert("Напишите свой номер и адрес.");
          return;
       }
 
-      // Redirect to the payment page
-      window.location.href = `https://pay.kaspi.kz/pay/s8w3za6b`;
-      // navigate("https://pay.kaspi.kz/pay/s8w3za6b");
+      // Construct the message with order data
+      const user_data = `Мое имя ${name} и доставка по адресу ${address}`;
+      const message = `Здравствуйте, ${user_data}. Я хочу сделать заказ: \n`;
+      const orderDetails = cartItems.map(
+         (item) => `${item.name} (${item.price} KZT)`
+      );
+      const orderText = `${message}${orderDetails.join("\n")}`;
 
-      // Save data for display on the admin page
-      const orderData = {
-         total_sum,
-         name,
-         address,
-         // cartItems,
-      };
-
-      // Assuming there's a function to save data to admin page
-      // console.log({ orderData: orderData });
-
-      try {
-         // Assuming there's an API endpoint to save data to the admin page
-         const response = await fetch(baseUrl + `api/orders/`, {
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: JSON.stringify(orderData),
-         });
-
-         if (!response.ok) {
-            throw new Error("Failed to save order data to the server.");
-         }
-      } catch (error) {
-         console.error("Error saving order data to the server:", error.message);
-         // Assuming there's a function to handle API errors
-      }
-
-      console.log({ orderData: orderData });
-      console.log({ url: baseUrl + `/api/orders/` });
-      setCartItems([]);
-      localStorage.removeItem("cartItems");
-   }
+      // Open WhatsApp chat with the message
+      window.open(
+         `https://api.whatsapp.com/send?phone=+77077545662&text=${encodeURIComponent(
+            orderText
+         )}`,
+         "_blank"
+      );
+   };
 
    const DeleteItems = () => {
       setCartItems([]);
