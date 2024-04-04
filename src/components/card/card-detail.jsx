@@ -7,6 +7,7 @@ const CardDetail = () => {
    const { id } = useParams();
    const [perfumeDetail, setPerfumeDetail] = useState(null);
    const [quantity, setQuantity] = useState(null);
+   const [price, setPrice] = useState("");
 
    const [showPerfumDetails, setShowPerfumDetails] = useState(false);
    const [showPerfumDetailsDescription, setShowPerfumDetailsDescription] =
@@ -53,7 +54,7 @@ const CardDetail = () => {
             image: perfumeDetail.image,
             gender: perfumeDetail.gender_category,
             volume: perfumeDetail.quantity,
-            // quantity,
+            quantity: price
          };
 
          console.log(newItem);
@@ -118,14 +119,14 @@ const CardDetail = () => {
                   <button
                      className="volume-selector"
                      style={getButtonStyle(perfumeDetail.price_5ml)}
-                     onClick={() => setQuantity(perfumeDetail.price_5ml)}
+                     onClick={() => [setQuantity(perfumeDetail.price_5ml), setPrice(`5ml`)]}
                   >
                      5 ml
                   </button>
                   <button
                      className="volume-selector"
                      style={getButtonStyle(perfumeDetail.price_10ml)}
-                     onClick={() => setQuantity(perfumeDetail.price_10ml)}
+                     onClick={() => [setQuantity(perfumeDetail.price_10ml), setPrice(`10ml`)]}
                   >
                      10 ml
                   </button>
