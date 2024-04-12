@@ -122,7 +122,7 @@ const Navigation = () => {
       }
 
       // Construct the message with order data
-      const user_data = `Мое имя ${name} и доставка по адресу ${address}`;
+      const user_data = `Мой номер телефона ${name} и доставка по адресу ${address}`;
       const message = `Здравствуйте, ${user_data}. Я хочу сделать заказ: \n`;
       const orderDetails = cartItems.map(
          (item) => `${item.name}, ${item.quantity} (${item.price} KZT)`
