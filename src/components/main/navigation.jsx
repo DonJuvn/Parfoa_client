@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
 import WhatsAppWidget from "react-whatsapp-widget"; // Adjust import statement
 import "react-whatsapp-widget/dist/index.css"; // Import WhatsAppWidget styles
 // import { useHistory } from "react-router-dom";
@@ -272,7 +271,7 @@ const Navigation = () => {
                                  className="desc-header"
                                  href="tel:+123456789"
                               >
-                                 +7 705 482 16 01
+                                 +7 707 201 95 05
                               </a>
                            </p>
                         </div>
