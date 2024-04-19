@@ -131,7 +131,7 @@ const Navigation = () => {
 
       // Open WhatsApp chat with the message
       window.open(
-         `https://api.whatsapp.com/send?phone=+77077545662&text=${encodeURIComponent(
+         `https://api.whatsapp.com/send?phone=+770720195052&text=${encodeURIComponent(
             orderText
          )}`,
          "_blank"
