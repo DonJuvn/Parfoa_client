@@ -50,7 +50,7 @@ const Footer = () => {
                         />
                         {""}
                      </Link>
-                     <Link to="https://www.tiktok.com/@parfoa6?_t=8kOtuafjKdR&_r=1">
+                     <Link to="https://www.tiktok.com/@parfoa.kz">
                         {""}
                         <img
                            src={process.env.PUBLIC_URL + `/tiktok.svg`}
