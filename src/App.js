@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {
+import React, { useState, useEffect } from "react";import {
    BrowserRouter as Router,
    Route,
    Routes,
@@ -25,6 +24,8 @@ import RoomFragnances from "./components/catalogPage/room-fragnances";
 import CosmeticDetail from "./components/card/cosmetic-detail";
 import RoomFragnanceDetail from "./components/card/room-fragnance-detail";
 import MainVideo from "./components/main/main_video";
+import DeepSeekChat from "./components/DeepSeekChat";
+import GeminiChat from "./components/DeepSeekChat";
 
 const App = () => {
    const brands = [
@@ -80,6 +81,7 @@ const App = () => {
                <Route path="/cosmetics" element={<CosmeticsPage />} />
                <Route path="/room-fragnances" element={<RoomFragnances />} />
             </Routes>
+            <GeminiChat />
             <Footer />
          </div>
       </Router>
