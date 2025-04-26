@@ -81,7 +81,7 @@ const App = () => {
                <Route path="/cosmetics" element={<CosmeticsPage />} />
                <Route path="/room-fragnances" element={<RoomFragnances />} />
             </Routes>
-            <GeminiChat />
+            {/* <GeminiChat /> */}
             <Footer />
          </div>
       </Router>
