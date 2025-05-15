@@ -1,115 +1,116 @@
-import React, { useState, useEffect } from "react";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import React, { useState } from 'react';
 
-const genAI = new GoogleGenerativeAI(
-   "AIzaSyBw3JyRcK8RN65FDkeG8fv6Tc745Du_lUU",
-   {
-      apiVersion: "v1", // Use v1 instead of v1beta
-   }
-);
+export default function AIChat() {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
 
-const GeminiChat = () => {
-   const [messages, setMessages] = useState([]);
-   const [input, setInput] = useState("");
-   const [loading, setLoading] = useState(false);
-   const [availableModels, setAvailableModels] = useState([]);
+  const handleSend = async () => {
+    if (!input.trim()) return;
 
-   useEffect(() => {
-      // Fetch available models when the component is mounted
-      const listModels = async () => {
-         try {
-            const models = await genAI.listModels();
-            setAvailableModels(models);
-            console.log(models);
-         } catch (error) {
-            console.error("Error fetching models:", error.message);
-         }
-      };
+    const userMessage = { sender: 'user', text: input };
+    setMessages(prev => [...prev, userMessage]);
+    setInput('');
+    setLoading(true);
 
-      listModels();
-   }, []);
+    try {
+      const response = await fetch('https://parfua.pythonanywhere.com/api/api/check/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: input })
+      });
 
-   const handleSend = async () => {
-      if (!input.trim()) return;
+      const data = await response.json();
+      const aiMessage = { sender: 'ai', text: data.message };
+      setMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      setMessages(prev => [...prev, { sender: 'ai', text: '⚠️ Error contacting AI.' }]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      const newMessages = [...messages, { role: "user", content: input }];
-      setMessages(newMessages);
-      setInput("");
-      setLoading(true);
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') handleSend();
+  };
 
-      try {
-         const model = availableModels.find(
-            (model) => model.id === "gemini-2.0-flash"
-         );
+  return (
+    <div style={styles.container}>
+      <h2>Parfoa AI ассистент</h2>
+      <div style={styles.chatBox}>
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            style={{
+              ...styles.message,
+              alignSelf: msg.sender === 'user' ? 'flex-end' : 'flex-start',
+              backgroundColor: msg.sender === 'user' ? '#d1e7dd' : '#e2e3e5'
+            }}
+          >
+            {msg.text}
+          </div>
+        ))}
+        {loading && <div style={{ ...styles.message, fontStyle: 'italic' }}>...</div>}
+      </div>
+      <div style={styles.inputBox}>
+        <input
+          type="text"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Type your message..."
+          style={styles.input}
+        />
+        <button onClick={handleSend} style={styles.button}>Send</button>
+      </div>
+    </div>
+  );
+}
 
-         if (model) {
-            const result = await model.generateContent(input);
-            const reply = result.response.text();
-            setMessages([...newMessages, { role: "model", content: reply }]);
-         } else {
-            console.error("Model 'gemini-2.0-flash' is not available.");
-         }
-      } catch (error) {
-         console.error("Gemini API error:", error.message);
-      } finally {
-         setLoading(false);
-      }
-   };
-
-   return (
-      <>
-         <div id="chat">
-            <div className="container">
-               <div className="chat">
-                  <div className="p-4 w-full mx-auto">
-                     <div className="h-96 overflow-y-auto border p-15 rounded bg-white shadow w-full">
-                        {messages.map((msg, idx) => (
-                           <div
-                              key={idx}
-                              className={`mb-2 ${
-                                 msg.role === "user"
-                                    ? "text-right"
-                                    : "text-left"
-                              }`}
-                           >
-                              <div
-                                 className={`inline-block px-4 py-2 rounded ${
-                                    msg.role === "user"
-                                       ? "bg-blue-200"
-                                       : "bg-gray-200"
-                                 }`}
-                              >
-                                 {msg.content}
-                              </div>
-                           </div>
-                        ))}
-                        {loading && (
-                           <div className="text-gray-400 italic">Typing...</div>
-                        )}
-                     </div>
-
-                     <div className="flex mt-4 gap-2 w-full">
-                        <input
-                           className="flex-1 border p-2 rounded"
-                           value={input}
-                           onChange={(e) => setInput(e.target.value)}
-                           onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                           placeholder="Type your message..."
-                        />
-                        <button
-                           className="bg-blue-500 text-white px-4 py-2 rounded"
-                           onClick={handleSend}
-                           disabled={loading}
-                        >
-                           Send
-                        </button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </>
-   );
+const styles = {
+  container: {
+    width: '90%',
+   //  maxWidth: 500,
+    margin: '40px auto',
+    padding: 16,
+    border: '1px solid #ccc',
+    borderRadius: 8,
+    fontFamily: "'EB Garamond', serif"
+  },
+  chatBox: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8,
+    height: 300,
+    overflowY: 'auto',
+    border: '1px solid #ddd',
+    padding: 8,
+    marginBottom: 12,
+    borderRadius: 4,
+    backgroundColor: '#f9f9f9'
+  },
+  message: {
+    padding: '8px 12px',
+    borderRadius: 16,
+    maxWidth: '80%',
+    fontFamily: "'EB Garamond', serif"
+  },
+  inputBox: {
+    display: 'flex',
+    gap: 8
+  },
+  input: {
+    flex: 1,
+    padding: 8,
+    borderRadius: 4,
+    border: '1px solid #aaa'
+  },
+  button: {
+    padding: '8px 16px',
+    borderRadius: 4,
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    cursor: 'pointer'
+  }
 };
-
-export default GeminiChat;
